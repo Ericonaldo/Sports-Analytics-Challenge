@@ -22,8 +22,8 @@ To Evaluate your own gbdt model:
 
 3. >>from utils import *
 
-4. >>from evaluation_gbdt import evaluate_gbdt
+4. >>construc a evaluation function following the evaluate_gbdt(models=[p_model, x_model, y_model, t_model]) in evaluation_gbdt
 
 5. >>construct_val_sets(val_num=100) (set the validation number that you need)
 
-6. >>evaluate_gbdt(models=[p_model, x_model, y_model, t_model]) (remember to load your models first, args could be None)
+6. >>your_own_eval_func(models=[p_model, x_model, y_model, t_model]) (remember to load your models first, args could be None)
