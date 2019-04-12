@@ -2,7 +2,7 @@
 from utils import *
 import argparse
 nbr_gate = 0.44
-team_gate = 0.6 # 0.45
+team_gate = 0.5 # 0.45
 
 def get_eva_fea(train_df):
     """
@@ -231,23 +231,21 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
         
         pred_player = pred_x = pred_y = pred_team = None
         
+        # get the team prediction
         if team_model is not None:
             print("Testing team model...")
             # predict next ball related
             pred_team = team_model.predict(df_test_X)[0]
-            team = [1 if pred_team>=team_gate else 0][0]
-            
-            # team = rnd.randint(0,1)
+            team = [df_test_X.loc[0, 'team_id'] if pred_team>=team_gate else (1-df_test_X.loc[0, 'team_id')]][0]
 
             # rules
-            if df_test_X.type_id == map_type_id(25):
+            if (df_test_X.type_id == 18) or (df_test_X.type_id == 25):
                 team = df_test_X.loc[0, 'team_id']
-            elif (df_test_X.type_id == 16) or (df_test_X.type_id == 19):
-                team = df_test_X.loc[0, 'team_id']
-            elif df_test_X.type_id == map_type_id(18):
-                team = df_test_X.loc[0, 'team_id']
-            elif df_test_X.type_id == map_type_id(15):
+            elif df_test_X.type_id == 15:
                 team = 1-df_test_X.loc[0, 'team_id']
+            elif (df_test_X.type_id == 4) or (df_test_X.type_id == 5):
+                if df_test_X.type_id == df_test_X.last_type_id:
+                    team = 1-df_test_X.loc[0, 'team_id']
             # compute result
             if team == ground_truth.iloc[0,1]:
                 score_team +=1
@@ -259,14 +257,12 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
             pred_y = y_model.predict(df_test_X)[0].round(1)
 
             # rules
-            if df_test_X.type_id == map_type_id(15):
-                    pred_x = df_test_X.loc[0, 'x']
-                    pred_y = df_test_X.loc[0, 'y']
-            if (df_test_X.type_id == 16) and (df_test_X.ball_related == 0):
+            if df_test_X.type_id == 15:
+                pred_x = df_test_X.loc[0, 'x']
+                pred_y = df_test_X.loc[0, 'y']
+            if (df_test_X.type_id == 53) and (df_test_X.ball_related == 1):
                 pred_x = pred_y = 0
-            if (df_test_X.type_id == 34) and (df_test_X.ball_related == 1):
-                pred_x = pred_y = 0
-            if df_test_X.type_id == map_type_id(18):
+            if df_test_X.type_id == 18:
                 pred_x = pred_y = 0
             # compute result 
             loss_xy += (pred_x - ground_truth.iloc[0,2])*(pred_x - ground_truth.iloc[0,2])+\

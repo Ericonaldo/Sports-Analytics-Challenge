@@ -120,17 +120,12 @@ def evaluation(save_path=train_path, valid_dir=valid_path):
         print("Testing x,y model...")
         pred_x = pred_y = 0
         # rules
-        if df_test_X.type_id == map_type_id(15):
+        if df_test_X.type_id == 15:
                 pred_x = df_test_X.loc[0, 'x']
                 pred_y = df_test_X.loc[0, 'y']
-                if (int(period_id)^int(team)) and not(int(period_id)^int(df_test_X.team_id)):
-                    pred_x = 100-pred_x
-                    pred_y = 100-pred_y
-        if (df_test_X.type_id == 16) and (df_test_X.ball_related == 0):
+        if (df_test_X.type_id == 53) and (df_test_X.ball_related == 1):
             pred_x = pred_y = 0
-        if (df_test_X.type_id == 34) and (df_test_X.ball_related == 1):
-            pred_x = pred_y = 0
-        if df_test_X.type_id == map_type_id(18):
+        if df_test_X.type_id == 18:
             pred_x = pred_y = 0
         # compute result 
         loss_xy += (pred_x - ground_truth.iloc[0,2])*(pred_x - ground_truth.iloc[0,2])+\

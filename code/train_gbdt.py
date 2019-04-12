@@ -111,18 +111,17 @@ if __name__=="__main__":
     
     if args.corr:
         draw_corr(train_df)
-    
+    """
     next_ball_train_df = train_df.copy()
     next_ball_train_df['weight_column'] = next_ball_train_df.next_ball_related
     next_ball_train_df.loc[next_ball_train_df.weight_column==0, 'weight_column'] = 2
     next_ball_train_df.loc[next_ball_train_df.weight_column==1, 'weight_column'] = 1
     # resample
-    """
     length = len(next_ball_train_df[next_ball_train_df.next_ball_related==0].index)
     choice_idx = np.random.randint(low=0, high=length-1, size=15*length)
     choice_idx = next_ball_train_df[next_ball_train_df.next_ball_related==0].index[choice_idx]
     next_ball_train_df = pd.concat([next_ball_train_df, next_ball_train_df.iloc[choice_idx]]).sample(frac=1).reset_index(drop=True)
-    """
+    
     df_train_X = next_ball_train_df[next_ball_train_df.columns[0:-4]]
     df_train_y = next_ball_train_df[next_ball_train_df.columns[-5:]]
     X_tr, y_tr, X_val, y_val = get_train_val(df_train_X, df_train_y)
@@ -134,26 +133,32 @@ if __name__=="__main__":
     lgb.plot_importance(bst_next_ball_related, max_num_features=30)
     plt.title("Feature importance of model bst_next_ball_related")
     plt.savefig("feature_importance_bst_next_ball_related.png")
-    
+    """
     df_train_X = train_df[train_df.columns[0:-3]]
-    df_train_y = train_df[train_df.columns[-4:]]
+    df_train_y = train_df[train_df.columns[-3:]]
     X_tr, y_tr, X_val, y_val = get_train_val(df_train_X, df_train_y)
     if args.tmodel:
         print("Training team model...")
-        bst_t = train_bst_class(X_tr, y_tr[:,3], X_val, y_val[:,3], feature_names=df_train_X.columns, categorical_feature=categorical_feature)
+        bst_t = train_bst_class(X_tr, y_tr[:,2], X_val, y_val[:,2], feature_names=df_train_X.columns, categorical_feature=categorical_feature)
         pickle.dump(bst_t, open(model_path+tname, 'wb'))
         lgb.plot_importance(bst_t, max_num_features=30)
         plt.title("Feature importance of model team")
         plt.savefig("feature_importance_x.png")
     
+    
     # drop those whose next ball related = 0
+    """
     df_train_X.drop(df_train_y[df_train_y.next_ball_related==0].index, inplace=True)
     df_train_y.drop(df_train_y[df_train_y.next_ball_related==0].index, inplace=True)
+    X_tr, y_tr, X_val, y_val = get_train_val(df_train_X, df_train_y)
+    """
+    df_train_X.drop(df_train_X[(df_train_X.next_x==0) & (df_train_X.next_y==0)].index, inplace=True)
+    df_train_y.drop(df_train_X[(df_train_X.next_x==0) & (df_train_X.next_y==0)].index, inplace=True)
     X_tr, y_tr, X_val, y_val = get_train_val(df_train_X, df_train_y)
 
     if args.xymodel:
         print("Training x model...")
-        bst_x = train_bst_reg(X_tr[:,0:-1], y_tr[:,1], X_val[:,0:-1], y_val[:,1], feature_names=df_train_X.columns[0:-1]
+        bst_x = train_bst_reg(X_tr, y_tr[:,0], X_val, y_val[:,0], feature_names=df_train_X.columns
             , categorical_feature=categorical_feature[0:-1])
         pickle.dump(bst_x, open(model_path+xname, 'wb'))
         lgb.plot_importance(bst_x, max_num_features=30)
@@ -161,7 +166,7 @@ if __name__=="__main__":
         plt.savefig("feature_importance_x.png")
 
         print("Training y model...")
-        bst_y = train_bst_reg(X_tr[:,0:-1], y_tr[:,2], X_val[:,0:-1], y_val[:,2], feature_names=df_train_X.columns[0:-1]
+        bst_y = train_bst_reg(X_tr, y_tr[:,1], X_val, y_val[:,1], feature_names=df_train_X.columns
             , categorical_feature=categorical_feature[0:-1])
         pickle.dump(bst_y, open(model_path+yname, 'wb'))
         lgb.plot_importance(bst_y, max_num_features=30)
