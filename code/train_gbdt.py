@@ -5,7 +5,7 @@ import argparse
 categorical_feature = ['type_id', 'team_id', 'game_time','last_type_id', 'last_team_id',
                        'keypass', 'last_keypass', 'assist', 'last_assist', 'field' ,'penal_zone', 
                        'penal_point', 'zone', 'last_field', 'last_penal_zone', 'last_zone', 'last_penal_point',
-                       'ball_related', 'next_ball_related']
+                       'ball_related']#, 'next_ball_related']
 pname = 'pmodel.pkl'
 xname = 'xmodel.pkl'
 yname = 'ymodel.pkl'
@@ -152,14 +152,16 @@ if __name__=="__main__":
     df_train_y.drop(df_train_y[df_train_y.next_ball_related==0].index, inplace=True)
     X_tr, y_tr, X_val, y_val = get_train_val(df_train_X, df_train_y)
     """
-    df_train_X.drop(df_train_X[(df_train_X.next_x==0) & (df_train_X.next_y==0)].index, inplace=True)
-    df_train_y.drop(df_train_X[(df_train_X.next_x==0) & (df_train_X.next_y==0)].index, inplace=True)
+    df_train_X.drop(df_train_X[(df_train_y.next_x==0) & (df_train_y.next_y==0)].index, inplace=True)
+    df_train_y.drop(df_train_X[(df_train_y.next_x==0) & (df_train_y.next_y==0)].index, inplace=True)
+    df_train_X.drop(df_train_X[df_train_X.type_id in rules_x_y].index, inplace=True)
+    df_train_y.drop(df_train_X[df_train_X.type_id in rules_x_y].index, inplace=True)
     X_tr, y_tr, X_val, y_val = get_train_val(df_train_X, df_train_y)
 
     if args.xymodel:
         print("Training x model...")
         bst_x = train_bst_reg(X_tr, y_tr[:,0], X_val, y_val[:,0], feature_names=df_train_X.columns
-            , categorical_feature=categorical_feature[0:-1])
+            , categorical_feature=categorical_feature)
         pickle.dump(bst_x, open(model_path+xname, 'wb'))
         lgb.plot_importance(bst_x, max_num_features=30)
         plt.title("Feature importance of model x")
@@ -167,7 +169,7 @@ if __name__=="__main__":
 
         print("Training y model...")
         bst_y = train_bst_reg(X_tr, y_tr[:,1], X_val, y_val[:,1], feature_names=df_train_X.columns
-            , categorical_feature=categorical_feature[0:-1])
+            , categorical_feature=categorical_feature)
         pickle.dump(bst_y, open(model_path+yname, 'wb'))
         lgb.plot_importance(bst_y, max_num_features=30)
         plt.title("Feature importance of model y")

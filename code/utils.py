@@ -49,6 +49,8 @@ player_info = data_path+"Players and IDs - F40 - L1 20162017.xml"
 test_before_change_eg = data_path+"Example test base before changes specified in the Rules -f24-24-2016-853139-eventdetails_test_hackathon_1.xml"
 test_change_eg = data_path+"Example test base file - f24-24-2016-853285-eventdetails_test_hackathon_2.xml"
 
+rules_team = [50,25,18,2,15,51,49,27]
+rules_x_y = [50,25,18,27]
 # ---------- general -------------
 def get_player_data(is_changed=False):
     """

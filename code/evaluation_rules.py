@@ -69,7 +69,7 @@ def evaluation(save_path=train_path, valid_dir=valid_path):
         test_df: the test data whose type is pd.DataFrame.
         
     """
-    test_df = pd.DataFrame({"pre_next_ball_related":[],
+    test_df = pd.DataFrame({
                             "pre_x":[],
                             "pre_y":[],
                             "pre_team":[],
@@ -98,36 +98,49 @@ def evaluation(save_path=train_path, valid_dir=valid_path):
         
         df_test_X = train_df.iloc[-1][train_df.columns[0:-3]]
         
-        pred_player = pred_x = pred_y = pred_team = None
+        pred_player = pred_x = pred_y = pred_team = np.nan
         
         ## test teams
         print("Testing team model...")
         team = rnd.randint(0,1)
-
-        # rules
-        if (df_test_X.type_id == 18) or (df_test_X.type_id == 25):
-            team = df_test_X.loc[0, 'team_id']
-        elif df_test_X.type_id == 15:
-            team = 1-df_test_X.loc[0, 'team_id']
-        elif (df_test_X.type_id == 4) or (df_test_X.type_id == 5):
-            if df_test_X.type_id == df_test_X.last_type_id:
-                team = 1-df_test_X.loc[0, 'team_id']
-        # compute result
-        if team == ground_truth.iloc[0,1]:
-            score_team +=1
         
         ## test xy
         print("Testing x,y model...")
         pred_x = pred_y = 0
+
+
         # rules
-        if df_test_X.type_id == 15:
-                pred_x = df_test_X.loc[0, 'x']
-                pred_y = df_test_X.loc[0, 'y']
-        if (df_test_X.type_id == 53) and (df_test_X.ball_related == 1):
-            pred_x = pred_y = 0
-        if df_test_X.type_id == 18:
-            pred_x = pred_y = 0
-        # compute result 
+        if (df_test_X.type_id == 50):
+            team = 1-df_test_X.team_id
+            pred_x = 100-df_test_X.x
+            pred_y = 100-df_test_X.y
+        elif (df_test_X.type_id == 4) or (df_test_X.type_id == 5) or (df_test_X.type_id == 44):
+            if df_test_X.type_id != df_test_X.last_type_id:
+                team = 1-df_test_X.team_id
+                pred_x = 100-df_test_X.x
+                pred_y = 100-df_test_X.y
+        elif (df_test_X.type_id == 2) or (df_test_X.type_id == 51)or (df_test_X.type_id == 15):
+            team = 1-df_test_X.team_id
+        elif (df_test_X.type_id == 49):
+            team = df_test_X.team_id
+        elif (df_test_X.type_id == 25)or (df_test_X.type_id == 18):
+            team = df_test_X.team_id
+            pred_x = 0
+            pred_y = 0
+        elif (df_test_X.type_id == 28) or (df_test_X.type_id == 68) or (df_test_X.type_id == 70):
+            if df_test_X.type_id != df_test_X.last_type_id:
+                team = 1-df_test_X.team_id
+                pred_x = 0
+                pred_y = 0
+        elif (df_test_X.type_id == 49):
+            team = 1-df_test_X.team_id
+            pred_x = 0
+            pred_y = 0
+        
+        
+        # compute result
+        if team == ground_truth.iloc[0,1]:
+            score_team +=1
         loss_xy += (pred_x - ground_truth.iloc[0,2])*(pred_x - ground_truth.iloc[0,2])+\
                             (pred_y - ground_truth.iloc[0,3])*(pred_y - ground_truth.iloc[0,3])
          
@@ -138,13 +151,13 @@ def evaluation(save_path=train_path, valid_dir=valid_path):
         if pred_player == ground_truth.iloc[0,0]:
             score_player +=1
         '''
-            
+        #print(df_test_X.type_id)
         print('ground truth player={}, team={}, x={}, y={}'.format(
             ground_truth.iloc[0,0],ground_truth.iloc[0,1],ground_truth.iloc[0,2],ground_truth.iloc[0,3]))
         print('predicted results player={}, team={}, x={}, y={}'.format(
             pred_player, team, pred_x, pred_y))
 
-        temp = pd.DataFrame({"pre_next_ball_related":[pred_next_ball_related],
+        temp = pd.DataFrame({
                             "pre_x":[pred_x],
                             "pre_y":[pred_y],
                             "pre_team":[pred_team],

@@ -118,13 +118,13 @@ def evaluation_with_next_ball(save_path=train_path, valid_dir=valid_path, models
 
                 # rules
                 if df_test_X.type_id == map_type_id(25):
-                    team = df_test_X.loc[0, 'team_id']
+                    team = df_test_X.team_id
                 elif (df_test_X.type_id == 16) or (df_test_X.type_id == 19):
-                    team = df_test_X.loc[0, 'team_id']
+                    team = df_test_X.team_id
                 elif df_test_X.type_id == map_type_id(18):
-                    team = df_test_X.loc[0, 'team_id']
+                    team = df_test_X.team_id
                 elif df_test_X.type_id == map_type_id(15):
-                    team = 1-df_test_X.loc[0, 'team_id']
+                    team = 1-df_test_X.team_id
                 # compute result
                 if team == ground_truth.iloc[0,1]:
                     score_team +=1
@@ -145,8 +145,8 @@ def evaluation_with_next_ball(save_path=train_path, valid_dir=valid_path, models
                     pred_x = pred_y = 0
                 # rules
                 if df_test_X.type_id == map_type_id(15):
-                        pred_x = df_test_X.loc[0, 'x']
-                        pred_y = df_test_X.loc[0, 'y']
+                        pred_x = df_test_X.x
+                        pred_y = df_test_X.y
                         if (int(period_id)^int(team)) and not(int(period_id)^int(df_test_X.team_id)):
                             pred_x = 100-pred_x
                             pred_y = 100-pred_y
@@ -198,7 +198,7 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
         test_df: the test data whose type is pd.DataFrame.
         
     """
-    test_df = pd.DataFrame({"pre_next_ball_related":[],
+    test_df = pd.DataFrame({#"pre_next_ball_related":[],
                             "pre_x":[],
                             "pre_y":[],
                             "pre_team":[],
@@ -229,56 +229,73 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
         # get the last event
         df_test_X = train_df.iloc[-1][train_df.columns[0:-3]]
         
-        pred_player = pred_x = pred_y = pred_team = None
+        pred_player = pred_x = pred_y = pred_team = np.nan
         
         # get the team prediction
         if team_model is not None:
             print("Testing team model...")
             # predict next ball related
             pred_team = team_model.predict(df_test_X)[0]
-            team = [df_test_X.loc[0, 'team_id'] if pred_team>=team_gate else (1-df_test_X.loc[0, 'team_id')]][0]
-
-            # rules
-            if (df_test_X.type_id == 18) or (df_test_X.type_id == 25):
-                team = df_test_X.loc[0, 'team_id']
-            elif df_test_X.type_id == 15:
-                team = 1-df_test_X.loc[0, 'team_id']
-            elif (df_test_X.type_id == 4) or (df_test_X.type_id == 5):
-                if df_test_X.type_id == df_test_X.last_type_id:
-                    team = 1-df_test_X.loc[0, 'team_id']
-            # compute result
-            if team == ground_truth.iloc[0,1]:
-                score_team +=1
+            if pred_team>=team_gate:
+                team = df_test_X.team_id
+            else:
+                team = 1-df_test_X.team_id
+            
 
         if (x_model is not None) and (y_model is not None):
             print("Testing x,y model...")          
             # predict_xy
             pred_x = x_model.predict(df_test_X)[0].round(1)
             pred_y = y_model.predict(df_test_X)[0].round(1)
-
-            # rules
-            if df_test_X.type_id == 15:
-                pred_x = df_test_X.loc[0, 'x']
-                pred_y = df_test_X.loc[0, 'y']
-            if (df_test_X.type_id == 53) and (df_test_X.ball_related == 1):
-                pred_x = pred_y = 0
-            if df_test_X.type_id == 18:
-                pred_x = pred_y = 0
-            # compute result 
-            loss_xy += (pred_x - ground_truth.iloc[0,2])*(pred_x - ground_truth.iloc[0,2])+\
-                                (pred_y - ground_truth.iloc[0,3])*(pred_y - ground_truth.iloc[0,3])
-
+        
         if player_model is not None:
             pred_player = player_model.predict(df_test_X)[0]
-            if pred_player == ground_truth.iloc[0,0]:
+            
+
+        # rules
+        if (df_test_X.type_id == 50):
+            team = 1-df_test_X.team_id
+            pred_x = 100-df_test_X.x
+            pred_y = 100-df_test_X.y
+        elif (df_test_X.type_id == 4) or (df_test_X.type_id == 5) or (df_test_X.type_id == 44):
+            if df_test_X.type_id != df_test_X.last_type_id:
+                team = 1-df_test_X.team_id
+                pred_x = 100-df_test_X.x
+                pred_y = 100-df_test_X.y
+        elif (df_test_X.type_id == 2) or (df_test_X.type_id == 51)or (df_test_X.type_id == 15):
+            team = 1-df_test_X.team_id
+        elif (df_test_X.type_id == 49):
+            team = df_test_X.team_id
+        elif (df_test_X.type_id == 25)or (df_test_X.type_id == 18):
+            team = df_test_X.team_id
+            pred_x = 0
+            pred_y = 0
+        elif (df_test_X.type_id == 28) or (df_test_X.type_id == 68) or (df_test_X.type_id == 70):
+            if df_test_X.type_id != df_test_X.last_type_id:
+                team = 1-df_test_X.team_id
+                pred_x = 0
+                pred_y = 0
+        elif (df_test_X.type_id == 49):
+            team = 1-df_test_X.team_id
+            pred_x = 0
+            pred_y = 0
+        
+
+        # compute result 
+        if team == ground_truth.iloc[0,1]:
+            score_team +=1
+        loss_xy += (pred_x - ground_truth.iloc[0,2])*(pred_x - ground_truth.iloc[0,2])+\
+                            (pred_y - ground_truth.iloc[0,3])*(pred_y - ground_truth.iloc[0,3])
+        if pred_player == ground_truth.iloc[0,0]:
                 score_player +=1
+            
             
         print('ground truth player={}, team={}, x={}, y={}'.format(
             ground_truth.iloc[0,0],ground_truth.iloc[0,1],ground_truth.iloc[0,2],ground_truth.iloc[0,3]))
         print('predicted results player={}, team={}, x={}, y={}'.format(
             pred_player, team, pred_x, pred_y))
 
-        temp = pd.DataFrame({"pre_next_ball_related":[pred_next_ball_related],
+        temp = pd.DataFrame({#"pre_next_ball_related":[pred_next_ball_related],
                             "pre_x":[pred_x],
                             "pre_y":[pred_y],
                             "pre_team":[pred_team],
@@ -312,6 +329,7 @@ if __name__=="__main__":
     if args.valid != 0:
         construct_val_sets(val_num=args.valid)
     
+    bst_x = bst_y = bst_t = bst_p = None
     if args.test_p:
         pass
     if args.test_xy:
@@ -321,4 +339,4 @@ if __name__=="__main__":
     if args.test_t:
         bst_t = pickle.load(open(model_path+tname, 'rb'))
     #evaluation_with_next_ball(models=[None, bst_next_ball_related, bst_x, bst_y, bst_t])
-    evaluate_gbdt(models=[None, bst_x, bst_y, bst_t])
+    evaluate_gbdt(models=[bst_p, bst_x, bst_y, bst_t])
