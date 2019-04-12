@@ -518,7 +518,8 @@ def construct_ball_team_df(save_path=train_path):
         # one_train_df['game_id'] = i
         train_df = pd.concat([train_df, one_train_df])
     train_df.reset_index(drop=True, inplace=True)
-    # train_df['type_id'] = train_df['type_id'].apply(map_type_id)   
+    # train_df['type_id'] = train_df['type_id'].apply(map_type_id)  
+    train_df = get_type_fea(train_df)
     
     ### space feature
     ## field
@@ -580,5 +581,457 @@ def construct_ball_team_df(save_path=train_path):
 
 # ---------- for RNN models -------------
 
+def construct_one_train(choice_xml, low, high):
+    """
+    Construct one training set.
+    args:
+        choice_xml: the xml of the chosen game whose type is lxml.etree._ElementTree.
+        low: the start minute of the game.
+        high: the end minute of the game.
+    return:
+        train_xml: the xml of one validation set whose type is lxml.etree._ElementTree.
+        label_csv: the csv file of label results of this validation set.
+        
+    """
+    suff_plyr_list = suff_plyr(choice_xml)
+    if suff_plyr_list==[]:
+        return [None, None]
+    
+    pick_plyr_id = suff_plyr_list[rnd.randint(0,len(suff_plyr_list)-1)] # randomly choose a sufficient player
+    events = choice_xml.xpath('//Event')
+    if low<45:
+        half_type = 1
+    else:
+        half_type = 2
+    half_events = [i for i in events if i.attrib['period_id']==str(half_type)]
+    pick_events = [i for i in half_events if low<=(int(i.attrib['min'])+float(i.attrib['min'])/60)<=high]
+    # check there are suff_plyrs in events
+    if not suff_plyr_event(pick_events, suff_plyr_list):
+        return [None, None]
+    
+    game = choice_xml.xpath('//Game')[0]
+    home_id = game.attrib['home_team_id']
+    away_id = game.attrib['away_team_id']
+    
+    
+    game.attrib['timestamp'] = "" 
+    for i in game.attrib.keys(): # substitute before info
+        game.attrib[i] = ""
+        
+    for i in pick_events: # substitute team_id and other info
+        # if 'player_id' in i.attrib:
+        #    i.attrib['player_id'] = str(int(i.attrib['player_id']==pick_plyr_id))
+        if 'team_id' in i.attrib:
+            i.attrib['team_id'] = str(int(i.attrib['team_id']==home_id))
+        if 'id' in i.attrib:
+            i.attrib['id'] = ""
+        if 'timestamp' in i.attrib:
+            i.attrib['timestamp'] = ""
+        if 'last_modified' in i.attrib:
+            i.attrib['last_modified'] = ""
+        if 'version' in i.attrib:
+            i.attrib['version'] = ""
+        
+        for j in i.xpath('Q'):
+            j.attrib['id'] = ""
+            # When Type ID=140 and 141, qualifier_id=140/141 appears, replace the values by ""
+            if ('qualifier_id' in j.attrib) and (j.attrib['qualifier_id'] == "140" or j.attrib['qualifier_id'] == "141"):
+                j.attrib['qualifier_id'] = j.attrib['value'] = ""
+        
+    for i in pick_events[0:-10]: # substitute ball coor.
+        i.attrib['x'] = i.attrib['y'] = "0.0"
+    
+    for i in pick_events[-10:]: # substitute the last 10 events
+        i.attrib['outcome'] = ""
+        for j in i.xpath('Q'):
+            j.getparent().remove(j) # same as example
+        #     j.attrib['qualifier_id'] = j.attrib['value'] = ""
+    
+    next_event_idx = choice_xml.xpath('//Event').index(pick_events[-1])+1 
+    next_event = events[next_event_idx] # next event
+    results = str(pick_plyr_id[1:]) + ',' + str(int(next_event.attrib['team_id']==home_id)) + ',' + \
+                            str(next_event.attrib['x'])+ ',' + str(next_event.attrib['y']) # the label results
+    label_csv = str(results)
+    
+    other_event = list(set(choice_xml.xpath('//Event')).difference(set(pick_events)))
+    for j in other_event:
+            j.getparent().remove(j)            
+    tr_xml = choice_xml # Construct val_xml
+    
+    return [tr_xml, label_csv]
 
+def construct_train_sets(save_path=train_path):
+    """
+    Construct numbers of validation set.
+    args:
+        save_path: the path of saving validation sets.
+        val_num: the number of validation sets.
+    return:
+        a bool if the construction is success. 
+    """
+    files= os.listdir(train_dir)
+    files = [i for i in files if i[0:3]=='f24']
+    choice_min = [i*7.5 for i in range(11)]
+    for choice_file_idx in tqdm(range(len(files))):
+        for low in choice_min:
+            # do while loop until returns are not None
+            choice_xml = lxml.etree.parse(train_dir+files[choice_file_idx]) # randomly choose one game
+            tr_xml, label_csv = construct_one_train(choice_xml, low, low+15)
+            if not os.path.exists(save_path+str(choice_file_idx)):
+                os.mkdir(save_path+str(choice_file_idx))
+            if tr_xml==None:
+                print(choice_file_idx, ' is none')
+                continue
+            try:
+                tr_xml.write(save_path+str(choice_file_idx)+'/tr_' + str(low) + '.xml')
+                with open(save_path+str(choice_file_idx)+'/label_' + str(low) + '.csv', 'w') as f:
+                    f.write(label_csv)
+            except IOError:
+                print("Write error!")
+                return False
 
+def trans_train_set_to_seq_data(path=train_path):
+    """
+    Transfer the training data which are in .xml and .csv into 3 sequence data (e.g. .csv).
+    3 sequences are:
+        - team event sequence (event sequences before the last 10)
+        - event sequence (the last 10 events)
+        - player sequence (all event sequence about some particular player)
+    args:
+        
+    return:
+        Bool type.
+        
+    """
+    dirs = os.listdir(path)
+    dirs = [i for i in dirs if '.' not in i]
+    dirs = list(range(len(dirs)))
+    for d in dirs:
+        print(d)
+        d = str(d)
+        construct_team_seq(path+d+'/')
+        construct_event_seq(path+d+'/')
+        construct_player_seq(path+d+'/')
+
+def get_time_fea(df):
+    """
+    Get time feature of given dataframe.
+    args:
+        df: the given dataframe.
+    return:
+        df: df with time feature.
+        
+    """
+    df['game_time'] = df['min']*60+df['sec']
+    df['time_dis_last_event'] = df['game_time'].shift(1)
+    df['time_dis_last_event'] = df.game_time - df.time_dis_last_event
+    return df
+
+def get_space_fea(df):
+    """
+    Get space feature of given dataframe.
+    args:
+        df: the given dataframe.
+    return:
+        df: df with time feature.
+        
+    """
+    ### space feature
+    ## field
+    df['field_r'] = (df['x']>50).astype('int32')
+    df['field_l'] = (df['x']<=50).astype('int32')
+    df.loc[df[df.ball_related==0].index, 'field_l'] = 0
+    ## zone         
+    df['left_zone'] = ((0<=df['y']) & (df['y']<=21.1)).astype('int32')
+    df['middle_zone'] = ((21.1<df['y']) & (df['y']<78.9)).astype('int32')
+    df['right_zone'] = ((78.9<=df['y']) & (df['y']<=100)).astype('int32') 
+    df.loc[df[df.ball_related==0].index, 'left_zone'] = 0
+    ## penal zone            
+    df['penal_zone_l'] = (((0<=df['x']) & (df['x']<=17)) & ((21.1<=df['y']) & (df['y']<=78.9))).astype('int32')
+    df['penal_zone_r'] = (((83<=df['x']) & (df['x']<=100)) & ((21.1<=df['y']) & (df['y']<=78.9))).astype('int32')
+    df.loc[df[df.ball_related==0].index, 'penal_zone_l'] = 2
+    
+    df['penal_point'] = ((df['x']==88.5) & (df['y']==50)).astype('int32')
+    df['ball_pos'] = np.sqrt(df['x']*df['x']+df['y']*df['y'])
+    
+    return df
+
+def get_type_fea(df):
+    """
+    Get type feature of given dataframe.
+    args:
+        df: the given dataframe.
+    return:
+        df: df with type feature.
+    """
+    not_ball_related = [25, 27, 28, 30, 32, 68, 70, 18, 19, 40, 56, 57, 60, 65]
+    game_related = [25, 27, 28, 30, 32, 68, 70]
+    team_related = [18, 19, 40, 56, 57, 60, 65]
+    
+    both_related = [4, 5, 44]
+    attack_related = [1, 2, 13, 14, 15, 16, 3, 42, 74, 6, 50, 49]
+    defender_related = [10, 11, 41, 52, 53, 54, 58, 59, 7, 8, 12, 45, 51, 55]
+    
+    attack_pass = [1,2]
+    attack_shot = [13, 14, 15]
+    attack_goal = [16]
+    attack_drib = [3, 42]
+    attack_othe = [74, 6, 49, 50]
+    defend_gk = [10, 11, 41, 52, 53, 54, 58, 59]
+    
+    ### ball related?
+    df['ball_related'] = (df.type_id.apply(lambda x:(x not in not_ball_related))).astype(int)
+    
+    ## not ball related
+    df['game_related'] = (df.type_id.apply(lambda x:(x in game_related))).astype(int)
+    df['team_related'] = (df.type_id.apply(lambda x:(x in team_related))).astype(int)
+    
+    ## ball related
+    df['both_related'] = (df.type_id.apply(lambda x:(x in both_related))).astype(int)
+    df['attack_related'] = (df.type_id.apply(lambda x:(x in attack_related))).astype(int)
+    df['defender_related'] = (df.type_id.apply(lambda x:(x in defender_related))).astype(int)
+    # attack related
+    df['attack_pass'] = (df.type_id.apply(lambda x:(x in attack_pass))).astype(int)
+    df['attack_shot'] = (df.type_id.apply(lambda x:(x in attack_shot))).astype(int)
+    df['attack_goal'] = (df.type_id.apply(lambda x:(x in attack_goal))).astype(int)
+    df['attack_drib'] = (df.type_id.apply(lambda x:(x in attack_drib))).astype(int)
+    df['attack_othe'] = (df.type_id.apply(lambda x:(x in attack_othe))).astype(int)
+    # defend related
+    df['defend_gk'] = (df.type_id.apply(lambda x:(x in defend_gk))).astype(int)
+    df['defend_1'] = (df.type_id == 7).astype(int)
+    df['defend_2'] = (df.type_id == 8).astype(int)
+    df['defend_3'] = (df.type_id == 12).astype(int)
+    df['defend_4'] = (df.type_id == 45).astype(int)
+    df['defend_5'] = (df.type_id == 51).astype(int)
+    df['defend_6'] = (df.type_id == 55).astype(int)
+    
+    df.drop(['type_id'], axis=1, inplace=True)
+    
+    return df
+
+def construct_team_seq(path):
+    """
+    Construct the team event sequence.
+    args:
+        path: the path of given game's xml file.
+    return:
+        
+        
+    """
+    files = os.listdir(path)
+    xml_files = [i for i in files if 'xml' in i]
+    csv_files = [i for i in files if 'csv' in i]
+    xml_files.sort()
+    csv_files.sort()
+    
+    for file_idx in tqdm(range(len(xml_files))):
+        team0_df = pd.DataFrame({"min":[],
+                             "sec":[],  
+                             "type_id":[],
+                             "keypass":[],
+                             "assist":[],
+                             "q_num":[]
+                             })
+        team1_df = pd.DataFrame({"min":[],
+                             "sec":[],  
+                             "type_id":[],
+                             "keypass":[],
+                             "assist":[],
+                             "q_num":[]
+                             })    
+            
+        xfile = xml_files[file_idx]
+        cfile = csv_files[file_idx]
+        choice_xml = lxml.etree.parse(path+xfile)
+        events = choice_xml.xpath('//Event')[0:-10]
+        team_0_events = [i for i in events if i.attrib['team_id']=='0']
+        team_1_events = [i for i in events if i.attrib['team_id']=='1']
+        
+        for i in team_0_events:
+            mins = int(i.attrib['min'])
+            secs = int(i.attrib['sec'])
+            type_id = int(i.attrib['type_id'])
+            keypass = int('keypass' in i.attrib)
+            assist = int('assist' in i.attrib)
+            q_num = len(i.xpath('Q'))
+            temp = pd.DataFrame({"min":[mins],
+                             "sec":[secs],  
+                             "type_id":[type_id],
+                             "keypass":[keypass],
+                             "assist":[assist],
+                             "q_num":[q_num]
+                             })
+            team0_df = pd.concat([team0_df,temp])
+            
+        for i in team_1_events:
+            mins = int(i.attrib['min'])
+            secs = int(i.attrib['sec'])
+            keypass = int('keypass' in i.attrib)
+            assist = int('assist' in i.attrib)
+            q_num = len(i.xpath('Q'))
+            temp = pd.DataFrame({"min":[mins],
+                             "sec":[secs],  
+                             "type_id":[type_id],
+                             "keypass":[keypass],
+                             "assist":[assist],
+                             "q_num":[q_num]
+                             })
+            team1_df = pd.concat([team1_df,temp])
+            
+        team0_df = get_time_fea(team0_df)
+        team1_df = get_time_fea(team1_df)
+        
+        team0_df = get_type_fea(team0_df)
+        team1_df = get_type_fea(team1_df)
+        
+        gc.collect()
+        
+        if not os.path.exists(path+'team_seq'):
+            os.mkdir(path+'team_seq')
+        
+        team0_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team0.seq')
+        team1_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team1.seq')
+        
+
+def construct_event_seq(path):
+    """
+    Construct the last 10 event sequence.
+    args:
+        path: the path of given game's xml file.
+    return:
+        
+    """
+    files = os.listdir(path)
+    xml_files = [i for i in files if 'xml' in i]
+    csv_files = [i for i in files if 'csv' in i]
+    xml_files.sort()
+    csv_files.sort()
+    
+    for file_idx in tqdm(range(len(xml_files))):
+        event_df = pd.DataFrame({"min":[],
+                             "sec":[],  
+                             "type_id":[],
+                             "keypass":[],
+                             "assist":[],
+                             "q_num":[],
+                             "x":[],
+                             "y":[],
+                             })
+        xfile = xml_files[file_idx]
+        cfile = csv_files[file_idx]
+        choice_xml = lxml.etree.parse(path+xfile)
+        events = choice_xml.xpath('//Event')[-10:]
+        
+        for i in events:
+            mins = int(i.attrib['min'])
+            secs = int(i.attrib['sec'])
+            type_id = int(i.attrib['type_id'])
+            keypass = int('keypass' in i.attrib)
+            assist = int('assist' in i.attrib)
+            q_num = len(i.xpath('Q'))
+            x = float(i.attrib['x'])
+            y = float(i.attrib['y'])
+            temp = pd.DataFrame({"min":[mins],
+                             "sec":[secs],  
+                             "type_id":[type_id],
+                             "keypass":[keypass],
+                             "assist":[assist],
+                             "q_num":[q_num],
+                             "x":[x],
+                             "y":[y],
+                             })
+            event_df = pd.concat([event_df, temp])
+        
+        event_df = get_time_fea(event_df)       
+        event_df = get_type_fea(event_df)
+        event_df = get_space_fea(event_df)
+        gc.collect()
+        
+        if not os.path.exists(path+'event_seq'):
+            os.mkdir(path+'event_seq')
+        
+        event_df.to_csv(path+'event_seq/'+xfile[0:-4]+'_event.seq')
+
+def construct_player_seq(path):
+    """
+    Construct the player event sequence.
+    args:
+        path: the path of given game's xml file.
+    return:
+        
+    """
+    files = os.listdir(path)
+    xml_files = [i for i in files if 'xml' in i]
+    csv_files = [i for i in files if 'csv' in i]
+    xml_files.sort()
+    csv_files.sort()
+    
+    for file_idx in tqdm(range(len(xml_files))):
+        player_df = pd.DataFrame({"min":[],
+                             "sec":[],  
+                             "type_id":[],
+                             "keypass":[],
+                             "assist":[],
+                             "q_num":[],
+                             })
+        xfile = xml_files[file_idx]
+        cfile = csv_files[file_idx]
+        choice_xml = lxml.etree.parse(path+xfile)
+        events = choice_xml.xpath('//Event')[0:-10]
+        
+         # Get all player list and changed player list
+        if (os.path.exists(processed_path+"all_player_data.csv")):
+            all_player_df = pd.read_csv(processed_path+"all_player_data.csv")
+        else:
+            all_player_df = get_player_data()
+        all_player_df.join_date = all_player_df.join_date.apply(
+                lambda x:pd.to_datetime(x, format="%Y-%m-%d"))
+        join_date_plyr = list(
+            all_player_df[all_player_df.join_date < pd.to_datetime('2017-01-01', format="%Y-%m-%d")].player_id)
+        
+        # Get playing time data of all players
+        if (os.path.exists(processed_path+"total_play_time_data.csv")):
+            total_play_time_data = pd.read_csv(processed_path+"total_play_time_data.csv")
+            total_play_time_data.total_playing_time = total_play_time_data.total_playing_time.apply(
+                lambda x:pd.Timedelta(x))
+        else:
+            total_play_time_data = get_play_time(all_player_df)
+        suff_time_plyr = list(total_play_time_data[total_play_time_data.total_playing_time > pd.Timedelta(minutes=800)].player_id)
+        
+        players = choice_xml.xpath("//Event/@player_id")
+        players = ['p'+_ for _ in players]
+        players = [_ for _ in players if (_ in suff_time_plyr) and (_ in join_date_plyr)]
+        
+        if len(players)==0:
+            print(xfile)
+            continue
+        
+        for p in players:
+            p_events = [_ for _ in events if 'player_id' in _.attrib]
+            p_events = [_ for _ in p_events if (_.attrib['player_id']+'p') == p]
+            for i in p_events:
+                mins = int(i.attrib['min'])
+                secs = int(i.attrib['sec'])
+                type_id = int(i.attrib['type_id'])
+                keypass = int('keypass' in i.attrib)
+                assist = int('assist' in i.attrib)
+                q_num = len(i.xpath('Q'))
+                temp = pd.DataFrame({"min":[mins],
+                                 "sec":[secs],  
+                                 "type_id":[type_id],
+                                 "keypass":[keypass],
+                                 "assist":[assist],
+                                 "q_num":[q_num],
+                                 })
+                player_df = pd.concat([player_df, temp])
+        
+        player_df = get_time_fea(player_df)       
+        player_df = get_type_fea(player_df)
+        gc.collect()
+        player_df['player_id'] = p
+        
+        if not os.path.exists(path+'player_seq'):
+            os.mkdir(path+'player_seq')
+            
+        player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.seq')
+        

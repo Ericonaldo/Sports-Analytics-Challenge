@@ -2,10 +2,10 @@
 from utils import *
 import argparse
 
-categorical_feature = ['type_id', 'team_id', 'game_time','last_type_id', 'last_team_id',
+categorical_feature = ['team_id', 'game_time','last_type_id', 'last_team_id',
                        'keypass', 'last_keypass', 'assist', 'last_assist', 'field' ,'penal_zone', 
                        'penal_point', 'zone', 'last_field', 'last_penal_zone', 'last_zone', 'last_penal_point',
-                       'ball_related']#, 'next_ball_related']
+                       'ball_related']#, 'type_id', 'next_ball_related']
 pname = 'pmodel.pkl'
 xname = 'xmodel.pkl'
 yname = 'ymodel.pkl'
