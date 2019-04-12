@@ -1,0 +1,780 @@
+player_id,player_name,jersey_num,team_id,team_name,join_date
+p40511,Denis Petric,1,t2128,Angers,2016-01-02
+p119744,Mathieu Michel,1,t2128,Angers,2016-08-18
+p85577,Alexandre Letellier,30,t2128,Angers,2010-07-01
+p174272,Anthony Mandrea,40,t2128,Angers,2016-07-01
+p218123,Maxime Sivis,Unknown,t2128,Angers,2016-07-01
+p180299,Gabriel Mutombo Kupa,Unknown,t2128,Angers,2014-02-27
+p58309,Yoann Andreu,3,t2128,Angers,2015-07-01
+p68545,Mateo Pavlovic,4,t2128,Angers,2016-07-01
+p42416,Ismael Traoré,8,t2128,Angers,2015-07-01
+p93622,Pablo Martinez,21,t2128,Angers,2016-07-01
+p45505,Romain Thomas,24,t2128,Angers,2013-07-01
+p57266,Abdoulaye Bamba,25,t2128,Angers,2017-01-01
+p213575,Mehdi Tahrat,26,t2128,Angers,2016-08-31
+p96195,Issa Cissokho,28,t2128,Angers,2017-01-31
+p54518,Vincent Manceau,29,t2128,Angers,2008-08-01
+p212600,Mathias Serin,Unknown,t2128,Angers,2015-07-01
+p18574,Thomas Mangani,5,t2128,Angers,2015-02-02
+p15304,Grégory Bourillon,6,t2128,Angers,2016-01-25
+p220994,Aissa Laidouni,13,t2128,Angers,2015-07-01
+p112580,Pierrick Capelle,15,t2128,Angers,2015-07-01
+p168109,Cheikh N'Doye,17,t2128,Angers,2015-07-01
+p168985,Baptiste Santamaría,18,t2128,Angers,2016-07-01
+p154011,Flavien Tait,20,t2128,Angers,2016-07-01
+p195883,Jonathan Bamba,22,t2128,Angers,2017-01-04
+p44485,Jamel Saihi,23,t2128,Angers,2016-08-31
+p52002,Goran Karanoviç,Unknown,t2128,Angers,2015-08-02
+p80485,Kévin Berigaud,2,t2128,Angers,2017-01-03
+p193454,Karl Toko Ekambi,7,t2128,Angers,2016-07-01
+p149535,Famara Diedhiou,9,t2128,Angers,2016-07-01
+p66589,Gilles Sunu,10,t2128,Angers,2015-07-01
+p66757,Dickson Nwakaeme,11,t2128,Angers,2016-07-01
+p216646,Yoane Wissa,12,t2128,Angers,2016-07-01
+p81118,Férébory Doré,12,t2128,Angers,2015-08-03
+p79870,Billy Ketkeophomphone,14,t2128,Angers,2015-07-01
+p195735,Nicolas Pepe,19,t2128,Angers,2014-07-01
+p83542,Thomas Vincensini,1,t139,Bastia,2009-07-01
+p44136,Jean-Louis Leca,16,t139,Bastia,2013-07-19
+p110143,Paul Charruau,30,t139,Bastia,2016-07-29
+p16718,Alexis Thébaux,30,t139,Bastia,2017-01-31
+p218507,Fodé Camara,Unknown,t139,Bastia,2016-09-30
+p173242,Ismael Chester Diallo,Unknown,t139,Bastia,2015-07-01
+p106884,Nicolas Saint-Ruf,3,t139,Bastia,2017-01-24
+p50301,Abdelhamid El Kaoutari,4,t139,Bastia,2016-08-10
+p13439,Sébastien Squillaci,5,t139,Bastia,2013-07-16
+p82725,Lindsay Rose,17,t139,Bastia,2017-01-11
+p48469,Pierre Bengtsson,20,t139,Bastia,2016-08-29
+p143685,Alexander Djiku,23,t139,Bastia,2012-07-01
+p37755,Florian Marange,28,t139,Bastia,2014-08-01
+p44140,Gilles Cioni,29,t139,Bastia,2010-08-23
+p243741,Hugo Magnetti,Unknown,t139,Bastia,2016-11-18
+p250588,Sami Ben Amar,Unknown,t139,Bastia,2017-03-10
+p81028,Sadio Diallo,2,t139,Bastia,2015-07-01
+p85351,Jerson Cabral,7,t139,Bastia,2016-07-12
+p6751,Gaël Danic,8,t139,Bastia,2015-01-31
+p170137,Allan Saint-Maximin,10,t139,Bastia,2016-07-29
+p176983,Lyes Houri,10,t139,Bastia,2015-02-02
+p105718,Lenny Nangis,11,t139,Bastia,2016-07-29
+p146668,Abdoulaye Keita,12,t139,Bastia,2012-07-01
+p51498,Mehdi Mostefa,14,t139,Bastia,2015-08-27
+p40808,Prince Oniangué,15,t139,Bastia,2017-01-16
+p44138,Yannick Cahuzac,18,t139,Bastia,2005-07-01
+p121596,Axel Ngando,19,t139,Bastia,2015-08-31
+p114531,Farid Boulaya,22,t139,Bastia,2016-08-31
+p215047,Lassana Coulibaly,25,t139,Bastia,2015-07-01
+p232170,Geoffrey Acheampong,Unknown,t139,Bastia,2016-07-01
+p102765,Florian Raspentino,9,t139,Bastia,2015-08-31
+p178492,Enzo Crivelli,27,t139,Bastia,2016-08-03
+p200889,Julien Romain,27,t139,Bastia,2014-07-01
+p200848,Paul Bernardoni,Unknown,t140,Bordeaux,2016-07-01
+p6244,Cédric Carrasso,16,t140,Bordeaux,2009-07-01
+p181439,Jerome Prior,30,t140,Bordeaux,2013-07-01
+p433830,Over Mandanda,40,t140,Bordeaux,2016-07-01
+p174892,Milan Gajic,2,t140,Bordeaux,2015-07-25
+p59340,Diego Contento,3,t140,Bordeaux,2014-08-11
+p210228,Vukasin Jovanovic,4,t140,Bordeaux,2017-01-31
+p220325,Jules Koundé,4,t140,Bordeaux,2015-12-09
+p82313,Nicolas Pallois,5,t140,Bordeaux,2014-06-30
+p71797,Igor Lewczuk,6,t140,Bordeaux,2016-08-31
+p12488,Jérémy Toulalan,14,t140,Bordeaux,2016-07-01
+p164474,Youssouf Sabaly,20,t140,Bordeaux,2016-08-03
+p199375,Cédric Yambéré,21,t140,Bordeaux,2014-10-25
+p176443,Théo Pellenard,21,t140,Bordeaux,2013-12-12
+p116504,Pablo,25,t140,Bordeaux,2015-08-31
+p203368,Frederic Guilbert,26,t140,Bordeaux,2015-01-23
+p424120,Olivier Verdon,26,t140,Bordeaux,2017-04-27
+p121524,Maxime Poundjé,29,t140,Bordeaux,2012-07-01
+p203151,Kevin Soni,Unknown,t140,Bordeaux,2015-01-20
+p171222,Mauro Arambarri,8,t140,Bordeaux,2016-01-31
+p172870,Younes Kaabouni,12,t140,Bordeaux,2013-10-06
+p48768,Younousse Sankharé,13,t140,Bordeaux,2017-01-31
+p49878,Abdou Traoré,15,t140,Bordeaux,2007-10-01
+p218005,Adam Ounas,17,t140,Bordeaux,2015-07-01
+p12057,Jaroslav Plasil,18,t140,Bordeaux,2009-07-09
+p195982,Valentín Vada,23,t140,Bordeaux,2014-07-01
+p213247,Daniel Mancini,28,t140,Bordeaux,2017-01-06
+p244182,Zaydou Youssouf,28,t140,Bordeaux,2016-07-01
+p148011,Diego Rolan,Unknown,t140,Bordeaux,2013-01-31
+p242768,Jorris Romil,Unknown,t140,Bordeaux,2016-07-01
+p181092,Malcom,7,t140,Bordeaux,2016-01-31
+p19500,Jérémy Ménez,7,t140,Bordeaux,2016-07-31
+p176441,Thomas Touré,10,t140,Bordeaux,2013-12-12
+p193512,François Kamano,11,t140,Bordeaux,2016-07-27
+p18575,Nicolas Maurice-Belay,19,t140,Bordeaux,2011-06-24
+p167443,Gaetan Laborde,24,t140,Bordeaux,2014-07-01
+p178492,Enzo Crivelli,27,t140,Bordeaux,2014-01-01
+p9997,Rémy Vercoutre,1,t1028,Caen,2014-06-16
+p218071,Louis Deschateaux,16,t1028,Caen,2015-07-01
+p45032,Matthieu Dreyer,40,t1028,Caen,2016-08-08
+p120770,Paul Reulet,40,t1028,Caen,2012-07-01
+p205823,Florian Le Joncour,3,t1028,Caen,2015-07-01
+p12845,Alaeddine Yahia,5,t1028,Caen,2014-10-01
+p83724,Syam Ben Youssef,13,t1028,Caen,2015-07-01
+p50326,Emmanuel Imorou,15,t1028,Caen,2014-06-30
+p119691,Jordan Adeoti,18,t1028,Caen,2014-06-30
+p37995,Mouhamadou Dabo,23,t1028,Caen,2016-07-01
+p203368,Frederic Guilbert,24,t1028,Caen,2016-10-25
+p44287,Damien Da Silva,28,t1028,Caen,2014-06-30
+p44357,Romain Genevois,29,t1028,Caen,2016-07-08
+p94181,Chaker Alhadhur,32,t1028,Caen,2015-07-01
+p7103,Nicolas Seube,2,t1028,Caen,2001-07-01
+p97443,Ismael Diomande,4,t1028,Caen,2016-07-01
+p86281,Jonathan Delaplace,6,t1028,Caen,2015-07-03
+p6596,Steed Malbranque,10,t1028,Caen,2016-07-01
+p42761,Vincent Bessat,11,t1028,Caen,2015-07-01
+p199666,Jean-Victor Makengo,17,t1028,Caen,2015-07-01
+p119628,Jordan N'Kololo,17,t1028,Caen,2015-07-01
+p227763,Durel Avounou,18,t1028,Caen,2016-07-01
+p213335,Jordan Leborgne,19,t1028,Caen,2015-07-14
+p45082,Julien Féret,25,t1028,Caen,2014-06-16
+p215789,Valentin Voisin,33,t1028,Caen,2015-07-01
+p89179,Jeff Louis,34,t1028,Caen,2015-07-21
+p420962,Jordan Tell,Unknown,t1028,Caen,2017-04-01
+p248687,Exauce Ngassaki,Unknown,t1028,Caen,2017-02-20
+p184095,Yann Karamoh,7,t1028,Caen,2015-12-07
+p50996,Ronny Rodelin,10,t1028,Caen,2016-07-26
+p119768,Christian Kouakou,13,t1028,Caen,2016-02-01
+p58616,Herve Bazile,20,t1028,Caen,2014-06-30
+p60319,Ivan Santini,26,t1028,Caen,2016-08-04
+p154481,Pape Sane,35,t1028,Caen,2016-01-31
+p75987,Benjamin Leroy,1,t2130,Dijon,2016-07-01
+p151065,Enzo Basilio,16,t2130,Dijon,2012-07-01
+p110369,Bobby Allain,16,t2130,Dijon,2016-08-14
+p93619,Baptiste Reynet,30,t2130,Dijon,2015-07-01
+p121111,Ádám Lang,2,t2130,Dijon,2016-08-31
+p44082,Arnold Bouka Moutou,3,t2130,Dijon,2016-07-01
+p44312,Jordan Loties,4,t2130,Dijon,2016-01-30
+p241398,Oussama Haddadi,5,t2130,Dijon,2017-01-30
+p228170,Valentin Rosier,19,t2130,Dijon,2016-07-01
+p106263,Yunis Abdelhamid,21,t2130,Dijon,2016-07-01
+p100955,Vincent Rüfli,23,t2130,Dijon,2016-08-04
+p119679,Fouad Chafik,26,t2130,Dijon,2016-07-01
+p13939,Cedric Varrault,27,t2130,Dijon,2011-07-01
+p193425,Jessy Benet,Unknown,t2130,Dijon,2014-07-31
+p216702,Erwan Maury,Unknown,t2130,Dijon,2015-07-01
+p120811,Anthony Belmonte,3,t2130,Dijon,2015-07-01
+p228169,Guillaume Sarrabayrouse,6,t2130,Dijon,2016-07-01
+p54413,Frederic Sammaritano,7,t2130,Dijon,2015-07-01
+p98746,Mehdi Abeid,8,t2130,Dijon,2016-08-31
+p212325,Pierre Lees-Melou,8,t2130,Dijon,2015-07-01
+p135290,Jeremie Bela,10,t2130,Dijon,2014-01-23
+p51634,Marvin Martin,13,t2130,Dijon,2016-07-14
+p153014,Jordan Marié,14,t2130,Dijon,2013-01-01
+p8747,Florent Balmont,15,t2130,Dijon,2016-07-08
+p86158,Romain Amalfitano,20,t2130,Dijon,2014-07-01
+p154770,Kwon Chang-Hoon,22,t2130,Dijon,2017-01-18
+p192278,Dylan Bahamboula,24,t2130,Dijon,2016-07-05
+p111911,Charly Dutournier,Unknown,t2130,Dijon,2015-07-01
+p208747,Mamadou Thiam,Unknown,t2130,Dijon,2014-07-01
+p44406,Yohann Riviere,7,t2130,Dijon,2014-09-01
+p147577,Lois Diony,9,t2130,Dijon,2014-01-30
+p111265,Júlio Tavares,11,t2130,Dijon,2012-07-30
+p44429,Johny Placide,Unknown,t428,Guingamp,2017-02-16
+p61741,Karl-Johan Johnsson,1,t428,Guingamp,2016-07-01
+p212887,Theo Guivarch,16,t428,Guingamp,2015-07-01
+p37836,Romain Salin,30,t428,Guingamp,2016-07-12
+p129478,Jordan Ikoko,2,t428,Guingamp,2016-07-01
+p111291,Marçal,3,t428,Guingamp,2016-08-18
+p67100,Benjamin Angoua,4,t428,Guingamp,2014-07-01
+p102744,Baissama Sankoh,6,t428,Guingamp,2011-07-27
+p78319,Dorian Lévêque,7,t428,Guingamp,2010-07-01
+p42714,Jérémy Sorbon,15,t428,Guingamp,2013-07-01
+p28140,Jonathan Martins Pereira,22,t428,Guingamp,2015-12-16
+p42722,Reynald Lemaître,25,t428,Guingamp,2013-01-03
+p102739,Christophe Kerbrat,29,t428,Guingamp,2011-07-27
+p249455,Yvan Inzoudine,Unknown,t428,Guingamp,2017-01-01
+p423870,Matteo Ahlinvi,Unknown,t428,Guingamp,2017-05-18
+p206873,Jonathan Correia,Unknown,t428,Guingamp,2016-07-17
+p39905,Moustapha Diallo,5,t428,Guingamp,2009-06-16
+p213940,Ludovic Blas,7,t428,Guingamp,2015-07-01
+p45084,Lucas Deaux,8,t428,Guingamp,2016-07-01
+p89038,Nicolas Benezet,10,t428,Guingamp,2015-07-03
+p55343,Yannis Salibur,19,t428,Guingamp,2014-01-04
+p12179,Étienne Didot,22,t428,Guingamp,2016-07-01
+p201562,Marcus Coco,24,t428,Guingamp,2014-12-16
+p44100,Thibault Giresse,26,t428,Guingamp,2009-07-01
+p26896,Mathieu Bodmer,27,t428,Guingamp,2017-01-23
+p220001,Jeremy Livolant,31,t428,Guingamp,2015-07-01
+p189542,Alexandre Mendy,9,t428,Guingamp,2016-07-01
+p49367,Sloan Privat,11,t428,Guingamp,2016-07-01
+p54533,Nill de Pauw,12,t428,Guingamp,2015-06-18
+p223169,Sullivan Martinet,14,t428,Guingamp,2015-07-01
+p172918,Karim Achahbar,14,t428,Guingamp,2014-01-01
+p27675,Jimmy Briand,23,t428,Guingamp,2015-08-03
+p13262,Vincent Enyeama,Unknown,t429,Lille,2011-07-01
+p129487,Mike Maignan,16,t429,Lille,2015-08-18
+p201559,Jean Butez,30,t429,Lille,2014-12-16
+p244753,Valentin Vanbaleghem,Unknown,t429,Lille,2016-12-13
+p209171,Carlens Arcus,Unknown,t429,Lille,2016-07-01
+p37439,Marko Basa,Unknown,t429,Lille,2011-06-23
+p39804,Julian Palmieri,Unknown,t429,Lille,2016-07-02
+p60121,Sébastien Corchia,2,t429,Lille,2014-07-01
+p180124,Youssouf Kone,3,t429,Lille,2014-02-02
+p168097,Júnior Alonso,3,t429,Lille,2017-01-26
+p226597,Gabriel,4,t429,Lille,2017-01-31
+p103155,Adama Soumaoro,5,t429,Lille,2011-08-02
+p80342,Stoppila Sunzu,13,t429,Lille,2016-07-08
+p12656,Franck Beria,18,t429,Lille,2007-05-26
+p232174,Hamza Mendyl,27,t429,Lille,2016-07-01
+p161039,Fares Bahlouli,Unknown,t429,Lille,2017-01-31
+p213942,Alexis Araujo,Unknown,t429,Lille,2015-07-01
+p51634,Marvin Martin,Unknown,t429,Lille,2012-06-21
+p83913,Éric Bautheac,Unknown,t429,Lille,2015-06-25
+p128348,Ibrahim Amadou,6,t429,Lille,2015-07-15
+p242600,Xeka,8,t429,Lille,2017-01-31
+p178003,Ricardo Kishna,10,t429,Lille,2017-01-31
+p109653,Rony Lopes,17,t429,Lille,2016-01-07
+p245634,Valere Pollet,17,t429,Lille,2017-01-01
+p103119,Soualiho Meité,17,t429,Lille,2013-01-28
+p227127,Yves Bissouma,21,t429,Lille,2016-07-07
+p18787,Rio Mavuba,24,t429,Lille,2008-01-22
+p98788,Naim Sliti,27,t429,Lille,2016-08-31
+p232175,Rominigue Kouame,29,t429,Lille,2016-07-01
+p52635,Éder,Unknown,t429,Lille,2016-07-01
+p114534,Junior Tallo,Unknown,t429,Lille,2015-07-15
+p105718,Lenny Nangis,Unknown,t429,Lille,2015-08-31
+p157728,Baptiste Guillaume,Unknown,t429,Lille,2015-07-18
+p193488,Anwar El Ghazi,7,t429,Lille,2017-01-31
+p116628,Yassine Benzia,10,t429,Lille,2015-08-31
+p73879,Nicolas de Preville,12,t429,Lille,2016-08-11
+p230337,Lebo Mothiba,18,t429,Lille,2016-07-13
+p232176,Martin Terrier,28,t429,Lille,2016-07-01
+p220059,Anthony Lamonge,Unknown,t694,Lorient,2015-07-01
+p54409,Paul Delecroix,16,t694,Lorient,2016-07-01
+p86873,Benjamin Lecomte,40,t694,Lorient,2010-08-05
+p168117,Yoann Wachter,Unknown,t694,Lorient,2013-07-01
+p198188,Erwin Koffi,2,t694,Lorient,2015-07-01
+p227217,Bradley Mazikou,3,t694,Lorient,2015-07-01
+p54408,Zargo Toure,5,t694,Lorient,2015-08-31
+p202967,Faiz Selemani,11,t694,Lorient,2016-07-01
+p37740,Michael Ciani,13,t694,Lorient,2016-09-08
+p82725,Lindsay Rose,14,t694,Lorient,2016-07-01
+p141017,Steven Moreira,20,t694,Lorient,2016-08-30
+p57129,Mathieu Peybernes,23,t694,Lorient,2017-01-11
+p85565,Wesley Lautoa,24,t694,Lorient,2012-02-01
+p67278,Vincent Le Goff,25,t694,Lorient,2014-07-17
+p57734,Pape Paye,29,t694,Lorient,2015-07-01
+p227300,Ibrahima Sory Conté,32,t694,Lorient,2016-07-01
+p242166,Matteo Guendouzi,4,t694,Lorient,2016-10-01
+p51524,Francois Bellugou,6,t694,Lorient,2014-08-31
+p27674,Arnold Mvuemba,7,t694,Lorient,2016-09-06
+p166325,Cafú,8,t694,Lorient,2016-07-01
+p218357,Alexis Claude Maurice,10,t694,Lorient,2016-09-01
+p202459,Marvin Gakpa,11,t694,Lorient,2015-01-10
+p227326,Mohamed Mara,11,t694,Lorient,2016-07-01
+p67346,Walid Mesloub,17,t694,Lorient,2014-07-01
+p150172,Romain Philippoteaux,19,t694,Lorient,2015-02-01
+p87215,Alhassan Wakaso,23,t694,Lorient,2017-01-10
+p227218,Issam Ben Khemis,26,t694,Lorient,2015-07-01
+p216227,Denis Bouanga,26,t694,Lorient,2015-07-01
+p151912,Jimmy Cabot,27,t694,Lorient,2016-01-30
+p62226,Maxime Barthelme,28,t694,Lorient,2011-08-02
+p37939,Sylvain Marveaux,31,t694,Lorient,2016-07-15
+p82184,Majeed Waris,9,t694,Lorient,2015-08-06
+p73678,Benjamin Moukandjo,12,t694,Lorient,2015-08-06
+p11839,Jérémie Aliadière,14,t694,Lorient,2016-09-19
+p73667,Benjamin Jeannot,22,t694,Lorient,2014-07-01
+p193408,Valentin Lavigne,28,t694,Lorient,2014-07-01
+p242167,Pierre-Yves Hamel,29,t694,Lorient,2016-06-01
+p59957,Anthony Lopes,1,t143,Lyon,2008-07-01
+p213402,Lucas Mocio,16,t143,Lyon,2015-07-01
+p59956,Mathieu Gorgelin,30,t143,Lyon,2008-07-01
+p44488,Mapou Yanga-Mbiwa,2,t143,Lyon,2015-08-15
+p52775,Nicolas Nkoulou,3,t143,Lyon,2016-07-01
+p54772,Rafael,4,t143,Lyon,2015-08-03
+p208135,Mouctar Diakhaby,5,t143,Lyon,2016-07-01
+p38265,Christophe Jallet,13,t143,Lyon,2014-07-23
+p37832,Jérémy Morel,15,t143,Lyon,2015-07-01
+p234458,Jordy Gaspar,23,t143,Lyon,2016-07-01
+p173211,Emanuel Mammana,24,t143,Lyon,2016-07-06
+p202888,Dylan Mboumbouni,Unknown,t143,Lyon,2014-01-17
+p165572,Olivier Kemen,Unknown,t143,Lyon,2015-08-31
+p55305,Clément Grenier,7,t143,Lyon,2008-07-01
+p231961,Houssem Aouar,8,t143,Lyon,2016-07-01
+p168568,Corentin Tolisso,8,t143,Lyon,2013-08-01
+p115858,Rachid Ghezzal,11,t143,Lyon,2011-07-01
+p107641,Jordan Ferri,12,t143,Lyon,2011-07-01
+p169007,Sergi Darder,14,t143,Lyon,2015-08-29
+p59963,Maxime Gonalons,21,t143,Lyon,2008-07-01
+p37852,Mathieu Valbuena,28,t143,Lyon,2015-08-11
+p203349,Lucas Tousart,29,t143,Lyon,2015-08-31
+p71389,Maciej Rybus,31,t143,Lyon,2016-07-01
+p219873,Romain Del Castillo,39,t143,Lyon,2015-07-01
+p59966,Alexandre Lacazette,10,t143,Lyon,2008-07-01
+p106824,Memphis Depay,11,t143,Lyon,2017-01-20
+p208556,Myziane Maolida,17,t143,Lyon,2017-04-15
+p166552,Nabil Fekir,18,t143,Lyon,2013-07-01
+p231747,Jean-Philippe Mateta,19,t143,Lyon,2016-09-16
+p220560,Gaetan Perrin,22,t143,Lyon,2015-12-01
+p213401,Aldo Kalulu,26,t143,Lyon,2015-07-01
+p149519,Maxwel Cornet,27,t143,Lyon,2015-01-01
+p240084,Alan Dzabana,46,t143,Lyon,2016-09-10
+p107254,Julien Fabri,Unknown,t144,Marseille,2012-07-01
+p102836,Brice Samba,1,t144,Marseille,2013-01-04
+p37769,Yohann Pelé,16,t144,Marseille,2015-07-01
+p208134,Florian Escales,40,t144,Marseille,2016-01-01
+p216289,Brice Nlate,Unknown,t144,Marseille,2015-07-01
+p107259,Baptiste Aloe,Unknown,t144,Marseille,2011-07-01
+p194142,Stephane Sparagna,Unknown,t144,Marseille,2014-07-01
+p132227,Gaël Andonian,Unknown,t144,Marseille,2012-07-01
+p109404,Hiroki Sakai,2,t144,Marseille,2016-07-01
+p116736,Doria,3,t144,Marseille,2014-09-01
+p103040,Karim Rekik,4,t144,Marseille,2015-07-02
+p39294,Rolando,6,t144,Marseille,2015-08-31
+p44324,Henri Bedimo,12,t144,Marseille,2016-07-01
+p102760,Bouna Sarr,17,t144,Marseille,2015-07-06
+p14075,Patrice Evra,21,t144,Marseille,2017-01-25
+p13356,Rod Fanni,24,t144,Marseille,2016-08-31
+p49181,Tomas Hubocan,25,t144,Marseille,2016-07-08
+p202416,Alphousseyni Sane,34,t144,Marseille,2015-01-01
+p226944,Boubacar Kamara,4,t144,Marseille,2016-12-12
+p121117,Lucas Ocampos,5,t144,Marseille,2015-07-02
+p28566,Abou Diaby,5,t144,Marseille,2015-07-29
+p66957,Rémy Cabella,7,t144,Marseille,2016-06-05
+p122775,Morgan Sanson,8,t144,Marseille,2017-01-17
+p37901,Dimitri Payet,10,t144,Marseille,2017-01-29
+p40815,William Vainqueur,19,t144,Marseille,2016-08-31
+p56995,Grégory Sertic,22,t144,Marseille,2017-01-31
+p210415,Zinedine Machach,23,t144,Marseille,2016-07-27
+p169427,Saif-Eddine Khaoui,24,t144,Marseille,2016-07-01
+p175077,Bill Poni Tuiloma,25,t144,Marseille,2013-12-15
+p95434,Florian Thauvin,26,t144,Marseille,2016-08-04
+p213965,Maxime Lopez,27,t144,Marseille,2010-07-01
+p203325,André-Frank Zambo Anguissa,29,t144,Marseille,2015-07-31
+p145212,Clinton N'Jie,14,t144,Marseille,2016-08-31
+p37998,Bafétimbi Gomis,18,t144,Marseille,2016-07-29
+p185727,Aaron Leya Iseka,22,t144,Marseille,2016-07-23
+p221456,Antoine Rabillard,28,t144,Marseille,2016-01-01
+p194300,Jérémie Porsan-Clemente,32,t144,Marseille,2014-07-01
+p165457,Thomas Didillon,1,t145,Metz,2013-07-01
+p19739,Eiji Kawashima,16,t145,Metz,2016-08-01
+p83280,David Oberhauser,30,t145,Metz,2014-07-07
+p242205,Lemouya Goudiaby,Unknown,t145,Metz,2016-10-15
+p423869,Theodore Efouba Ayissi,Unknown,t145,Metz,2017-05-18
+p219145,Oumar Gonzalez,Unknown,t145,Metz,2016-07-01
+p193518,Mederic Deher,Unknown,t145,Metz,2014-08-01
+p221987,Matthieu Udol,3,t145,Metz,2015-07-01
+p61678,Fallou Diagne,3,t145,Metz,2017-01-10
+p133633,Guido Milán,5,t145,Metz,2012-09-01
+p39490,Milan Bisevac,6,t145,Metz,2016-08-25
+p108988,Simon Falette,6,t145,Metz,2016-07-01
+p12400,Franck Signorino,13,t145,Metz,2016-07-01
+p232181,Vahid Selimovic,15,t145,Metz,2016-07-01
+p233469,Nicolas Basin,22,t145,Metz,2016-07-01
+p116692,Chris Philipps,23,t145,Metz,2012-05-01
+p97624,Iván Balliu,25,t145,Metz,2015-07-17
+p80800,Jonathan Rivierez,28,t145,Metz,2014-07-01
+p28146,Benoit Assou-Ekotto,32,t145,Metz,2016-08-16
+p167454,Hamza Sakhi,Unknown,t145,Metz,2015-08-20
+p421128,Boris Mathis,Unknown,t145,Metz,2017-04-01
+p158771,Janis Ikaunieks,Unknown,t145,Metz,2015-01-01
+p214255,Lucas Toussaint,Unknown,t145,Metz,2013-07-01
+p244490,Youssef Maziz,Unknown,t145,Metz,2016-07-01
+p44379,Yann Jouffre,8,t145,Metz,2016-07-01
+p232182,Gauthier Hein,8,t145,Metz,2016-07-01
+p78323,Cheick Doukouré,10,t145,Metz,2014-07-01
+p124148,Opa Nguette,11,t145,Metz,2016-07-01
+p43455,Georges Mandjeck,14,t145,Metz,2015-08-31
+p225190,Vincent Thill,18,t145,Metz,2016-07-01
+p116627,Florent Mollet,19,t145,Metz,2016-07-01
+p232184,Alexis Larriere,20,t145,Metz,2016-07-01
+p37743,Kévin Lejeune,22,t145,Metz,2012-08-12
+p37765,Renaud Cohade,24,t145,Metz,2016-07-07
+p232185,Ismaila Sarr,26,t145,Metz,2016-07-13
+p19510,Mevlüt Erdinc,9,t145,Metz,2016-07-01
+p111315,Thibaut Vion,15,t145,Metz,2014-01-30
+p33103,Cheick Diabaté,18,t145,Metz,2017-01-04
+p214254,Habib Diallo,20,t145,Metz,2015-07-01
+p60582,Danijel Subasic,1,t146,Monaco,2012-01-24
+p7446,Morgan De Sanctis,16,t146,Monaco,2016-07-14
+p192291,Seydou Sy,30,t146,Monaco,2014-07-01
+p218389,Loic Badiashile,40,t146,Monaco,2016-07-01
+p209853,Dinis Almeida,Unknown,t146,Monaco,2016-07-01
+p422230,Kouadio Dabila,Unknown,t146,Monaco,2016-07-01
+p49272,Elderson Echiéjilé,Unknown,t146,Monaco,2014-01-17
+p240132,Safwan Mbae,Unknown,t146,Monaco,2016-07-01
+p210133,Raphael Diarra,Unknown,t146,Monaco,2015-10-01
+p162654,Jemerson,5,t146,Monaco,2016-01-31
+p218796,Kevin N'Doram,6,t146,Monaco,2015-10-22
+p181978,Jorge,6,t146,Monaco,2017-01-31
+p102747,Djibril Sidibe,19,t146,Monaco,2016-07-01
+p102826,Benjamin Mendy,23,t146,Monaco,2016-07-01
+p232191,Pierre-Daniel N'Guinda N'Diffon,23,t146,Monaco,2016-07-01
+p15930,Andrea Raggi,24,t146,Monaco,2012-07-01
+p71403,Kamil Glik,25,t146,Monaco,2016-07-05
+p178478,Abdou Diallo,34,t146,Monaco,2014-07-19
+p216925,Mehdi Beneddine,36,t146,Monaco,2016-07-01
+p192292,Almamy Touré,38,t146,Monaco,2014-07-01
+p219422,Yhoan Andzouana,Unknown,t146,Monaco,2015-07-01
+p240136,Tristan Muyumba Nkita,Unknown,t146,Monaco,2016-07-01
+p216054,Rúben Vinagre,Unknown,t146,Monaco,2016-07-01
+p247116,Dylan Beaulieu,Unknown,t146,Monaco,2016-07-01
+p222438,Corentin Tirard,Unknown,t146,Monaco,2015-07-01
+p116643,Fabinho,2,t146,Monaco,2013-07-19
+p54930,Nabil Dirar,7,t146,Monaco,2012-01-31
+p170137,Allan Saint-Maximin,7,t146,Monaco,2015-07-30
+p109653,Rony Lopes,7,t146,Monaco,2015-08-28
+p19624,João Moutinho,8,t146,Monaco,2013-07-01
+p165809,Bernardo Silva,10,t146,Monaco,2015-01-21
+p198065,Adama Traoré,11,t146,Monaco,2015-07-10
+p169102,Tiemoué Bakayoko,14,t146,Monaco,2014-07-25
+p214472,Youssef Aït Bennasser,15,t146,Monaco,2016-07-01
+p172987,Gabriel Boschilia,26,t146,Monaco,2015-08-10
+p167449,Thomas Lemar,27,t146,Monaco,2015-07-01
+p219230,Gil Dias,31,t146,Monaco,2015-07-01
+p213967,Jonathan Mexique,44,t146,Monaco,2015-10-01
+p221652,Mohamed Ilyes Chaibi,Unknown,t146,Monaco,2015-07-01
+p240146,Adrien Bongiovanni,Unknown,t146,Monaco,2016-07-01
+p56345,Lacina Traoré,Unknown,t146,Monaco,2014-01-04
+p48847,Radamel Falcao,9,t146,Monaco,2013-07-01
+p220160,Kylian Mbappé,10,t146,Monaco,2015-07-01
+p98914,Guido Carrillo,11,t146,Monaco,2015-07-03
+p97041,Valère Germain,18,t146,Monaco,2010-07-01
+p126177,Corentin Jean,28,t146,Monaco,2015-07-02
+p240145,Irvin Cardona,37,t146,Monaco,2016-07-01
+p9999,Laurent Pionnier,1,t147,Montpellier,2002-08-01
+p209218,Dimitry Bertaud,16,t147,Montpellier,2015-04-25
+p44476,Geoffrey Jourdren,16,t147,Montpellier,2006-07-01
+p86598,Jonathan Ligali,30,t147,Montpellier,2010-08-01
+p185473,Mamadou N'Diaye,2,t147,Montpellier,2015-01-01
+p38002,Daniel Congré,3,t147,Montpellier,2012-07-01
+p28136,Hilton,4,t147,Montpellier,2011-08-02
+p170443,Lukas Pokorny,12,t147,Montpellier,2017-01-23
+p245750,Bryan Passi,15,t147,Montpellier,2016-07-01
+p57263,William Remy,21,t147,Montpellier,2015-07-01
+p200834,Nordi Mukiele,23,t147,Montpellier,2017-01-06
+p93289,Jérôme Roussillon,24,t147,Montpellier,2015-02-01
+p89518,Mathieu Deplagne,25,t147,Montpellier,2010-10-01
+p235862,Morgan Poaty,26,t147,Montpellier,2016-09-09
+p40682,Cédric Mongongu,27,t147,Montpellier,2016-10-08
+p244181,Alexandre Llovet,Unknown,t147,Montpellier,2016-11-24
+p90255,Yacouba Sylla,5,t147,Montpellier,2016-08-25
+p37831,Joris Marveaux,6,t147,Montpellier,2008-07-01
+p72177,Paul Lasne,7,t147,Montpellier,2014-07-01
+p55264,Ryad Boudebouz,10,t147,Montpellier,2015-07-07
+p204454,Isaac Mbenza,10,t147,Montpellier,2017-01-31
+p199672,Jonathan Ikone,11,t147,Montpellier,2017-01-18
+p195430,Ellyes Skhiri,13,t147,Montpellier,2014-07-01
+p219107,Pierrick Fito,17,t147,Montpellier,2015-07-01
+p228361,Keagan Dolly,20,t147,Montpellier,2017-01-27
+p219079,Killian Sanson,22,t147,Montpellier,2016-07-01
+p34392,Stéphane Sessegnon,28,t147,Montpellier,2016-09-26
+p80485,Kévin Berigaud,11,t147,Montpellier,2014-07-01
+p169141,Steve Mounie,15,t147,Montpellier,2013-08-01
+p10955,Souleymane Camara,19,t147,Montpellier,2007-07-01
+p216438,Casimir Ninga,29,t147,Montpellier,2015-07-01
+p63600,Sergey Chernik,1,t148,Nancy,2016-07-01
+p38816,Guy NDy Assembe,16,t148,Nancy,2011-08-02
+p174598,Alexandre Menay,30,t148,Nancy,2013-08-31
+p152337,Tobias Badila,3,t148,Nancy,2013-01-22
+p170034,Modou Diagne,4,t148,Nancy,2013-08-30
+p247120,Ryan Bidounga,5,t148,Nancy,2016-07-01
+p80799,Joffrey Cuffaut,14,t148,Nancy,2013-07-01
+p49169,Michael Basser Chretien,20,t148,Nancy,2015-07-24
+p169586,Erick Cabaco,24,t148,Nancy,2016-08-27
+p43024,Vincent Muratori,26,t148,Nancy,2012-07-30
+p54911,Julien Cetout,28,t148,Nancy,2014-09-01
+p8742,Alou Diarra,5,t148,Nancy,2016-09-01
+p214472,Youssef Aït Bennasser,6,t148,Nancy,2016-07-02
+p38008,Antony Robic,7,t148,Nancy,2015-07-01
+p209874,Vincent Marchetti,8,t148,Nancy,2016-07-17
+p422474,Amine Bassi,10,t148,Nancy,2016-07-01
+p210460,Serge N'Guessan,13,t148,Nancy,2016-07-01
+p214473,Faitout Maouassa,17,t148,Nancy,2015-07-01
+p49275,Diallo Guidileye,18,t148,Nancy,2015-07-14
+p93498,Loïc Puyo,19,t148,Nancy,2015-07-06
+p9980,Benoit Pedretti,25,t148,Nancy,2015-08-01
+p162315,Alexis Busin,27,t148,Nancy,2013-05-18
+p51327,Junior Dalé,9,t148,Nancy,2014-07-01
+p39379,Issiar Dia,10,t148,Nancy,2016-08-31
+p154022,Karim Coulibaly,11,t148,Nancy,2012-07-01
+p44314,Christophe Mandanne,12,t148,Nancy,2016-07-05
+p205551,Yann Mabella,14,t148,Nancy,2015-02-25
+p27670,Youssouf Hadji,15,t148,Nancy,2014-07-01
+p97290,Anthony Koura,23,t148,Nancy,2016-07-05
+p37838,Rémy Riou,1,t430,Nantes,2012-07-01
+p97288,Maxime Dupé,1,t430,Nantes,2011-05-01
+p216610,Alexandre Olliero,16,t430,Nantes,2015-07-01
+p220110,Quentin Braat,40,t430,Nantes,2015-07-01
+p135285,David Alcibiade,2,t430,Nantes,2012-10-01
+p165659,Diego Carlos,3,t430,Nantes,2016-07-01
+p33946,Oswaldo Vizcarrondo,4,t430,Nantes,2013-07-03
+p102766,Koffi Djidji,5,t430,Nantes,2011-07-27
+p116536,Lucas Lima,6,t430,Nantes,2016-07-01
+p49381,Wilfried Moimbé,13,t430,Nantes,2015-07-01
+p183779,Léo Dubois,15,t430,Nantes,2014-04-20
+p215046,Enock Kwateng,25,t430,Nantes,2015-07-01
+p200722,Anthony Walongwa,26,t430,Nantes,2014-07-01
+p119735,Jules Iloki,7,t430,Nantes,2012-07-01
+p115961,Adrien Thomasson,8,t430,Nantes,2015-07-01
+p42518,Alexander Kacaniklic,11,t430,Nantes,2016-07-01
+p229608,Amine Harit,14,t430,Nantes,2016-07-01
+p247693,Randal Kolo Muani,15,t430,Nantes,2016-07-01
+p158496,Abdoulaye Touré,19,t430,Nantes,2013-04-01
+p78638,Sérgio Oliveira,23,t430,Nantes,2017-01-31
+p218666,Alexis Alegue,24,t430,Nantes,2015-06-01
+p42586,Guillaume Gillet,27,t430,Nantes,2016-01-01
+p193539,Valentin Rongier,28,t430,Nantes,2014-08-01
+p103124,Emiliano Sala,9,t430,Nantes,2015-07-20
+p193409,Yacine Bammou,10,t430,Nantes,2014-07-01
+p108143,Mariusz Stepinski,18,t430,Nantes,2016-08-18
+p149695,Felipe Pardo,20,t430,Nantes,2017-01-11
+p85416,Prejuce Nakoulma,22,t430,Nantes,2017-01-31
+p83758,Kolbeinn Sigthorsson,31,t430,Nantes,2015-07-02
+p115357,Mouez Hassen,1,t1395,Nice,2012-07-01
+p27663,Simon Pouplin,16,t1395,Nice,2014-07-01
+p115851,Yoan Cardinale,30,t1395,Nice,2013-07-01
+p121709,Walter Benítez,40,t1395,Nice,2016-07-01
+p78275,Arnaud Souquet,2,t1395,Nice,2016-07-25
+p141109,Gautier Lloris,3,t1395,Nice,2012-08-01
+p37758,Paul Baysse,4,t1395,Nice,2016-07-01
+p232197,Patrick Burner,15,t1395,Nice,2016-07-01
+p61739,Maxime Le Marchand,20,t1395,Nice,2015-07-01
+p111931,Ricardo Pereira,21,t1395,Nice,2015-08-31
+p244560,Romain Perraud,22,t1395,Nice,2016-12-07
+p204727,Malang Sarr,23,t1395,Nice,2016-07-01
+p204120,Olivier Boscagli,28,t1395,Nice,2014-07-01
+p212752,Dalbert,29,t1395,Nice,2016-07-06
+p26894,Dante,31,t1395,Nice,2016-08-22
+p208560,Hicham Mahou,Unknown,t1395,Nice,2016-12-07
+p37974,Mounir Obbadi,Unknown,t1395,Nice,2017-01-31
+p66959,Younès Belhanda,5,t1395,Nice,2016-08-31
+p153649,Remi Walter,6,t1395,Nice,2016-01-16
+p170271,Jean Michael Seri,6,t1395,Nice,2015-07-01
+p245496,Bassem Srarfi,11,t1395,Nice,2017-01-31
+p133747,Albert Rafetraniaina,12,t1395,Nice,2012-09-01
+p91070,Valentin Eysseric,13,t1395,Nice,2013-01-10
+p115370,Bryan Constant,19,t1395,Nice,2012-07-01
+p233498,Vincent Marcel,19,t1395,Nice,2016-07-01
+p193417,Arnaud Lusamba,22,t1395,Nice,2016-07-19
+p110903,Alexy Bosetti,23,t1395,Nice,2011-07-01
+p151873,Wylan Cyprien,25,t1395,Nice,2016-07-27
+p194141,Vincent Koziello,26,t1395,Nice,2014-07-01
+p172841,Said Benrahma,Unknown,t1395,Nice,2013-10-01
+p42493,Mario Balotelli,9,t1395,Nice,2016-08-31
+p83279,Mickael Le Bihan,10,t1395,Nice,2015-08-31
+p108168,Alassane Pléa,14,t1395,Nice,2014-08-28
+p204184,Anastasios Donis,22,t1395,Nice,2016-06-20
+p221626,Dorian Caddy,27,t1395,Nice,2015-07-01
+p213199,Remy Descamps,Unknown,t149,Paris SG,2015-07-01
+p84182,Alphonse Areola,16,t149,Paris SG,2010-07-01
+p52482,Kevin Trapp,30,t149,Paris SG,2015-07-08
+p21155,Salvatore Sirigu,30,t149,Paris SG,2011-07-28
+p164474,Youssouf Sabaly,Unknown,t149,Paris SG,2013-07-01
+p51090,Thiago Silva,2,t149,Paris SG,2012-07-13
+p129479,Presnel Kimpembe,3,t149,Paris SG,2014-08-01
+p116406,Marquinhos,5,t149,Paris SG,2013-07-19
+p93605,Thomas Meunier,12,t149,Paris SG,2016-07-03
+p9809,Maxwell,17,t149,Paris SG,2012-01-12
+p80226,Serge Aurier,19,t149,Paris SG,2014-07-23
+p89068,Layvin Kurzawa,20,t149,Paris SG,2015-08-27
+p102660,Kevin Rimane,32,t149,Paris SG,2015-01-01
+p199663,Alec Georgen,39,t149,Paris SG,2016-02-01
+p423151,Gaëtan Robail,Unknown,t149,Paris SG,2017-05-13
+p172984,Gustavo Hebling,Unknown,t149,Paris SG,2015-08-27
+p199672,Jonathan Ikone,Unknown,t149,Paris SG,2016-07-01
+p212950,Lorenzo Callegari,Unknown,t149,Paris SG,2016-07-01
+p73494,Grzegorz Krychowiak,4,t149,Paris SG,2016-07-03
+p61170,Marco Verratti,6,t149,Paris SG,2012-07-17
+p95715,Lucas Moura,7,t149,Paris SG,2013-01-01
+p11527,Thiago Motta,8,t149,Paris SG,2012-01-31
+p46497,Ángel Di María,11,t149,Paris SG,2015-08-06
+p37971,Blaise Matuidi,14,t149,Paris SG,2011-07-25
+p200826,Giovani Lo Celso,18,t149,Paris SG,2016-07-26
+p18753,Hatem Ben Arfa,21,t149,Paris SG,2016-07-01
+p92985,Julian Draxler,23,t149,Paris SG,2017-01-03
+p213198,Christopher Nkunku,24,t149,Paris SG,2015-07-01
+p120743,Adrien Rabiot,25,t149,Paris SG,2012-07-03
+p54782,Javier Pastore,27,t149,Paris SG,2011-08-06
+p225903,Antoine Bernede,28,t149,Paris SG,2016-06-01
+p198523,Jean-Kévin Augustin,29,t149,Paris SG,2014-07-01
+p93496,Jean-Christophe Bahebeck,Unknown,t149,Paris SG,2011-01-28
+p199670,Odsonne Edouard,Unknown,t149,Paris SG,2015-07-01
+p181284,Gonçalo Guedes,Unknown,t149,Paris SG,2017-01-25
+p93127,Jesé,Unknown,t149,Paris SG,2016-08-08
+p40720,Edinson Cavani,9,t149,Paris SG,2013-07-16
+p42713,Benoit Costil,1,t150,Rennes,2011-07-01
+p79625,Abdoulaye Diallo,16,t150,Rennes,2009-11-20
+p28549,Rais M'bolhi,16,t150,Rennes,2017-01-23
+p167054,Edvinas Gertmonas,30,t150,Rennes,2015-02-01
+p247439,Romain Cagnon,40,t150,Rennes,2017-01-01
+p220646,Sega Coulibaly,Unknown,t150,Rennes,2015-07-01
+p169019,Dimitri Kevin Cavaré,Unknown,t150,Rennes,2015-02-02
+p111002,Mehdi Zeffane,2,t150,Rennes,2015-08-12
+p80357,Mexer,4,t150,Rennes,2014-07-01
+p106821,Pedro Mendes,5,t150,Rennes,2015-07-01
+p218705,Joris Gnagnon,5,t150,Rennes,2015-07-01
+p189791,Ramy Bensebaini,15,t150,Rennes,2016-07-05
+p84361,Ermir Lenjani,17,t150,Rennes,2015-01-07
+p6701,Sylvain Armand,22,t150,Rennes,2013-07-01
+p37776,Ludovic Baal,24,t150,Rennes,2015-07-01
+p189562,Afonso Figueiredo,25,t150,Rennes,2016-07-01
+p217992,Jeremy Gelin,26,t150,Rennes,2014-07-01
+p37938,Romain Danzé,29,t150,Rennes,2002-08-01
+p244754,Namakoro Diallo,36,t150,Rennes,2016-07-01
+p194299,Anthony Ribelin,Unknown,t150,Rennes,2016-07-01
+p38438,Clément Chantôme,Unknown,t150,Rennes,2016-07-01
+p39680,Gelson Fernandes,6,t150,Rennes,2014-08-05
+p106551,Sanjin Prcic,10,t150,Rennes,2014-07-31
+p244842,James Lea Siliki,12,t150,Rennes,2016-12-16
+p37962,Morgan Amalfitano,18,t150,Rennes,2017-01-31
+p55948,Benjamin André,21,t150,Rennes,2014-07-01
+p161472,Adrien Hunou,23,t150,Rennes,2013-05-11
+p215755,Denis Poha,28,t150,Rennes,2015-07-01
+p27669,Yoann Gourcuff,28,t150,Rennes,2015-09-14
+p217993,Nicolas Janvier,35,t150,Rennes,2015-07-01
+p221441,Sebastien Salles-Lamonge,38,t150,Rennes,2015-07-01
+p90255,Yacouba Sylla,39,t150,Rennes,2015-06-22
+p199734,Firmin Ndombe Mubele,9,t150,Rennes,2017-01-30
+p161034,Wesley Said,11,t150,Rennes,2013-05-04
+p42484,Giovanni Sio,13,t150,Rennes,2015-06-30
+p213401,Aldo Kalulu,14,t150,Rennes,2017-01-09
+p233497,Adama Diakhaby,17,t150,Rennes,2016-07-04
+p52317,Kermit Erasmus,34,t150,Rennes,2016-01-28
+p214042,Anthony Maisonnial,1,t152,Saint-Étienne,2015-07-01
+p38314,Stéphane Ruffier,16,t152,Saint-Étienne,2011-07-01
+p37990,Jessy Moulin,30,t152,Saint-Étienne,2006-08-01
+p240185,Alexis Guendouz,40,t152,Saint-Étienne,2016-09-14
+p245742,Mickael Nade,Unknown,t152,Saint-Étienne,2017-01-01
+p115846,Jerrold Nyemeck,Unknown,t152,Saint-Étienne,2013-07-01
+p58636,Kévin Théophile-Catherine,2,t152,Saint-Étienne,2015-07-01
+p112323,Pierre-Yves Polomat,3,t152,Saint-Étienne,2011-07-01
+p83577,Léo Lacroix,4,t152,Saint-Étienne,2016-08-31
+p45136,Cheikh M'Bengue,12,t152,Saint-Étienne,2016-07-20
+p79237,Florentin Pogba,19,t152,Saint-Étienne,2012-09-03
+p19670,Loic Perrin,24,t152,Saint-Étienne,2002-08-01
+p83340,Kevin Malcuit,25,t152,Saint-Étienne,2015-08-28
+p220074,Ronael Pierre Gabriel,29,t152,Saint-Étienne,2015-11-01
+p115845,Benjamin Karamoko,32,t152,Saint-Étienne,2012-07-01
+p245915,Kenny Rocha Santos,Unknown,t152,Saint-Étienne,2017-01-12
+p241099,Rayan Souici,Unknown,t152,Saint-Étienne,2016-09-28
+p85548,Vincent Pajot,5,t152,Saint-Étienne,2015-07-01
+p18635,Jérémy Clément,6,t152,Saint-Étienne,2011-07-25
+p83561,Bryan Dabo,7,t152,Saint-Étienne,2016-07-01
+p86446,Benjamin Corgnet,8,t152,Saint-Étienne,2013-07-12
+p43521,Henri Saivet,11,t152,Saint-Étienne,2016-08-24
+p173253,Habib Maïga,13,t152,Saint-Étienne,2015-01-18
+p96740,Jordan Veretout,14,t152,Saint-Étienne,2016-08-24
+p216584,Erin Pinheiro,15,t152,Saint-Étienne,2015-07-01
+p101494,Ole Selnaes,17,t152,Saint-Étienne,2016-01-29
+p43553,Fabien Lemoine,18,t152,Saint-Étienne,2011-08-11
+p235050,Arnaud Nordin,18,t152,Saint-Étienne,2016-08-01
+p67276,Romain Hamouma,21,t152,Saint-Étienne,2012-07-18
+p204150,Dylan Saint-Louis,Unknown,t152,Saint-Étienne,2014-07-01
+p136377,Jorginho,Unknown,t152,Saint-Étienne,2017-01-31
+p422089,Lamine Ghezali,Unknown,t152,Saint-Étienne,2016-07-01
+p115382,Neal Maupay,Unknown,t152,Saint-Étienne,2015-08-10
+p221717,Hamidou Keyta,Unknown,t152,Saint-Étienne,2016-07-01
+p51525,Nolan Roux,9,t152,Saint-Étienne,2015-07-21
+p195883,Jonathan Bamba,14,t152,Saint-Étienne,2014-08-31
+p38261,Kévin Monnet-Paquet,22,t152,Saint-Étienne,2014-07-01
+p63100,Alexander Søderlund,23,t152,Saint-Étienne,2016-01-04
+p124182,Oussama Tannane,25,t152,Saint-Étienne,2016-01-12
+p55711,Robert Beric,27,t152,Saint-Étienne,2015-08-31
+p132197,Mauro Goicoechea,1,t427,Toulouse,2015-07-14
+p74299,Marc Vidal,16,t427,Toulouse,2009-08-01
+p204739,Alban Lafont,40,t427,Toulouse,2015-07-01
+p217596,Kelvin Amian,2,t427,Toulouse,2015-07-01
+p120773,Yrondu Musavu-King,3,t427,Toulouse,2016-08-31
+p219924,Issa Diop,5,t427,Toulouse,2015-07-01
+p114546,Christopher Jullien,6,t427,Toulouse,2016-07-01
+p104359,Jean-Daniel Akpa Akpro,7,t427,Toulouse,2011-08-01
+p145221,Issiaga Sylla,12,t427,Toulouse,2012-11-01
+p229605,Clement Michelin,13,t427,Toulouse,2016-07-01
+p118910,Uros Spajic,15,t427,Toulouse,2013-07-01
+p105706,Steeve Yago,20,t427,Toulouse,2011-08-31
+p49912,Dusan Veskovac,22,t427,Toulouse,2014-01-29
+p50351,Pavle Ninkov,24,t427,Toulouse,2011-07-01
+p100954,François Moubandje,29,t427,Toulouse,2013-09-02
+p111678,Dominik Furman,Unknown,t427,Toulouse,2014-01-16
+p60163,Tongo Doumbia,4,t427,Toulouse,2014-08-29
+p210415,Zinedine Machach,7,t427,Toulouse,2015-01-31
+p219002,Dodi Lukebakio,8,t427,Toulouse,2016-08-31
+p40721,Óscar Trejo,10,t427,Toulouse,2013-07-18
+p6294,Pantxi Sirieix,14,t427,Toulouse,2002-08-01
+p210462,Ibrahim Sangaré,17,t427,Toulouse,2016-07-05
+p101779,Somália,19,t427,Toulouse,2015-08-07
+p61704,Jimmy Durmaz,21,t427,Toulouse,2016-08-20
+p194302,Yann Bodiger,23,t427,Toulouse,2014-08-09
+p168434,Jessy Pi,25,t427,Toulouse,2016-07-01
+p220494,Quentin Boisgard,26,t427,Toulouse,2015-12-01
+p217597,Mathieu Cafaro,26,t427,Toulouse,2015-07-01
+p201392,Alexis Blin,27,t427,Toulouse,2014-09-01
+p93989,Aleksandar Pesic,8,t427,Toulouse,2014-07-01
+p68690,Martin Braithwaite,9,t427,Toulouse,2013-08-16
+p73965,Andy Delort,10,t427,Toulouse,2017-01-27
+p52154,Ola Toivonen,11,t427,Toulouse,2016-08-04
+p126177,Corentin Jean,15,t427,Toulouse,2017-01-23
+p199670,Odsonne Edouard,18,t427,Toulouse,2016-08-08
+p247117,Habib Oueslati,Unknown,t2128,Angers,2016-07-01
+p221442,Matteo Petitgenet,Unknown,t2128,Angers,2015-07-01
+p243742,Ronan Touzet,Unknown,t2128,Angers,2016-11-18
+p101232,Jonas Pessalli,Unknown,t2128,Angers,2012-07-01
+p44408,Ibrahima Diallo,Unknown,t2128,Angers,2012-07-01
+p107613,Romain Saïss,28,t2128,Angers,2015-07-01
+p242165,Lucas Triki,Unknown,t139,Bastia,2016-10-01
+p203025,Julien Benhaim,Unknown,t139,Bastia,2014-07-01
+p95461,Thievy,13,t139,Bastia,2016-07-28
+p106272,Isaac Thelin,Unknown,t140,Bordeaux,2015-01-21
+p242514,Christopher Operi,Unknown,t1028,Caen,2016-10-22
+p50148,Johan Gastien,22,t2130,Dijon,2013-07-01
+p110347,Quentin Bernard,5,t2130,Dijon,2015-07-01
+p210207,Fousseni Diabaté,Unknown,t428,Guingamp,2016-07-01
+p219100,Alexis Mane,Unknown,t428,Guingamp,2015-07-01
+p235215,Victor Mouangue Kingue,Unknown,t428,Guingamp,2016-07-01
+p48603,Ronnie Schwartz,Unknown,t428,Guingamp,2014-06-12
+p232173,Clement Petrel,Unknown,t429,Lille,2016-07-01
+p245632,Olivier Lesueur,Unknown,t429,Lille,2017-01-01
+p247036,Ryad Habbas,Unknown,t429,Lille,2016-07-01
+p245633,Emmanuel Debordeaux,Unknown,t429,Lille,2017-01-01
+p61529,Ryan Mendes,20,t429,Lille,2012-09-02
+p31878,Renato Civelli,5,t429,Lille,2015-07-01
+p202675,Benjamin Pavard,28,t429,Lille,2015-01-14
+p128198,Sofiane Boufal,7,t429,Lille,2015-01-14
+p234518,Alexandre Lavenant,Unknown,t694,Lorient,2016-07-01
+p131259,Moryke Fofana,23,t694,Lorient,2015-07-25
+p144660,Didier Ndong,7,t694,Lorient,2014-01-01
+p213400,Maxime D'Arpino,Unknown,t143,Lyon,2015-07-01
+p56674,Gueida Fofana,6,t143,Lyon,2011-09-01
+p199667,Timothe Cognat,Unknown,t143,Lyon,2016-07-01
+p185353,Eirik Haugan,Unknown,t144,Marseille,2015-08-28
+p20468,Lass Diarra,10,t144,Marseille,2015-07-02
+p221455,Julien Da Costa,Unknown,t144,Marseille,2016-01-01
+p86140,Romain Alessandrini,11,t144,Marseille,2014-07-01
+p168566,Georges-Kévin Nkoudou,14,t144,Marseille,2015-07-01
+p240286,Moussa Seydi,Unknown,t145,Metz,2016-09-01
+p119704,Fadil Sido,2,t145,Metz,2014-01-05
+p230178,Popoola Saliu,28,t145,Metz,2016-07-01
+p115084,Kwame Nsor,Unknown,t145,Metz,2013-09-02
+p168435,Marcel Tisserand,32,t146,Monaco,2013-07-01
+p18693,Vágner Love,39,t146,Monaco,2016-01-09
+p166324,Ivan Cavaleiro,17,t146,Monaco,2015-07-11
+p18679,Anthony Vanden Borre,20,t147,Montpellier,2016-07-08
+p93835,Dylan Gissi,35,t147,Montpellier,2014-08-01
+p171101,Clément Lenglet,2,t148,Nancy,2013-09-01
+p175598,Romain Bauchet,Unknown,t148,Nancy,2013-11-01
+p148616,Fernando Aristeguieta,2,t430,Nantes,2013-01-08
+p76507,Nicolaj Thomsen,23,t430,Nantes,2016-07-01
+p16106,Lorik Cana,5,t430,Nantes,2015-08-31
+p146603,Julien Vercauteren,7,t1395,Nice,2014-07-01
+p244563,Joakim Balmy,Unknown,t1395,Nice,2016-11-07
+p244561,William Suaut,Unknown,t1395,Nice,2016-12-07
+p115363,Lucas Rougeaux,15,t1395,Nice,2012-07-01
+p56842,Kevin Gomis,5,t1395,Nice,2011-07-01
+p129497,Hervin Ongenda,35,t149,Paris Saint-Germain,2012-07-01
+p225897,Fode Ballo-Toure,Unknown,t149,Paris Saint-Germain,2016-07-01
+p41270,David Luiz,32,t149,Paris Saint-Germain,2014-06-10
+p80710,Benjamin Stambouli,4,t149,Paris Saint-Germain,2015-07-20
+p49957,Kamil Grosicki,10,t150,Rennes,2014-01-24
+p55250,Christian Brüls,37,t150,Rennes,2014-07-30
+p54685,Mouhamadou Habib Habibou,38,t150,Rennes,2014-09-04
+p111516,Pedro Henrique,18,t150,Rennes,2014-07-01
+p90126,Paul-Georges Ntep,7,t150,Rennes,2014-01-28
+p107098,Paul Nardi,Unknown,t150,Rennes,2016-07-01
+p40832,Anthony Mounier,Unknown,t152,St Etienne,2017-01-27
+p244204,Benjamin Aulagnier,Unknown,t152,St Etienne,2016-11-25
+p229921,Clement Cabaton,Unknown,t152,St Etienne,2016-07-01
+p55134,Yohan Mollo,20,t152,St Etienne,2013-09-01
+p243743,Quentin Depehi,Unknown,t427,Toulouse,2016-11-01
+p199669,Maxime Pelican,Unknown,t427,Toulouse,2016-07-01

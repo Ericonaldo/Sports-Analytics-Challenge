@@ -1,0 +1,84 @@
+player_id,player_name,old_team_id,old_team_name,leave_date,new_team_name
+p247117,Habib Oueslati,t2128,Angers,2017-02-01,Tunisia U21
+p221442,Matteo Petitgenet,t2128,Angers,2017-02-01,
+p243742,Ronan Touzet,t2128,Angers,2017-02-01,
+p101232,Jonas Pessalli,t2128,Angers,2016-11-05,Neftchi Baku
+p44408,Ibrahima Diallo,t2128,Angers,2016-10-13,
+p107613,Romain Saïss,t2128,Angers,2016-08-30,Wolverhampton Wanderers
+p242165,Lucas Triki,t139,Bastia,2017-02-01,
+p203025,Julien Benhaim,t139,Bastia,2017-02-01,Bastia Youth
+p95461,Thievy,t139,Bastia,2017-01-17,Osmanlispor
+p57129,Mathieu Peybernes,t139,Bastia,2017-01-11,Lorient
+p56995,Grégory Sertic,t140,Bordeaux,2017-01-30,Marseille
+p106272,Isaac Thelin,t140,Bordeaux,2017-01-05,RSC Anderlecht
+p242514,Christopher Operi,t1028,Caen,2017-02-01,Châteauroux
+p73965,Andy Delort,t1028,Caen,2016-08-31,Tigres
+p50148,Johan Gastien,t2130,Dijon,2017-01-23,Brest
+p110347,Quentin Bernard,t2130,Dijon,2017-01-01,Brest
+p210207,Fousseni Diabaté,t428,Guingamp,2017-02-01,GFC Ajaccio
+p219100,Alexis Mane,t428,Guingamp,2017-02-01,
+p235215,Victor Mouangue Kingue,t428,Guingamp,2017-02-01,
+p48603,Ronnie Schwartz,t428,Guingamp,2016-08-12,Waasland-Beveren
+p232173,Clement Petrel,t429,Lille,2017-02-01,
+p245632,Olivier Lesueur,t429,Lille,2017-02-01,
+p247036,Ryad Habbas,t429,Lille,2017-02-01,
+p245633,Emmanuel Debordeaux,t429,Lille,2017-02-01,
+p37962,Morgan Amalfitano,t429,Lille,2017-01-31,Rennes
+p61529,Ryan Mendes,t429,Lille,2017-01-31,Kayserispor
+p37974,Mounir Obbadi,t429,Lille,2017-01-31,Nice
+p48768,Younousse Sankharé,t429,Lille,2017-01-30,Bordeaux
+p31878,Renato Civelli,t429,Lille,2017-01-01,Banfield
+p202675,Benjamin Pavard,t429,Lille,2016-08-30,VfB Stuttgart
+p128198,Sofiane Boufal,t429,Lille,2016-08-29,Southampton
+p234518,Alexandre Lavenant,t694,Lorient,2017-02-01,
+p131259,Moryke Fofana,t694,Lorient,2017-01-09,Konyaspor
+p144660,Didier Ndong,t694,Lorient,2016-08-31,Sunderland
+p213400,Maxime D'Arpino,t143,Lyon,2017-02-01,Orléans
+p56674,Gueida Fofana,t143,Lyon,2017-01-18,
+p199667,Timothe Cognat,t143,Lyon,2017-01-09,
+p185353,Eirik Haugan,t144,Marseille,2017-04-04,
+p20468,Lass Diarra,t144,Marseille,2017-02-14,Paris Saint-Germain
+p221455,Julien Da Costa,t144,Marseille,2017-02-01,Niort
+p86140,Romain Alessandrini,t144,Marseille,2017-01-30,LA Galaxy
+p168566,Georges-Kévin Nkoudou,t144,Marseille,2016-08-31,Tottenham Hotspur
+p240286,Moussa Seydi,t145,Metz,2017-01-01,Fola Esch
+p119704,Fadil Sido,t145,Metz,2016-09-27,
+p230178,Popoola Saliu,t145,Metz,2016-09-19,
+p115084,Kwame Nsor,t145,Metz,2016-08-31,União da Madeira
+p161039,Fares Bahlouli,t146,Monaco,2017-01-31,Lille
+p168435,Marcel Tisserand,t146,Monaco,2016-08-31,FC Ingolstadt 04
+p18693,Vágner Love,t146,Monaco,2016-08-31,Alanyaspor
+p166324,Ivan Cavaleiro,t146,Monaco,2016-08-31,Wolverhampton Wanderers
+p106884,Nicolas Saint-Ruf,t147,Montpellier,2017-01-24,Bastia
+p122775,Morgan Sanson,t147,Montpellier,2017-01-17,Marseille
+p18679,Anthony Vanden Borre,t147,Montpellier,2017-01-10,
+p93835,Dylan Gissi,t147,Montpellier,2016-09-12,Rosario Central
+p44485,Jamel Saihi,t147,Montpellier,2016-08-31,Angers
+p171101,Clément Lenglet,t148,Nancy,2017-01-04,Sevilla
+p175598,Romain Bauchet,t148,Nancy,2016-08-26,
+p148616,Fernando Aristeguieta,t430,Nantes,2017-01-31,CD Nacional
+p76507,Nicolaj Thomsen,t430,Nantes,2017-01-12,FC København
+p16106,Lorik Cana,t430,Nantes,2016-08-30,
+p146603,Julien Vercauteren,t1395,Nice,2017-02-17,RNK Split
+p244563,Joakim Balmy,t1395,Nice,2017-02-01,Telstar
+p244561,William Suaut,t1395,Nice,2017-02-01,
+p26896,Mathieu Bodmer,t1395,Nice,2017-01-09,Guingamp
+p115363,Lucas Rougeaux,t1395,Nice,2016-08-31,KV Kortrijk
+p56842,Kevin Gomis,t1395,Nice,2016-08-19,Dundee
+p129497,Hervin Ongenda,t149,Paris Saint-Germain,2017-01-24,PEC Zwolle
+p225897,Fode Ballo-Toure,t149,Paris Saint-Germain,2017-01-09,Lille
+p41270,David Luiz,t149,Paris Saint-Germain,2016-08-31,Chelsea
+p80710,Benjamin Stambouli,t149,Paris Saint-Germain,2016-08-26,FC Schalke 04
+p49957,Kamil Grosicki,t150,Rennes,2017-01-31,Hull City
+p55250,Christian Brüls,t150,Rennes,2017-01-31,KAS Eupen
+p54685,Mouhamadou Habib Habibou,t150,Rennes,2017-01-31,Lens
+p111516,Pedro Henrique,t150,Rennes,2017-01-30,PAOK Salonika
+p90126,Paul-Georges Ntep,t150,Rennes,2017-01-09,VfL Wolfsburg
+p107098,Paul Nardi,t150,Rennes,2016-12-31,Cercle Brugge
+p141017,Steven Moreira,t150,Rennes,2016-08-30,Lorient
+p40832,Anthony Mounier,t152,St Etienne,2017-01-30,Atalanta
+p244204,Benjamin Aulagnier,t152,St Etienne,2017-01-09,
+p229921,Clement Cabaton,t152,St Etienne,2017-01-09,
+p55134,Yohan Mollo,t152,St Etienne,2016-08-31,Krylia Sovetov Samara
+p243743,Quentin Depehi,t427,Toulouse,2017-01-09,
+p199669,Maxime Pelican,t427,Toulouse,2017-01-09,France U20
