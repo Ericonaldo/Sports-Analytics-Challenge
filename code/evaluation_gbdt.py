@@ -216,16 +216,17 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
     score_player = loss_xy = score_team = 0
     
     for i in tqdm(range(file_num)):
+        # read the label file
         ground_truth = pd.read_csv(valid_dir+csv_files[i], header=None)
-        
         game_xml = lxml.etree.parse(valid_dir+xml_files[i])
+        
+        # get the feature dataframe
         df = construct_one_ball_team_df(game_xml)
         df = get_eva_fea(df)
         gc.collect()
-        
         period_id = df.iloc[-1]['period_id']
         train_df = df.dropna().drop(['game_id','event_no','period_id'], axis=1)
-        
+        # get the last event
         df_test_X = train_df.iloc[-1][train_df.columns[0:-3]]
         
         pred_player = pred_x = pred_y = pred_team = None
@@ -233,8 +234,6 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
         if team_model is not None:
             print("Testing team model...")
             # predict next ball related
-            pred_next_ball_related = next_ball_related_model.predict(df_test_X)[0]
-            df_test_X['next_ball_related'] = [1 if pred_next_ball_related>=nbr_gate else 0][0]
             pred_team = team_model.predict(df_test_X)[0]
             team = [1 if pred_team>=team_gate else 0][0]
             
@@ -254,26 +253,15 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
                 score_team +=1
 
         if (x_model is not None) and (y_model is not None):
-            print("Testing x,y model...")
-            # predict next ball related
-            pred_next_ball_related = next_ball_related_model.predict(df_test_X)[0]
-            next_ball_related = [1 if pred_next_ball_related>=nbr_gate else 0][0]
-            if next_ball_related==1:
-                # predict_xy
-                pred_x = x_model.predict(df_test_X)[0].round(1)
-                pred_y = y_model.predict(df_test_X)[0].round(1)
-                if int(period_id)^int(team):
-                    pred_x = 100-pred_x
-                    pred_y = 100-pred_y
-            else:
-                pred_x = pred_y = 0
+            print("Testing x,y model...")          
+            # predict_xy
+            pred_x = x_model.predict(df_test_X)[0].round(1)
+            pred_y = y_model.predict(df_test_X)[0].round(1)
+
             # rules
             if df_test_X.type_id == map_type_id(15):
                     pred_x = df_test_X.loc[0, 'x']
                     pred_y = df_test_X.loc[0, 'y']
-                    if (int(period_id)^int(team)) and not(int(period_id)^int(df_test_X.team_id)):
-                        pred_x = 100-pred_x
-                        pred_y = 100-pred_y
             if (df_test_X.type_id == 16) and (df_test_X.ball_related == 0):
                 pred_x = pred_y = 0
             if (df_test_X.type_id == 34) and (df_test_X.ball_related == 1):

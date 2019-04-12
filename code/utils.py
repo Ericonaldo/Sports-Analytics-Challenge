@@ -562,9 +562,9 @@ def construct_ball_team_df(save_path=train_path):
         right_on=['event_no','game_id','period_id']
     )
     
-    train_df[['next_ball_related']] = train_df[['ball_related']].shift(-1)
+    # train_df[['next_ball_related']] = train_df[['ball_related']].shift(-1)
     train_df[['next_x','next_y']] = train_df[['x','y']].shift(-1)
-    train_df[['next_team']] = train_df[['team_id']].shift(-1) 
+    train_df[['next_team']] = train_df[['team_id']].shift(-1)
     
     train_df['period_next_event'] = train_df['period_id'].shift(-1)
     train_df['game_next_event'] = train_df['game_id'].shift(-1)
