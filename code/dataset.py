@@ -12,7 +12,7 @@ from torch.utils.data import Dataset
 # event_feature_dim = 37
 # player_feature_dim = 26
 
-total_team_seq = 200
+total_team_seq = 100
 total_event_seq = 10
 total_player_seq = 30
 
@@ -47,6 +47,7 @@ class TeamEventData():
             self.label_xy  = np.array(label_file.iloc[0,2:]/100) # normalization
             team_seq = pd.read_csv(path+'team_seq/'+team_seq_file).values[0:total_team_seq] 
             self.team_seq_len = np.array(len(team_seq))
+            # print(self.team_seq_len)
             # padding
             self.team_seq = np.pad(team_seq,((0,total_team_seq-len(team_seq)),(0,0)),'constant') # [total_team_seq, team_feature_dim]
 
@@ -74,6 +75,8 @@ class TeamEventDataset(Dataset):
                 self.data.append(TeamEventData(path+d+'/', t, 1))
         
     def __getitem__(self, index):
+        #index %= 2
+        #print(index)
         team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy = \
             self.data[index].team_seq, self.data[index].team_seq_len, self.data[index].stat_team, self.data[index].event_seq, self.data[index].event_seq_len, self.data[index].stat_event, self.data[index].label_team, self.data[index].label_xy
         '''
@@ -88,6 +91,7 @@ class TeamEventDataset(Dataset):
         '''
 
         return team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy
+        # return np.zeros([5, Config.team_feature_dim]), np.array(5), np.array([0]), np.zeros([10, Config.event_feature_dim]), np.array(10), np.array([0]), np.array([1]), np.array([0.5, 0.7]) # debug the model
     
     def __len__(self):
         return len(self.data)

@@ -87,8 +87,9 @@ class MultiCrossEntropyLoss(torch.nn.Module):
         super(BinaryRegressionLoss, self).__init__()
 
     def forward(self, out_team, out_xy, label_team, label_xy):
-        bin_logloss = -nn.BCELoss(out_team, label_xy)
-        reg_loss = torch.mse_loss(out_xy, label_xy)
+        bin_logloss = nn.BCELoss(out_team, label_team)
+        reg_loss = nn.MSELoss(out_xy, label_xy)
+
         
         loss = bin_logloss + label_xy*reg_loss
         return loss

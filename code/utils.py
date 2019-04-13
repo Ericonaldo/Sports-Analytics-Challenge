@@ -727,8 +727,8 @@ def get_time_fea(df):
         df: df with time feature.
         
     """
-    df['game_time'] = df['min']*60+df['sec']
-    df['time_dis_last_event'] = df['game_time'].shift(1)
+    df.insert(0,'game_time', df['min']*60+df['sec'])
+    df.insert(1,'time_dis_last_event', df['game_time'].shift(1))
     df['time_dis_last_event'] = df.game_time - df.time_dis_last_event
     df.loc[0, ['time_dis_last_event']] = 0
     return df
@@ -758,7 +758,7 @@ def get_space_fea(df):
     df.loc[df[df.ball_related==0].index, 'penal_zone_l'] = 2
     
     df['penal_point'] = ((df['x']==88.5) & (df['y']==50)).astype('int32')
-    df['ball_pos'] = np.sqrt(df['x']*df['x']+df['y']*df['y'])
+    df.insert(2,'ball_pos', np.sqrt(df['x']*df['x']+df['y']*df['y']))
     
     return df
 
@@ -787,6 +787,7 @@ def get_type_fea(df):
     
     ### ball related?
     df['ball_related'] = (df.type_id.apply(lambda x:(x not in not_ball_related))).astype(int)
+    df['not_ball_related'] = (df.type_id.apply(lambda x:(x in not_ball_related))).astype(int)
     
     ## not ball related
     df['game_related'] = (df.type_id.apply(lambda x:(x in game_related))).astype(int)
@@ -834,16 +835,20 @@ def construct_team_seq(path):
         team0_df = pd.DataFrame({"min":[],
                              "sec":[],  
                              "type_id":[],
+                             "q_num":[],
                              "keypass":[],
+                             "nokeypass":[],
                              "assist":[],
-                             "q_num":[]
+                             "noassist":[],
                              })
         team1_df = pd.DataFrame({"min":[],
                              "sec":[],  
                              "type_id":[],
+                             "q_num":[],
                              "keypass":[],
+                             "nokeypass":[],
                              "assist":[],
-                             "q_num":[]
+                             "noassist":[],
                              })    
             
         xfile = xml_files[file_idx]
@@ -863,9 +868,11 @@ def construct_team_seq(path):
             temp = pd.DataFrame({"min":[mins],
                              "sec":[secs],  
                              "type_id":[type_id],
+                             "q_num":[q_num],
                              "keypass":[keypass],
+                             "nokeypass":[1-keypass],
                              "assist":[assist],
-                             "q_num":[q_num]
+                             "noassist":[1-assist],
                              })
             team0_df = pd.concat([team0_df,temp])
             
@@ -878,9 +885,11 @@ def construct_team_seq(path):
             temp = pd.DataFrame({"min":[mins],
                              "sec":[secs],  
                              "type_id":[type_id],
+                             "q_num":[q_num],
                              "keypass":[keypass],
+                             "nokeypass":[1-keypass],
                              "assist":[assist],
-                             "q_num":[q_num]
+                             "noassist":[1-assist],
                              })
             team1_df = pd.concat([team1_df,temp])
             
@@ -921,11 +930,13 @@ def construct_event_seq(path):
         event_df = pd.DataFrame({"min":[],
                              "sec":[],  
                              "type_id":[],
-                             "keypass":[],
-                             "assist":[],
                              "q_num":[],
                              "x":[],
                              "y":[],
+                             "keypass":[],
+                             "nokeypass":[],
+                             "assist":[],
+                             "noassist":[],
                              })
         xfile = xml_files[file_idx]
         cfile = csv_files[file_idx]
@@ -944,11 +955,13 @@ def construct_event_seq(path):
             temp = pd.DataFrame({"min":[mins],
                              "sec":[secs],  
                              "type_id":[type_id],
-                             "keypass":[keypass],
-                             "assist":[assist],
                              "q_num":[q_num],
                              "x":[x],
                              "y":[y],
+                             "keypass":[keypass],
+                             "nokeypass":[1-keypass],
+                             "assist":[assist],
+                             "noassist":[1-assist],
                              })
             event_df = pd.concat([event_df, temp])
         
@@ -1016,9 +1029,11 @@ def construct_player_seq(path):
             player_df = pd.DataFrame({"min":[],
                              "sec":[],  
                              "type_id":[],
-                             "keypass":[],
-                             "assist":[],
                              "q_num":[],
+                             "keypass":[],
+                             "nokeypass":[],
+                             "assist":[],
+                             "noassist":[],
                              })
             p_events = [_ for _ in events if 'player_id' in _.attrib]
             p_events = [_ for _ in p_events if ('p'+_.attrib['player_id']) == p]
@@ -1036,9 +1051,11 @@ def construct_player_seq(path):
                 temp = pd.DataFrame({"min":[mins],
                                  "sec":[secs],  
                                  "type_id":[type_id],
-                                 "keypass":[keypass],
-                                 "assist":[assist],
                                  "q_num":[q_num],
+                                 "keypass":[keypass],
+                                 "nokeypass":[1-keypass],
+                                 "assist":[assist],
+                                 "noassist":[1-assist],
                                  })
                 player_df = pd.concat([player_df, temp])
         
@@ -1071,16 +1088,19 @@ class Config():
     processed_path = "../data/processed/"
     model_path = '../models/'
     batch_size = 64
-    number_epochs = 500
-    lr = 0.01  
-    team_feature_dim = 25
+    number_epochs = 100
+    lr = 0.001
+    team_feature_dim = 28
     team_stat_dim = 1
-    event_feature_dim = 36
+    event_feature_dim = 39
     event_stat_dim = 1
-    player_feature_dim = 25
+    player_feature_dim = 28
     player_stat_dim = 1
     team_hidden_size = 32
     event_hidden_size = team_hidden_size+team_stat_dim
+    
+    weight_bin_logloss = 1
+    weight_reg_loss = 10
 
     pos_class = 4
     df_class = 247

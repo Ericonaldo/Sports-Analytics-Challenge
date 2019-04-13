@@ -15,8 +15,10 @@ class TeamEventRNN(nn.Module):
         self.input_size = input_size
         self.hidden_size = hidden_size
 
+        self.fc1 = torch.nn.Linear(self.input_size, 16)
+
         self.rnn = nn.GRU(
-            input_size=self.input_size,
+            input_size=16,
             hidden_size=self.hidden_size,         # rnn hidden unit
             num_layers=1,                         # number of rnn layer
             batch_first=True,                     # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
@@ -27,13 +29,9 @@ class TeamEventRNN(nn.Module):
         # x_lens shape (batch, seq_len)
         # r_out shape (batch, team_time_step, team_output_size)
         # h_0, h_n shape (n_layers, batch, team_hidden_size)
-        '''
-        print('1',x_lens)
-        x_lens = torch.tensor(x_lens)
-        print('2',x_lens)
-        '''
-
-        x, x_lens, unsorted_idx =sort_sequences(x, x_lens)
+        
+        x = self.fc1(x.float())
+        x, x_lens, unsorted_idx = sort_sequences(x, x_lens)
         x = nn.utils.rnn.pack_padded_sequence(x, x_lens, batch_first=True)
         r_out, h_n = self.rnn(x.float(), h0)     # h0 = initial hidden state
 
@@ -46,8 +44,10 @@ class LastEventRNN(nn.Module):
         self.hidden_size = hidden_size
         self.timestep = 10                        # time step should be 10
 
+        self.fc1 = torch.nn.Linear(self.input_size, 16)
+        
         self.rnn = nn.GRU(
-            input_size=self.input_size,
+            input_size=16,
             hidden_size=self.hidden_size,         # rnn hidden unit
             num_layers=1,                         # number of rnn layer
             batch_first=True,                     # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
@@ -60,6 +60,7 @@ class LastEventRNN(nn.Module):
         # h_n shape (n_layers, batch, event_hidden_size)
 
         # x = pack_padded_sequence(x, x_lens, batch_first=True)
+        x = self.fc1(x.float())
         r_out, h_n = self.rnn(x.float(), h0)   # h0 = initial hidden state
         
         return h_n[0]
@@ -82,11 +83,11 @@ class TeamEventNetwork(nn.Module):
             input_size=self.event_input_size,
             hidden_size=self.event_hidden_size, # should be team_hidden_size + stat_team_size
         )
+        # multi head for team and pos
         self.fc1 = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 64)
         self.fc2 = torch.nn.Linear(64, 32)
 
         out_hidden_size = 32
-        # multi head for team and pos
         self.out_team = torch.nn.Linear(out_hidden_size, 1)
         self.out_xy = torch.nn.Linear(out_hidden_size, 2)
 
@@ -104,11 +105,11 @@ class TeamEventNetwork(nn.Module):
         h_event = self.event_rnn(event_seq, event_seq_len, h_team)
 
         h_output = torch.cat((h_event, stat_event.float()), 1)
-        h_output = self.fc1(h_output)
-        h_output = self.fc2(h_output)
+        h_output = torch.relu(self.fc1(h_output))
+        h_output = torch.relu(self.fc2(h_output))
 
         out_team = torch.sigmoid(self.out_team(h_output)) # predict the next team (batch, 1)
-        out_xy = torch.sigmoid(self.out_team(h_output)) # predict the position of the ball (batch, 2)
+        out_xy = torch.sigmoid(self.out_xy(h_output)) # predict the position of the ball (batch, 2)
         return [out_team, out_xy]
 
 
@@ -122,15 +123,21 @@ class BinaryRegressionLoss(torch.nn.Module):
 
     def forward(self, out_team, out_xy, label_team, label_xy):
         bin_logloss = nn.BCELoss()(out_team, label_team.float())
-        reg_loss = torch.nn.MSELoss(reduction='none')(out_xy, label_xy.float())
+        reg_loss = nn.MSELoss(reduction='none')(out_xy, label_xy.float())
         
-        loss = bin_logloss + torch.sum(label_xy.float()*reg_loss)
+        #print(bin_logloss)
+        #print(reg_loss)
+        #print('team', out_team, label_team)
+        #print('xy', out_xy, label_xy)
+        
+        loss = Config.weight_bin_logloss * bin_logloss + Config.weight_reg_loss * torch.mean(label_xy.float()*reg_loss)
         return loss
 
 if __name__ == '__main__':   
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
         event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size,
         team_stat_dim=Config.team_stat_dim, event_stat_dim=Config.event_stat_dim)
+    
     criterion = BinaryRegressionLoss()
     optimizer = optim.Adam(net.parameters(), lr = Config.lr)
 
@@ -149,19 +156,24 @@ if __name__ == '__main__':
     counter = []
     loss_history = [] 
     iteration_number= 0
+    mov_ave_loss = 0.0
 
     for epoch in range(0, Config.number_epochs):
-        for i, data in enumerate(train_dataloader, 0):
+        
+        for i, data in enumerate(train_dataloader, 0):           
             team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy = data
+            
             optimizer.zero_grad()
             out_team, out_xy = net(team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event)
-            loss_contrastive = criterion(out_team, out_xy, label_team, label_xy)
-            loss_contrastive.backward()
+            myloss = criterion(out_team, out_xy, label_team, label_xy)
+            myloss.backward()
             optimizer.step()
+            mov_ave_loss = [0.8*mov_ave_loss + 0.2*myloss.item() if i>0 else myloss.item()]
             if i % 10 == 0 :
-                print("Epoch {}\t Step {}\t Loss {}\t".format(epoch,i,loss_contrastive.item()))
+                print("Epoch {}\t Step {}\t Loss {}\t".format(epoch, i, mov_ave_loss))
                 iteration_number +=10
                 counter.append(iteration_number)
-                loss_history.append(loss_contrastive.item())
+                loss_history.append(mov_ave_loss)
+            
     show_plot('team_event_rnn', counter,loss_history)
     torch.save(net.state_dict(), Config.model_path+'team_events_rnn.pkl')
