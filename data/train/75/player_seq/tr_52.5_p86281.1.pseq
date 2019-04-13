@@ -1,0 +1,7 @@
+min,sec,keypass,assist,q_num,game_time,time_dis_last_event,ball_related,game_related,team_related,both_related,attack_related,defender_related,attack_pass,attack_shot,attack_goal,attack_drib,attack_othe,defend_gk,defend_1,defend_2,defend_3,defend_4,defend_5,defend_6,player_id
+53.0,22.0,0.0,0.0,6.0,3202.0,0.0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,p86281
+53.0,26.0,0.0,0.0,2.0,3206.0,0.0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,p86281
+55.0,43.0,0.0,0.0,6.0,3343.0,0.0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,p86281
+56.0,18.0,0.0,0.0,5.0,3378.0,0.0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,p86281
+58.0,50.0,0.0,0.0,3.0,3530.0,0.0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,p86281
+63.0,1.0,0.0,0.0,6.0,3781.0,0.0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,p86281
