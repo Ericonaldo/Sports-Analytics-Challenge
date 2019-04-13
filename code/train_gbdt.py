@@ -154,8 +154,8 @@ if __name__=="__main__":
     """
     df_train_X.drop(df_train_X[(df_train_y.next_x==0) & (df_train_y.next_y==0)].index, inplace=True)
     df_train_y.drop(df_train_X[(df_train_y.next_x==0) & (df_train_y.next_y==0)].index, inplace=True)
-    df_train_X.drop(df_train_X[df_train_X.type_id in rules_x_y].index, inplace=True)
-    df_train_y.drop(df_train_X[df_train_X.type_id in rules_x_y].index, inplace=True)
+    # df_train_X.drop(df_train_X[df_train_X.type_id in rules_x_y].index, inplace=True)
+    # df_train_y.drop(df_train_X[df_train_X.type_id in rules_x_y].index, inplace=True)
     X_tr, y_tr, X_val, y_val = get_train_val(df_train_X, df_train_y)
 
     if args.xymodel:

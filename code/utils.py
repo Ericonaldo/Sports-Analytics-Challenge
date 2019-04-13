@@ -51,6 +51,7 @@ test_change_eg = data_path+"Example test base file - f24-24-2016-853285-eventdet
 
 rules_team = [50,25,18,2,15,51,49,27]
 rules_x_y = [50,25,18,27]
+
 # ---------- general -------------
 def get_player_data(is_changed=False):
     """
@@ -67,6 +68,7 @@ def get_player_data(is_changed=False):
     player_name=[]
     team_id=[]
     team_name=[]
+    position=[]
     
     if is_changed:
         new_team=[]
@@ -74,13 +76,14 @@ def get_player_data(is_changed=False):
         for i in player_xml.xpath('//PlayerChanges//Player'):
             player_id.append(i.attrib['uID'])
             player_name.append(i.getchildren()[0].text)
+            position.append(i.xpath("Position")[0].text)
             team_id.append(i.getparent().attrib['uID'])
             team_name.append(i.getparent().getchildren()[0].text)
             leave_dates.append(i.xpath("Stat[@Type='leave_date']")[0].text)
             new_team.append(i.xpath("Stat[@Type='new_team']")[0].text)
             
         save_name = "changed_player_data.csv"
-        player_df = pd.DataFrame({'player_id':player_id, 'player_name':player_name, 
+        player_df = pd.DataFrame({'player_id':player_id, 'player_name':player_name, 'position':position, 
                                 'old_team_id':team_id, 'old_team_name':team_name,
                                 'leave_date':leave_dates,'new_team_name':new_team}) # Changed players' data
     else:
@@ -90,6 +93,7 @@ def get_player_data(is_changed=False):
         for i in player_xml.xpath('//SoccerDocument/Team/Player'):
             player_id.append(i.attrib['uID'])
             player_name.append(i.xpath("Name")[0].text)
+            position.append(i.xpath("Position")[0].text)
             team_id.append(i.getparent().attrib['uID'])
             team_name.append(i.getparent().attrib['short_club_name'])
             jersey_num.append(i.xpath("Stat[@Type='jersey_num']")[0].text)
@@ -111,13 +115,15 @@ def get_player_data(is_changed=False):
             if i.attrib['uID'] not in player_id:
                 player_id.append(i.attrib['uID'])
                 player_name.append(i.xpath("Name")[0].text)
+                position.append(i.xpath("Position")[0].text)
                 team_id.append(i.getparent().attrib['uID'])
                 team_name.append(i.getparent().getchildren()[0].text)
                 jersey_num.append(i.xpath("Stat[@Type='jersey_num']")[0].text)
                 join_date.append(i.xpath("Stat[@Type='join_date']")[0].text)
            
         save_name = "all_player_data.csv"
-        player_df = pd.DataFrame({'player_id':player_id, 'player_name':player_name, 'jersey_num':jersey_num,
+        player_df = pd.DataFrame({'player_id':player_id, 'player_name':player_name,
+                                'position':position, 'jersey_num':jersey_num,
                                 'team_id':team_id, 'team_name':team_name, 'join_date':join_date}) # All players' data
     
     player_df.to_csv(processed_path+save_name, index=False)
@@ -725,6 +731,7 @@ def get_time_fea(df):
     df['game_time'] = df['min']*60+df['sec']
     df['time_dis_last_event'] = df['game_time'].shift(1)
     df['time_dis_last_event'] = df.game_time - df.time_dis_last_event
+    df.loc[0, ['time_dis_last_event']] = 0
     return df
 
 def get_space_fea(df):
@@ -805,7 +812,7 @@ def get_type_fea(df):
     df['defend_5'] = (df.type_id == 51).astype(int)
     df['defend_6'] = (df.type_id == 55).astype(int)
     
-    df.drop(['type_id'], axis=1, inplace=True)
+    # df.drop(['type_id'], axis=1, inplace=True)
     
     return df
 
@@ -884,13 +891,17 @@ def construct_team_seq(path):
         team0_df = get_type_fea(team0_df)
         team1_df = get_type_fea(team1_df)
         
+        if 'type_id' in list(team0_df.columns):
+            team1_df.drop(['type_id'], axis=1, inplace=True)
+            team0_df.drop(['type_id'], axis=1, inplace=True)
+
         gc.collect()
         
         if not os.path.exists(path+'team_seq'):
             os.mkdir(path+'team_seq')
         
-        team0_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team0.seq')
-        team1_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team1.seq')
+        team0_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team0.tseq')
+        team1_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team1.tseq')
         
 
 def construct_event_seq(path):
@@ -946,11 +957,14 @@ def construct_event_seq(path):
         event_df = get_type_fea(event_df)
         event_df = get_space_fea(event_df)
         gc.collect()
+
+        if 'type_id' in list(event_df.columns):
+            event_df.drop(['type_id'], axis=1, inplace=True)
         
         if not os.path.exists(path+'event_seq'):
             os.mkdir(path+'event_seq')
         
-        event_df.to_csv(path+'event_seq/'+xfile[0:-4]+'_event.seq')
+        event_df.to_csv(path+'event_seq/'+xfile[0:-4]+'_event.eseq')
 
 def construct_player_seq(path):
     """
@@ -967,13 +981,6 @@ def construct_player_seq(path):
     csv_files.sort()
     
     for file_idx in tqdm(range(len(xml_files))):
-        player_df = pd.DataFrame({"min":[],
-                             "sec":[],  
-                             "type_id":[],
-                             "keypass":[],
-                             "assist":[],
-                             "q_num":[],
-                             })
         xfile = xml_files[file_idx]
         cfile = csv_files[file_idx]
         choice_xml = lxml.etree.parse(path+xfile)
@@ -998,7 +1005,7 @@ def construct_player_seq(path):
             total_play_time_data = get_play_time(all_player_df)
         suff_time_plyr = list(total_play_time_data[total_play_time_data.total_playing_time > pd.Timedelta(minutes=800)].player_id)
         
-        players = choice_xml.xpath("//Event/@player_id")
+        players = list(set(choice_xml.xpath("//Event/@player_id")))
         players = ['p'+_ for _ in players]
         players = [_ for _ in players if (_ in suff_time_plyr) and (_ in join_date_plyr)]
         
@@ -1007,8 +1014,18 @@ def construct_player_seq(path):
             continue
         
         for p in players:
+            player_df = pd.DataFrame({"min":[],
+                             "sec":[],  
+                             "type_id":[],
+                             "keypass":[],
+                             "assist":[],
+                             "q_num":[],
+                             })
             p_events = [_ for _ in events if 'player_id' in _.attrib]
-            p_events = [_ for _ in p_events if (_.attrib['player_id']+'p') == p]
+            p_events = [_ for _ in p_events if ('p'+_.attrib['player_id']) == p]
+            
+            if len(p_events)==0:
+                continue
             for i in p_events:
                 mins = int(i.attrib['min'])
                 secs = int(i.attrib['sec'])
@@ -1025,13 +1042,14 @@ def construct_player_seq(path):
                                  })
                 player_df = pd.concat([player_df, temp])
         
-        player_df = get_time_fea(player_df)       
-        player_df = get_type_fea(player_df)
-        gc.collect()
-        player_df['player_id'] = p
+            player_df = get_time_fea(player_df)       
+            player_df = get_type_fea(player_df)
+            gc.collect()
+            player_df['player_id'] = p
+
+            if not os.path.exists(path+'player_seq'):
+                os.mkdir(path+'player_seq')
+
+            player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.pseq')
         
-        if not os.path.exists(path+'player_seq'):
-            os.mkdir(path+'player_seq')
-            
-        player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.seq')
         

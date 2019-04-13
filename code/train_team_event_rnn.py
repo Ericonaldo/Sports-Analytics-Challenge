@@ -5,6 +5,7 @@ import torch.autograd as autograd
 import torch.nn as nn         
 import torch.nn.functional as F 
 import torch.optim as optim
+import torch.utils.data as Data
 
 # Hyper Parameters and other config
 class Config():
@@ -17,25 +18,27 @@ class Config():
     number_epochs = 500
     lr = 0.01  
 
-class TeamRNN(nn.Module):
+class TeamEventRNN(nn.Module):
     def __init__(self, input_size, hidden_size):
-        super(TeamRNN, self).__init__()
+        super(TeamEventRNN, self).__init__()
         self.input_size = input_size
         self.hidden_size = hidden_size
 
-        self.rnn = nn.LSTM(
+        self.rnn = nn.GRU(
             input_size=self.input_size,
             hidden_size=self.hidden_size,         # rnn hidden unit
             num_layers=1,                         # number of rnn layer
             batch_first=True,                     # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
         )
 
-    def forward(self, x):
+    def forward(self, x, h0=None):
         # x shape (batch, team_time_step, team_input_size)
         # r_out shape (batch, team_time_step, team_output_size)
         # h_n shape (n_layers, batch, team_hidden_size)
         # h_c shape (n_layers, batch, team_hidden_size)
-        r_out, (h_n, h_c) = self.rnn(x, None)     # None represents zero initial hidden state
+        sentence_lens = #TODO
+        x = pack_padded_sequence(x, sentence_lens, batch_first=True)
+        r_out, h_n = self.rnn(x, h0)     # None represents zero initial hidden state
 
         return h_n
 
@@ -46,19 +49,21 @@ class LastEventRNN(nn.Module):
         self.hidden_size = hidden_size
         self.timestep = 10                        # time step should be 10
 
-        self.rnn = nn.LSTM(
+        self.rnn = nn.GRU(
             input_size=self.input_size,
             hidden_size=self.hidden_size,         # rnn hidden unit
             num_layers=1,                         # number of rnn layer
             batch_first=True,                     # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
         )
 
-    def forward(self, x):
+    def forward(self, x, h0=None):
         # x shape (batch, event_time_step, event_input_size)
         # r_out shape (batch, event_time_step, event_output_size)
         # h_n shape (n_layers, batch, event_hidden_size)
         # h_c shape (n_layers, batch, event_hidden_size)
-        r_out, (h_n, h_c) = self.rnn(x, None)   # None represents zero initial hidden state
+        sentence_lens = #TODO
+        x = pack_padded_sequence(x, sentence_lens, batch_first=True)
+        r_out, h_n = self.rnn(x, h0)   # None represents zero initial hidden state
         
         return h_n
 
@@ -70,11 +75,11 @@ class TeamEventNetwork(nn.Module):
         self.event_input_size = event_input_size
         self.event_hidden_size = event_hidden_size
 
-        self.team_rnn = TeamRNN(
+        self.team_rnn = TeamEventRNN(
             input_size=self.team_input_size,
             hidden_size=self.team_hidden_size,
         )
-        self.event_rnn = EventRNN(
+        self.event_rnn = LastEventRNN(
             input_size=self.event_input_size,
             hidden_size=self.event_hidden_size, # should be team_hidden_size + stat_team_size
         )
@@ -90,11 +95,18 @@ class TeamEventNetwork(nn.Module):
         # h_team shape (batch, team_hidden_size)
         # h_event shape (batch, event_hidden_size)
 
-        h_team = self.team_rnn(x_team, None)   # None represents zero initial hidden state
-        h_event = self.event_rnn(x_event, torch.cat[h_team, stat_team]) 
+        h_team = self.team_rnn(x_team)   # None represents zero initial hidden state
+        if stat_team is not None:
+            h_event = self.event_rnn(x_event, torch.cat([h_team, stat_team], 1))
+        else:
+            h_event = self.event_rnn(x_event, h_team)
 
-        out_team = F.sigmoid(self.out_team(torch.cat[h_event, event_stat])) # predict the next team (batch, 1)
-        out_xy = F.sigmoid(self.out_team(torch.cat[h_event, event_stat])) # predict the position of the ball (batch, 2)
+        if stat_event is not None:
+            out_team = F.sigmoid(self.out_team(torch.cat[h_event, stat_event], 1)) # predict the next team (batch, 1)
+            out_xy = F.sigmoid(self.out_team(torch.cat[h_event, stat_event], 1)) # predict the position of the ball (batch, 2)
+        else:
+            out_team = F.sigmoid(self.out_team(h_event) # predict the next team (batch, 1)
+            out_xy = F.sigmoid(self.out_team(h_event)) # predict the position of the ball (batch, 2)
         return [out_team, out_xy]
 
 
@@ -118,8 +130,8 @@ if __name__ == '__main__':
     criterion = BinaryRegressionLoss()
     optimizer = optim.Adam(net.parameters(), lr = config.lr)
 
-    team_dataset = TeamEventDataset()
-    train_dataloader = DataLoader(team_dataset,
+    team_event_dataset = TeamEventDataset()
+    train_dataloader = Data.DataLoader(team_event_dataset,
                         shuffle=True,
                         num_workers=8,
                         batch_size=Config.batch_size)
