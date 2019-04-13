@@ -83,7 +83,7 @@ class TeamEventNetwork(nn.Module):
             hidden_size=self.event_hidden_size, # should be team_hidden_size + stat_team_size
         )
         self.fc1 = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 64)
-        self.fc2 = torch.nn.Linear(128, 32)
+        self.fc2 = torch.nn.Linear(64, 32)
 
         out_hidden_size = 32
         # multi head for team and pos
