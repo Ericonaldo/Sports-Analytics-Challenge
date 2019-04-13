@@ -164,3 +164,4 @@ if __name__ == '__main__':
                 counter.append(iteration_number)
                 loss_history.append(loss_contrastive.item())
     show_plot('team_event_rnn', counter,loss_history)
+    torch.save(net.state_dict(), Config.model_path+'team_events_rnn.pkl')
