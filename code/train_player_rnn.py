@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 from utils import *
 from dataset import *
+from train_team_event_rnn import TeamEventRNN, LastEventRNN
 import torch
 import torch.autograd as autograd 
 import torch.nn as nn         
@@ -8,7 +9,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import torch.utils.data as Data
 
-class TeamEventRNN(nn.Module):
+class PlayerRNN(nn.Module):
     def __init__(self, input_size, hidden_size):
         super(TeamEventRNN, self).__init__()
         self.input_size = input_size
@@ -26,42 +27,23 @@ class TeamEventRNN(nn.Module):
         # x_lens shape (batch, seq_len)
         # r_out shape (batch, team_time_step, team_output_size)
         # h_0, h_n shape (n_layers, batch, team_hidden_size)
-        x = pack_padded_sequence(x, x_lens, batch_first=True)
+
+        x, x_lens, unsorted_idx =sort_sequences(x, x_lens)
+        x = nn.utils.rnn.pack_padded_sequence(x, x_lens, batch_first=True)
         r_out, h_n = self.rnn(x, h0)     # h0 = initial hidden state
 
         return h_n
 
-class LastEventRNN(nn.Module):
-    def __init__(self, input_size, hidden_size):
-        super(LastEventRNN, self).__init__()
-        self.input_size = input_size
-        self.hidden_size = hidden_size
-        self.timestep = 10                        # time step should be 10
 
-        self.rnn = nn.GRU(
-            input_size=self.input_size,
-            hidden_size=self.hidden_size,         # rnn hidden unit
-            num_layers=1,                         # number of rnn layer
-            batch_first=True,                     # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
-        )
-
-    def forward(self, x, x_lens, h0=None):
-        # x shape (batch, event_time_step, event_input_size)
-        # x_lens shape (batch, seq_len)
-        # r_out shape (batch, event_time_step, event_output_size)
-        # h_n shape (n_layers, batch, event_hidden_size)
-        x = pack_padded_sequence(x, x_lens, batch_first=True)
-        r_out, h_n = self.rnn(x, h0)   # h0 = initial hidden state
-        
-        return h_n
-
-class TeamEventNetwork(nn.Module):
-    def __init__(self, team_input_size, team_hidden_size, event_input_size, event_hidden_size):
+class PlayerClassifyNetwork(nn.Module):
+    def __init__(self, team_input_size, team_hidden_size, event_input_size, event_hidden_size, player_input_size, player_hidden_size):
         super(TeamEventNetwork, self).__init__()
         self.team_input_size = team_input_size
         self.team_hidden_size = team_hidden_size
         self.event_input_size = event_input_size
         self.event_hidden_size = event_hidden_size
+        self.player_input_size = event_input_size
+        self.player_hidden_size = event_hidden_size
 
         self.team_rnn = TeamEventRNN(
             input_size=self.team_input_size,
@@ -71,9 +53,14 @@ class TeamEventNetwork(nn.Module):
             input_size=self.event_input_size,
             hidden_size=self.event_hidden_size, # should be team_hidden_size + stat_team_size
         )
+
+        self.player_rnn = PlayerRNN(
+            input_size=self.player_input_size,
+            hidden_size=self.player_hidden_size, # should be team_hidden_size + stat_team_size
+        )
         # multi head for team and pos
-        self.out_team = torch.nn.Linear(self.event_hidden_size, 1)
-        self.out_xy = torch.nn.Linear(self.event_hidden_size, 2)
+        self.out_pos = torch.nn.Linear(self.player_hidden_size+self.stat_player_size, Config.pos_class)
+        self.out_player = torch.nn.Linear(self.player_hidden_size+self.stat_player_size, Config.max_class_num)
 
     def forward(self, team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event):
         # x_team shape (batch, team_time_step, team_input_size)
@@ -86,14 +73,14 @@ class TeamEventNetwork(nn.Module):
         h_team = self.team_rnn(x_team, team_seq_len)
         h_event = self.event_rnn(x_event, event_seq_len, h_team)
 
-        out_team = F.sigmoid(self.out_team(h_event)) # predict the next team (batch, 1)
-        out_xy = F.sigmoid(self.out_team(h_event)) # predict the position of the ball (batch, 2)
+        out_pos = torch.sigmoid(self.out_team(h_event)) # predict the next team (batch, 1)
+        out_player = torch.sigmoid(self.out_team(h_event)) # predict the position of the ball (batch, 2)
         return [out_team, out_xy]
 
 
-class BinaryRegressionLoss(torch.nn.Module):
+class MultiCrossEntropyLoss(torch.nn.Module):
     """
-    Binary and Regression loss function.
+    Multiple CrossEntropyLoss loss function.
     """
 
     def __init__(self):

@@ -939,8 +939,8 @@ def construct_event_seq(path):
             keypass = int('keypass' in i.attrib)
             assist = int('assist' in i.attrib)
             q_num = len(i.xpath('Q'))
-            x = float(i.attrib['x'])
-            y = float(i.attrib['y'])
+            x = float(i.attrib['x'])/100
+            y = float(i.attrib['y'])/100
             temp = pd.DataFrame({"min":[mins],
                              "sec":[secs],  
                              "type_id":[type_id],
@@ -1051,7 +1051,18 @@ def construct_player_seq(path):
                 os.mkdir(path+'player_seq')
 
             player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.'+str(team_id)+'.pseq', index=False)
-        
+
+def sort_sequences(inputs, lengths):
+    """sort_sequences
+    Sort sequences according to lengths descendingly.
+
+    :param inputs (Tensor): input sequences, size [B, T, D]
+    :param lengths (Tensor): length of each sequence, size [B]
+    """
+    lengths_sorted, sorted_idx = lengths.sort(descending=True)
+    _, unsorted_idx = sorted_idx.sort()
+    return inputs[sorted_idx], lengths_sorted, unsorted_idx
+
 # Hyper Parameters and other config
 class Config():
     raw_data_path = "../data/XPSG - available resources/"
@@ -1062,11 +1073,18 @@ class Config():
     batch_size = 64
     number_epochs = 500
     lr = 0.01  
-    team_feature_dim = 26
+    team_feature_dim = 25
     team_stat_dim = 1
-    event_feature_dim = 37
+    event_feature_dim = 36
     event_stat_dim = 1
-    player_feature_dim = 26
+    player_feature_dim = 25
     player_stat_dim = 1
     team_hidden_size = 64
     event_hidden_size = team_hidden_size+team_stat_dim
+
+    pos_class = 4
+    df_class = 247
+    fw_class = 151
+    gk_class = 78
+    mf_class = 303
+    max_class_num = max([df_class,fw_class,gk_class,mf_class])

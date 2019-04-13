@@ -22,12 +22,12 @@ class TeamEventData():
         self.t = round(float(t), 1)
         # team seq
         self.team_seq = None
-        self.team_seq_len = [0]
-        self.stat_team = [0]
+        self.team_seq_len = np.array(0)
+        self.stat_team = np.array([0])
         # last 10 event seq
         self.event_seq = None
-        self.event_seq_len = [0]
-        self.stat_event = [0]
+        self.event_seq_len = np.array(0)
+        self.stat_event = np.array([0])
         # labels
         self.label_team = None
         self.label_xy = None
@@ -43,62 +43,15 @@ class TeamEventData():
             print(str(self.t)+'seq do not exist!')
         else:
             label_file = pd.read_csv(path+label_file[0], header=None)
-            self.label_team = int(label_file.iloc[0,1] == team_id)
-            self.label_xy  = label_file.iloc[0,2:3]
+            self.label_team = np.array([int(label_file.iloc[0,1] == team_id)])
+            self.label_xy  = np.array(label_file.iloc[0,2:]/100) # normalization
             team_seq = pd.read_csv(path+'team_seq/'+team_seq_file).values[0:total_team_seq] 
-            self.team_seq_len = len(team_seq)
+            self.team_seq_len = np.array(len(team_seq))
             # padding
             self.team_seq = np.pad(team_seq,((0,total_team_seq-len(team_seq)),(0,0)),'constant') # [total_team_seq, team_feature_dim]
 
             self.event_seq = pd.read_csv(path+'event_seq/'+event_seq_file).values # [time_step, team_feature_dim]
-            self.event_seq_len = len(self.event_seq)
-
-
-class PlayerData():
-    def __init__(self, path, t):
-        self.path = path
-        self.t = round(float(t), 1)
-        # team seq
-        self.team_seq = None
-        self.team_seq_len = [0]
-        self.stat_team = [0]
-        # last 10 event seq
-        self.event_seq = None
-        self.event_seq_len = [0]
-        self.stat_event = [0]
-        # player seq
-        self.player_seq = None
-        self.player_seq_len = [0]
-        self.stat_player = [0]
-        # labels
-        self.label_team = None
-        self.label_xy = None
-        self.label_player = None
-        
-        files = os.listdir(path)
-        csv_files = [i for i in files if 'csv' in i]
-        label_file = [i for i in csv_files if str(self.t) in i]
-        if team_id == 0:
-            team_seq_file = 'tr_'+str(self.t)+'_team0.tseq'
-        else:
-            team_seq_file = 'tr_'+str(self.t)+'_team1.tseq'
-        event_seq_file = 'tr_'+str(self.t)+'_event.eseq'
-        if len(label_file) == 0:
-            print(str(self.t)+'seq do not exist!')
-        else:
-            label_file = pd.read_csv(path+label_file[0], header=None)
-            self.label_team = label_file.iloc[0,1]
-            self.label_team = label_file.iloc[0,1]
-            self.label_xy  = label_file.iloc[0,2:3]
-
-            team_seq = pd.read_csv(path+'team_seq/'+team_seq_file).values # [time_step, team_feature_dim]
-            self.team_seq_len = [len(team_seq)]
-            # padding
-            self.team_seq = np.pad(team_seq,((0,total_team_seq-len(team_seq)),(0,0)),'constant')  
-
-            self.event_seq = pd.read_csv(path+'event_seq/'+event_seq_file).values # [time_step, team_feature_dim]
-            self.event_seq_len = [len(self.event_seq)]
-            
+            self.event_seq_len = np.array(len(self.event_seq))           
         
 
 class TeamEventDataset(Dataset):
@@ -138,6 +91,51 @@ class TeamEventDataset(Dataset):
     
     def __len__(self):
         return len(self.data)
+
+
+class PlayerData():
+    def __init__(self, path, t):
+        self.path = path
+        self.t = round(float(t), 1)
+        # team seq
+        self.team_seq = None
+        self.team_seq_len = np.array(0)
+        self.stat_team = np.array([0])
+        # last 10 event seq
+        self.event_seq = None
+        self.event_seq_len = np.array(0)
+        self.stat_event = np.array([0])
+        # player seq
+        self.player_seq = None
+        self.player_seq_len = np.array(0)
+        self.stat_player = np.array([0])
+        # labels
+        self.label_team = None
+        self.label_xy = None
+        self.label_player = None
+        
+        files = os.listdir(path)
+        csv_files = [i for i in files if 'csv' in i]
+        label_file = [i for i in csv_files if str(self.t) in i]
+        if team_id == 0:
+            team_seq_file = 'tr_'+str(self.t)+'_team0.tseq'
+        else:
+            team_seq_file = 'tr_'+str(self.t)+'_team1.tseq'
+        event_seq_file = 'tr_'+str(self.t)+'_event.eseq'
+        if len(label_file) == 0:
+            print(str(self.t)+'seq do not exist!')
+        else:
+            label_file = pd.read_csv(path+label_file[0], header=None)
+            self.label_team = np.array(label_file.iloc[0,1])
+            self.label_xy  = np.array(label_file.iloc[0,2:])
+
+            team_seq = pd.read_csv(path+'team_seq/'+team_seq_file).values # [time_step, team_feature_dim]
+            self.team_seq_len = np.array(len(team_seq))
+            # padding
+            self.team_seq = np.pad(team_seq,((0,total_team_seq-len(team_seq)),(0,0)),'constant')  
+
+            self.event_seq = pd.read_csv(path+'event_seq/'+event_seq_file).values # [time_step, team_feature_dim]
+            self.event_seq_len = np.array(len(self.event_seq))
 
 class PlayerDataset(Dataset):
 
