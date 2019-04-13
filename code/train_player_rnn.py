@@ -8,7 +8,6 @@ import torch.nn.functional as F
 import torch.optim as optim
 import torch.utils.data as Data
 
-
 class TeamEventRNN(nn.Module):
     def __init__(self, input_size, hidden_size):
         super(TeamEventRNN, self).__init__()

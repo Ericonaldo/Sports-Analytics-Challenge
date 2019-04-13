@@ -51,7 +51,6 @@ test_change_eg = data_path+"Example test base file - f24-24-2016-853285-eventdet
 
 rules_team = [50,25,18,2,15,51,49,27]
 rules_x_y = [50,25,18,27]
-
 # ---------- general -------------
 def get_player_data(is_changed=False):
     """
@@ -900,8 +899,8 @@ def construct_team_seq(path):
         if not os.path.exists(path+'team_seq'):
             os.mkdir(path+'team_seq')
         
-        team0_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team0.tseq')
-        team1_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team1.tseq')
+        team0_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team0.tseq', index=False)
+        team1_df.to_csv(path+'team_seq/'+xfile[0:-4]+'_team1.tseq', index=False)
         
 
 def construct_event_seq(path):
@@ -964,7 +963,7 @@ def construct_event_seq(path):
         if not os.path.exists(path+'event_seq'):
             os.mkdir(path+'event_seq')
         
-        event_df.to_csv(path+'event_seq/'+xfile[0:-4]+'_event.eseq')
+        event_df.to_csv(path+'event_seq/'+xfile[0:-4]+'_event.eseq', index=False)
 
 def construct_player_seq(path):
     """
@@ -1026,6 +1025,7 @@ def construct_player_seq(path):
             
             if len(p_events)==0:
                 continue
+            team_id = p_events[0].attrib['team_id']
             for i in p_events:
                 mins = int(i.attrib['min'])
                 secs = int(i.attrib['sec'])
@@ -1050,6 +1050,23 @@ def construct_player_seq(path):
             if not os.path.exists(path+'player_seq'):
                 os.mkdir(path+'player_seq')
 
-            player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.pseq')
+            player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.'+str(team_id)+'.pseq', index=False)
         
-        
+# Hyper Parameters and other config
+class Config():
+    raw_data_path = "../data/XPSG - available resources/"
+    train_path = "../data/train/" # path of processed training data
+    valid_path = "../data/valid/" # path of processed validation data
+    processed_path = "../data/processed/"
+    model_path = '../models/'
+    batch_size = 64
+    number_epochs = 500
+    lr = 0.01  
+    team_feature_dim = 26
+    team_stat_dim = 1
+    event_feature_dim = 37
+    event_stat_dim = 1
+    player_feature_dim = 26
+    player_stat_dim = 1
+    team_hidden_size = 64
+    event_hidden_size = team_hidden_size+team_stat_dim
