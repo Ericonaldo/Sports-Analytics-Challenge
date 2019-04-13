@@ -83,8 +83,12 @@ class TeamEventNetwork(nn.Module):
             hidden_size=self.event_hidden_size, # should be team_hidden_size + stat_team_size
         )
         # multi head for team and pos
-        self.out_team = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 1)
-        self.out_xy = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 2)
+        self.fc1 = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 128)
+        self.fc2 = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 64)
+
+        out_hidden_size = 64
+        self.out_team = torch.nn.Linear(out_hidden_size, 1)
+        self.out_xy = torch.nn.Linear(out_hidden_size, 2)
 
     def forward(self, team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event):
         # x_team shape (batch, team_time_step, team_input_size)
@@ -98,10 +102,13 @@ class TeamEventNetwork(nn.Module):
         h_team = torch.cat((h_team, stat_team.float()), 1)
         h_team = torch.unsqueeze(h_team, 0)
         h_event = self.event_rnn(event_seq, event_seq_len, h_team)
-        h_event = torch.cat((h_event, stat_event.float()), 1)
 
-        out_team = torch.sigmoid(self.out_team(h_event)) # predict the next team (batch, 1)
-        out_xy = torch.sigmoid(self.out_team(h_event)) # predict the position of the ball (batch, 2)
+        h_output = torch.cat((h_event, stat_event.float()), 1)
+        h_output = self.fc1(h_output)
+        h_output = self.fc2(h_output)
+
+        out_team = torch.sigmoid(self.out_team(h_output)) # predict the next team (batch, 1)
+        out_xy = torch.sigmoid(self.out_team(h_output)) # predict the position of the ball (batch, 2)
         return [out_team, out_xy]
 
 
