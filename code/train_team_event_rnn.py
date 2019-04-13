@@ -84,7 +84,7 @@ class TeamEventNetwork(nn.Module):
         )
         # multi head for team and pos
         self.fc1 = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 128)
-        self.fc2 = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 64)
+        self.fc2 = torch.nn.Linear(128, 64)
 
         out_hidden_size = 64
         self.out_team = torch.nn.Linear(out_hidden_size, 1)
@@ -163,4 +163,4 @@ if __name__ == '__main__':
                 iteration_number +=10
                 counter.append(iteration_number)
                 loss_history.append(loss_contrastive.item())
-    show_plot(counter,loss_history)
+    show_plot('team_event_rnn', counter,loss_history)

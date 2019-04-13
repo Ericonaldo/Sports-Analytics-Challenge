@@ -404,9 +404,9 @@ def draw_corr(df):
     imgkit.from_string(table_html, 'out.jpg')
 
 
-def show_plot(iteration,loss):
-    plt.plot(iteration,loss)
-    plt.show()
+def show_plot(name, iteration, loss):
+    plt.plot(iteration, loss)
+    plt.savefig('../fig/'+name)
 
 
 # ---------- for gbdt models -------------
@@ -1079,7 +1079,7 @@ class Config():
     event_stat_dim = 1
     player_feature_dim = 25
     player_stat_dim = 1
-    team_hidden_size = 64
+    team_hidden_size = 32
     event_hidden_size = team_hidden_size+team_stat_dim
 
     pos_class = 4
