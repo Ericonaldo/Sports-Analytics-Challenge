@@ -64,7 +64,6 @@ class PlayerClassifyNetwork(nn.Module):
         self.fc3 = torch.nn.Linear(64, 32)
         self.fc4 = torch.nn.Linear(32, out_hidden_size)
 
-        out_hidden_size = 32
         self.out_pos = torch.nn.Linear(out_hidden_size, Config.pos_class)
         self.out_player = torch.nn.Linear(out_hidden_size, Config.sum_class_num)
 
@@ -88,9 +87,9 @@ class PlayerClassifyNetwork(nn.Module):
         h_output = torch.relu(self.fc4(h_output))
         # print(h_output)
 
-        out_pos = self.out_team(h_event) # predict the pos class
-        out_player = self.out_team(h_event) # predict the player
-        return [out_team, out_xy]
+        out_pos = self.out_pos(h_output) # predict the pos class
+        out_player = self.out_player(h_output) # predict the player
+        return [out_pos, out_player]
 
 
 class MultiCrossEntropyLoss(torch.nn.Module):
@@ -104,10 +103,12 @@ class MultiCrossEntropyLoss(torch.nn.Module):
     def forward(self, out_pos, out_player, label_pos, label_player):
         # out_pos shape (batch, team_time_step, team_input_size)
         # out_player shape (batch, team_stat_size)
-        # label_pos shape (batch, event_time_step, event_input_size)
-        # label_player shape (batch, event_stat_size)
-        pos_loss = nn.NLLLoss()(out_pos, label_pos)
-        player_loss = nn.NLLLoss(out_player, label_player)
+        # label_pos shape (batch, player_time_step, player_input_size)
+        # label_player shape (batch, player_stat_size)
+
+        pos_loss = nn.CrossEntropyLoss()(out_pos, label_pos)
+        player_loss = nn.CrossEntropyLoss()(out_player, label_player)
+        # print(pos_loss, player_loss)
          
         loss = Config.weight_pos_loss * pos_loss + Config.weight_player_loss * player_loss
         return loss
@@ -165,7 +166,7 @@ if __name__ == '__main__':
             mov_ave_loss = [(0.8*mov_ave_loss + 0.2*myloss.item()) if i>0 else myloss.item()][0]
             iteration_number += 1
             adjust_lr(optimizer, iteration_number)
-            if i % 10 == 0 :
+            if i % 100 == 0 :
                 print("Epoch {}\t Step {}\t Loss {}\t".format(epoch, i, mov_ave_loss))
                 counter.append(iteration_number)
                 loss_history.append(mov_ave_loss)

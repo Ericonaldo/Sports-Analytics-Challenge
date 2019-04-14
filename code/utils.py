@@ -1101,7 +1101,7 @@ def sort_player_data(data):
     sorted_lengths, indices = torch.sort(team_seq_len, descending=True)
     _, unsorted_idx = torch.sort(indices, descending=False)
 
-    data = [team_seq[indices], team_seq_len[indices], stat_team[indices], event_seq[indices], event_seq_len[indices], stat_event[indices], player_seq_len[indices], stat_player[indices], label_pos[indices], label_player[indices]]
+    data = [team_seq[indices], team_seq_len[indices], stat_team[indices], event_seq[indices], event_seq_len[indices], stat_event[indices], player_seq[indices], player_seq_len[indices], stat_player[indices], label_pos[indices], label_player[indices]]
 
     return data, sorted_lengths, unsorted_idx
 
@@ -1120,7 +1120,7 @@ class Config():
     team_decay_value = 10
     team_decay_iter = 60 * 250
     player_decay_value = 10
-    player_decay_iter = 100 * 250
+    player_decay_iter = 600 * 250
 
 
     team_feature_dim = 28
