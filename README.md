@@ -6,11 +6,11 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
 
 ## Project Organization
 ------------
-    ├── README.md          					  <- The top-level README for developers using this project.
+    ├── README.md                             <- The top-level README for developers using this project.
     ├── data
-    │   ├── train          				      <- Training data used in experiments.
-    │   ├── processed      					  <- Data used for indication and further processing during experiments.
-    │   ├── valid      						  <- Valid data used in experiments.
+    │   ├── train                             <- Training data used in experiments.
+    │   ├── processed                         <- Data used for indication and further processing during experiments.
+    │   ├── valid                             <- Valid data used in experiments.
     │   └── XPSG - available resources        <- The original, immutable data dump (after unzipping).
     │
     │
