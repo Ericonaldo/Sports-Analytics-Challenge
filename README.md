@@ -4,7 +4,7 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
 
 ==============================
 
-# Project Organization
+## Project Organization
 ------------
     ├── README.md          					      <- The top-level README for developers using this project.
     ├── data
@@ -48,7 +48,7 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
     │   │ 
     └	└── test.ipynb                            <- Some draft codes during experiments.
 
-# Instructions
+## Instructions
 
 To Train the gbdt model:
 
@@ -76,9 +76,9 @@ To Evaluate your own gbdt model:
 
 6. >>your_own_eval_func(models=[p_model, x_model, y_model, t_model]) (remember to load your models first, args could be None)
 
-# Solution details
+## Solution details
 
-## Introduction
+### Introduction
 
 In this competition, I take the 4 (or 3) questions dividely, and propose 2 solutions for those problems.
 
@@ -88,17 +88,17 @@ For the No.2 question which is to predict the team (home 1 or away 0), I take it
 
 For the No.3 question which is to predict the ball position, I take it as a regression problem.
 
-## Solution
+### Solutions
 
-### GBDT(Lightgbm) Solution
-
-
-### Deep Learning Solution
+#### GBDT(Lightgbm) Solution
 
 
-## Details
+#### Deep Learning Solution
 
-## Conclusion and Acknowledgement
+
+### Details
+
+### Conclusion and Acknowledgement
 
 Note that the raw data is difficult to handle, which spend the most of time of a solo player like me (can only work during spare time) on organizing data/input and features. With more time, I think I can try more ideas because the fundamental codes had been establised and more "algorithmic" works can be easily done.
 
