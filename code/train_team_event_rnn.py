@@ -187,7 +187,7 @@ if __name__ == '__main__':
         
         for i, data in enumerate(train_dataloader, 0):          
 
-            data, _, __ = sort_data(data)
+            data, _, __ = sort_team_data(data)
             team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy = data
 
             optimizer.zero_grad()

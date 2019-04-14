@@ -190,7 +190,6 @@ def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
 
         out_xy *= 100
         out_xy = np.around(out_xy, 1)
-        print(out_xy)
 
         # compute result 
         if out_team == ground_truth.iloc[0,1]:
@@ -208,6 +207,7 @@ def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
 
     print('\n ave scores/loss score_player={}, score_team={}, loss_xy={}'.format(
         float(score_player)/count_num, float(score_team)/count_num, loss_xy/count_num))
+    print('count_num: ', count_num)
     
      
 if __name__=="__main__":

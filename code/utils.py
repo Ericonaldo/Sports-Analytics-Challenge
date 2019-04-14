@@ -1066,14 +1066,14 @@ def construct_player_seq(path):
             player_df = get_time_fea(player_df)       
             player_df = get_type_fea(player_df)
             gc.collect()
-            player_df['player_id'] = p
+            #player_df['player_id'] = p
 
             if not os.path.exists(path+'player_seq'):
                 os.mkdir(path+'player_seq')
 
             player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.'+str(team_id)+'.pseq', index=False)
 
-def sort_data(data):
+def sort_team_data(data):
     """sort_data
     Sort sequences according to lengths descendingly.
 
@@ -1086,6 +1086,22 @@ def sort_data(data):
     _, unsorted_idx = torch.sort(indices, descending=False)
 
     data = [team_seq[indices], team_seq_len[indices], stat_team[indices], event_seq[indices], event_seq_len[indices], stat_event[indices], label_team[indices], label_xy[indices]]
+
+    return data, sorted_lengths, unsorted_idx
+
+def sort_player_data(data):
+    """sort_data
+    Sort sequences according to lengths descendingly.
+
+    :param inputs (Tensor): input sequences, size [B, T, D]
+    :param lengths (Tensor): length of each sequence, size [B]
+    """
+    team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, player_seq, player_seq_len, stat_player, label_pos, label_player = data
+
+    sorted_lengths, indices = torch.sort(team_seq_len, descending=True)
+    _, unsorted_idx = torch.sort(indices, descending=False)
+
+    data = [team_seq[indices], team_seq_len[indices], stat_team[indices], event_seq[indices], event_seq_len[indices], stat_event[indices], player_seq_len[indices], stat_player[indices], label_pos[indices], label_player[indices]]
 
     return data, sorted_lengths, unsorted_idx
 

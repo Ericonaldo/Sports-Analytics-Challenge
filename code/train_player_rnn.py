@@ -31,7 +31,7 @@ class PlayerRNN(nn.Module):
         # h_0, h_n shape (n_layers, batch, team_hidden_size)
         
         x = self.fc1(x.float())
-        x = nn.utils.rnn.pack_padded_sequence(x, x_lens, batch_first=True)
+        # x = nn.utils.rnn.pack_padded_sequence(x, x_lens, batch_first=True)
         r_out, h_n = self.rnn(x.float(), h0)     # h0 = initial hidden state
 
         return h_n[0]
@@ -155,7 +155,8 @@ if __name__ == '__main__':
 
     for epoch in range(0, Config.player_number_epochs):
         for i, data in enumerate(train_dataloader, 0):
-            team_seq, team_seq_len, stat_team, event_seq, event_seq_len, player_seq, player_seq_len, stat_player, label_pos, label_player = data
+            data, _, __ = sort_player_data(data)
+            team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, player_seq, player_seq_len, stat_player, label_pos, label_player = data
             optimizer.zero_grad()
             out_pos, out_player = net(team_seq, team_seq_len, stat_team, player_seq, player_seq_len, stat_player)
             myloss = criterion(out_pos, out_player, label_pos, label_player)

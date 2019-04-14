@@ -145,9 +145,9 @@ class PlayerData():
             player_id = str(label_file.iloc[0,0])
             pos_name = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']
             player_pos = all_player_df[all_player_df.player_id==('p'+player_id)].iloc[0]['position']
-            self.label_pos = pos_name.index(player_pos)
+            self.label_pos = np.array(pos_name.index(player_pos))
             pos_players = list(all_player_df.player_id) # list(all_player_df[all_player_df.position==player_pos].player_id)
-            self.label_player = pos_players.index('p'+player_id)
+            self.label_player = np.array(pos_players.index('p'+player_id))
 
             ## team seq
             team_seq = pd.read_csv(path+'team_seq/'+team_seq_file).values[0:total_team_seq] # [time_step, team_feature_dim]
@@ -161,7 +161,7 @@ class PlayerData():
             player_seq = pd.read_csv(path+'player_seq/'+self.player_seq_file).values[0:total_player_seq]
             self.player_seq_len = np.array(len(player_seq))
             # padding
-            self.player_seq = np.pad(player_seq,((0,total_player_seq-len(player_seq)),(0,0)),'constant')  
+            self.player_seq = np.pad(player_seq,((0,total_player_seq-len(player_seq)),(0,0)),'constant') 
 
 class PlayerDataset(Dataset):
 
@@ -190,10 +190,11 @@ class PlayerDataset(Dataset):
         
     def __getitem__(self, index):
         #index %= 2000
-        team_seq, team_seq_len, stat_team, event_seq, event_seq_len, player_seq, player_seq_len, stat_player, label_pos, label_player = \
+        team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, player_seq, player_seq_len, stat_player, label_pos, label_player = \
             self.data[index].team_seq, self.data[index].team_seq_len, self.data[index].stat_team, self.data[index].event_seq, self.data[index].event_seq_len, self.data[index].stat_event, self.data[index].player_seq, self.data[index].player_seq_len, self.data[index].stat_player, self.data[index].label_pos, self.data[index].label_player
+        #print(team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, player_seq, player_seq_len, stat_player, label_pos, label_player)
         
-        return team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy
+        return team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, player_seq, player_seq_len, stat_player, label_pos, label_player
 
     def __len__(self):
         return len(self.data)
