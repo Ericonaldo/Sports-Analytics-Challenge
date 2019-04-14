@@ -11,39 +11,47 @@ import torch.utils.data as Data
 
 class PlayerRNN(nn.Module):
     def __init__(self, input_size, hidden_size):
-        super(TeamEventRNN, self).__init__()
+        super(LastEventRNN, self).__init__()
         self.input_size = input_size
         self.hidden_size = hidden_size
+        self.timestep = 10                        # time step should be 10
 
+        self.fc1 = nn.Linear(self.input_size, 16)
+        self.bn1 = nn.BatchNorm1d(16, momentum=0.5)
         self.rnn = nn.GRU(
-            input_size=self.input_size,
+            input_size=16,
             hidden_size=self.hidden_size,         # rnn hidden unit
             num_layers=1,                         # number of rnn layer
             batch_first=True,                     # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
         )
 
     def forward(self, x, x_lens, h0=None):
-        # x shape (batch, team_time_step, team_input_size)
+        # x shape (batch, event_time_step, event_input_size)
         # x_lens shape (batch, seq_len)
-        # r_out shape (batch, team_time_step, team_output_size)
-        # h_0, h_n shape (n_layers, batch, team_hidden_size)
+        # r_out shape (batch, event_time_step, event_output_size)
+        # h_n shape (n_layers, batch, event_hidden_size)
 
-        x, x_lens, unsorted_idx =sort_sequences(x, x_lens)
-        x = nn.utils.rnn.pack_padded_sequence(x, x_lens, batch_first=True)
-        r_out, h_n = self.rnn(x, h0)     # h0 = initial hidden state
-
-        return h_n
+        # x = pack_padded_sequence(x, x_lens, batch_first=True)
+        x = self.fc1(x.float())
+        x = self.bn1(x)
+        r_out, h_n = self.rnn(x.float(), h0)   # h0 = initial hidden state
+        
+        return h_n[0]
 
 
 class PlayerClassifyNetwork(nn.Module):
-    def __init__(self, team_input_size, team_hidden_size, event_input_size, event_hidden_size, player_input_size, player_hidden_size):
+    def __init__(self, team_input_size, team_hidden_size, event_input_size, event_hidden_size, player_input_size, player_hidden_size, team_stat_dim, event_stat_dim, player_stat_dim):
         super(TeamEventNetwork, self).__init__()
         self.team_input_size = team_input_size
         self.team_hidden_size = team_hidden_size
         self.event_input_size = event_input_size
         self.event_hidden_size = event_hidden_size
-        self.player_input_size = event_input_size
-        self.player_hidden_size = event_hidden_size
+        self.player_input_size = player_input_size
+        self.player_hidden_size = player_hidden_size
+        self.team_stat_size = team_stat_dim
+        self.event_stat_size = event_stat_dim
+        self.team_stat_size = team_stat_dim
+        self.player_stat_dim = player_stat_dim
 
         self.team_rnn = TeamEventRNN(
             input_size=self.team_input_size,
@@ -51,18 +59,25 @@ class PlayerClassifyNetwork(nn.Module):
         )
         self.event_rnn = LastEventRNN(
             input_size=self.event_input_size,
-            hidden_size=self.event_hidden_size, # should be team_hidden_size + stat_team_size
+            hidden_size=self.event_hidden_size,
         )
 
         self.player_rnn = PlayerRNN(
             input_size=self.player_input_size,
-            hidden_size=self.player_hidden_size, # should be team_hidden_size + stat_team_size
+            hidden_size=self.player_hidden_size,
         )
+
         # multi head for team and pos
+        self.fc1 = torch.nn.Linear(self.event_hidden_size+self.event_stat_size, 64)
+        self.bn1 = nn.BatchNorm1d(64, momentum=0.5)
+        self.fc2 = torch.nn.Linear(64, 32)
+        self.bn2 = nn.BatchNorm1d(32, momentum=0.5)
+
+        out_hidden_size = 32
         self.out_pos = torch.nn.Linear(self.player_hidden_size+self.stat_player_size, Config.pos_class)
         self.out_player = torch.nn.Linear(self.player_hidden_size+self.stat_player_size, Config.max_class_num)
 
-    def forward(self, team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event):
+    def forward(self, team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, player_seq, player_seq_len, stat_player):
         # x_team shape (batch, team_time_step, team_input_size)
         # stat_team shape (batch, team_stat_size)
         # x_event shape (batch, event_time_step, event_input_size)
@@ -72,9 +87,10 @@ class PlayerClassifyNetwork(nn.Module):
 
         h_team = self.team_rnn(x_team, team_seq_len)
         h_event = self.event_rnn(x_event, event_seq_len, h_team)
+        h_player = self.player_rnn(x_player, player_seq_len)
 
-        out_pos = torch.sigmoid(self.out_team(h_event)) # predict the next team (batch, 1)
-        out_player = torch.sigmoid(self.out_team(h_event)) # predict the position of the ball (batch, 2)
+        out_pos = self.out_team(h_event) # predict the pos class
+        out_player = self.out_team(h_event) # predict the player
         return [out_team, out_xy]
 
 
@@ -84,14 +100,16 @@ class MultiCrossEntropyLoss(torch.nn.Module):
     """
 
     def __init__(self):
-        super(BinaryRegressionLoss, self).__init__()
+        super(MultiCrossEntropyLoss, self).__init__()
 
-    def forward(self, out_team, out_xy, label_team, label_xy):
-        bin_logloss = nn.BCELoss(out_team, label_team)
-        reg_loss = nn.MSELoss(out_xy, label_xy)
-
+    def forward(self, out_pos, out_player, label_pos, label_player):
+        pos_loss = nn.CrossEntropyLoss()(out_pos, label_pos)
+        player_loss = nn.CrossEntropyLoss(reduction='none')(label_pos, label_player, )
         
-        loss = bin_logloss + label_xy*reg_loss
+        pos_mask = [1 for _ in out_pos if _>0.5 else 0]
+        pos_mask = pos_mask - label_pos
+        
+        loss = Config.weight_pos_loss * pos_loss + Config.weight_player_loss * torch.mean(pos_mask.float()*reg_loss)
         return loss
 
 if __name__ == '__main__':   
@@ -101,11 +119,11 @@ if __name__ == '__main__':
     optimizer = optim.Adam(net.parameters(), lr = Config.lr)
 
     print('Loading data...')
-    if os.path.exists(Config.processed_path+'TeamEventDataset.pkl'):
-        team_event_dataset = pickle.load(open(Config.processed_path+'TeamEventDataset.pkl', 'rb'))
+    if os.path.exists(Config.processed_path+'PlayerDataset.pkl'):
+        player_dataset = pickle.load(open(Config.processed_path+'PlayerDataset.pkl', 'rb'))
     else:
-        team_event_dataset = TeamEventDataset(train_path)
-        pickle.dump(team_event_dataset, open(Config.processed_path+'TeamEventDataset.pkl', 'wb'))
+        player_dataset = PlayerDataset(train_path)
+        pickle.dump(team_event_dataset, open(Config.processed_path+'PlayerDataset.pkl', 'wb'))
     print('Data Loaded!')
     train_dataloader = Data.DataLoader(team_event_dataset,
                         shuffle=True,

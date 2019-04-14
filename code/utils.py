@@ -727,7 +727,11 @@ def get_time_fea(df):
         df: df with time feature.
         
     """
+    
     df.insert(0,'game_time', df['min']*60+df['sec'])
+    df.game_time /= (90*60)
+    df['min'] /= 60
+    df['sec'] /= 60
     df.insert(1,'time_dis_last_event', df['game_time'].shift(1))
     df['time_dis_last_event'] = df.game_time - df.time_dis_last_event
     df.loc[0, ['time_dis_last_event']] = 0
@@ -864,7 +868,7 @@ def construct_team_seq(path):
             type_id = int(i.attrib['type_id'])
             keypass = int('keypass' in i.attrib)
             assist = int('assist' in i.attrib)
-            q_num = len(i.xpath('Q'))
+            q_num = len(i.xpath('Q'))/200
             temp = pd.DataFrame({"min":[mins],
                              "sec":[secs],  
                              "type_id":[type_id],
@@ -881,7 +885,7 @@ def construct_team_seq(path):
             secs = int(i.attrib['sec'])
             keypass = int('keypass' in i.attrib)
             assist = int('assist' in i.attrib)
-            q_num = len(i.xpath('Q'))
+            q_num = len(i.xpath('Q'))/200
             temp = pd.DataFrame({"min":[mins],
                              "sec":[secs],  
                              "type_id":[type_id],
@@ -949,7 +953,7 @@ def construct_event_seq(path):
             type_id = int(i.attrib['type_id'])
             keypass = int('keypass' in i.attrib)
             assist = int('assist' in i.attrib)
-            q_num = len(i.xpath('Q'))
+            q_num = len(i.xpath('Q'))/200
             x = float(i.attrib['x'])/100
             y = float(i.attrib['y'])/100
             temp = pd.DataFrame({"min":[mins],
@@ -1047,7 +1051,7 @@ def construct_player_seq(path):
                 type_id = int(i.attrib['type_id'])
                 keypass = int('keypass' in i.attrib)
                 assist = int('assist' in i.attrib)
-                q_num = len(i.xpath('Q'))
+                q_num = len(i.xpath('Q'))/200
                 temp = pd.DataFrame({"min":[mins],
                                  "sec":[secs],  
                                  "type_id":[type_id],
@@ -1069,16 +1073,21 @@ def construct_player_seq(path):
 
             player_df.to_csv(path+'player_seq/'+xfile[0:-4]+'_'+p+'.'+str(team_id)+'.pseq', index=False)
 
-def sort_sequences(inputs, lengths):
-    """sort_sequences
+def sort_data(data):
+    """sort_data
     Sort sequences according to lengths descendingly.
 
     :param inputs (Tensor): input sequences, size [B, T, D]
     :param lengths (Tensor): length of each sequence, size [B]
     """
-    lengths_sorted, sorted_idx = lengths.sort(descending=True)
-    _, unsorted_idx = sorted_idx.sort()
-    return inputs[sorted_idx], lengths_sorted, unsorted_idx
+    team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy = data
+
+    sorted_lengths, indices = torch.sort(team_seq_len, descending=True)
+    _, unsorted_idx = torch.sort(indices, descending=False)
+
+    data = [team_seq[indices], team_seq_len[indices], stat_team[indices], event_seq[indices], event_seq_len[indices], stat_event[indices], label_team[indices], label_xy[indices]]
+
+    return data, sorted_lengths, unsorted_idx
 
 # Hyper Parameters and other config
 class Config():
@@ -1097,10 +1106,14 @@ class Config():
     player_feature_dim = 28
     player_stat_dim = 1
     team_hidden_size = 32
-    event_hidden_size = team_hidden_size+team_stat_dim
+    event_hidden_size = 32 #team_hidden_size+team_stat_dim
+    player_hidden_size = 32 #event_hidden_size+event_stat_dim
     
-    weight_bin_logloss = 1
+    weight_bin_logloss = 3
     weight_reg_loss = 10
+
+    weight_pos_loss = 10
+    weight_player_loss = 5
 
     pos_class = 4
     df_class = 247

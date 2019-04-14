@@ -12,7 +12,7 @@ from torch.utils.data import Dataset
 # event_feature_dim = 37
 # player_feature_dim = 26
 
-total_team_seq = 100
+total_team_seq = 150
 total_event_seq = 10
 total_player_seq = 30
 
@@ -75,8 +75,7 @@ class TeamEventDataset(Dataset):
                 self.data.append(TeamEventData(path+d+'/', t, 1))
         
     def __getitem__(self, index):
-        #index %= 2
-        #print(index)
+        index %= 1000
         team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy = \
             self.data[index].team_seq, self.data[index].team_seq_len, self.data[index].stat_team, self.data[index].event_seq, self.data[index].event_seq_len, self.data[index].stat_event, self.data[index].label_team, self.data[index].label_xy
         '''
@@ -89,9 +88,14 @@ class TeamEventDataset(Dataset):
         print('label_team', np.shape(label_team))
         print('label_xy', np.shape(label_xy))
         '''
+        '''
+        if index ==0 :
+            return np.zeros([5, Config.team_feature_dim]), np.array(5), np.array([0]), np.zeros([10, Config.event_feature_dim]), np.array(10), np.array([0]), np.array([1]), np.array([0.2, 0.7]) # debug the model
 
+        if index ==1 :
+            return np.ones([5, Config.team_feature_dim]), np.array(4), np.array([0]), np.zeros([10, Config.event_feature_dim]), np.array(10), np.array([0]), np.array([0]), np.array([0.8, 0.3]) # debug the model
+        '''
         return team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy
-        # return np.zeros([5, Config.team_feature_dim]), np.array(5), np.array([0]), np.zeros([10, Config.event_feature_dim]), np.array(10), np.array([0]), np.array([1]), np.array([0.5, 0.7]) # debug the model
     
     def __len__(self):
         return len(self.data)
