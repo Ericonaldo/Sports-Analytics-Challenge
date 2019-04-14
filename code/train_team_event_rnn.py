@@ -189,8 +189,10 @@ if __name__ == '__main__':
             if i % 10 == 0 :
                 print("Epoch {}\t Step {}\t Loss {}\t".format(epoch, i, mov_ave_loss))
                 counter.append(iteration_number)
-                loss_history.append(mov_ave_loss)
+                loss_history.append(mov_ave_loss)       
+                
+        if epoch % 10 == 0:
+            torch.save(net.state_dict(), Config.model_path+'team_events_rnn.pkl')
             
             
     show_plot('team_event_rnn', counter,loss_history)
-    torch.save(net.state_dict(), Config.model_path+'team_events_rnn.pkl')
