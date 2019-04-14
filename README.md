@@ -20,19 +20,19 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
     ├── fig                                   <- Some useful figures for indication during experiments.
     │
     │
-    ├── code             		              <- Python script source code and Jupyter notebook source code for use in this project.
+    ├── code                                  <- Python script source code and Jupyter notebook source code for use in this project.
     │   │
     │   ├── main_psgx.py                      <- The required python code file which contains Result(xml1) function.
     │   │
-    │   ├── install_psgx.py  			      <- The required python code file which is used for installing requirements.
+    │   ├── install_psgx.py                   <- The required python code file which is used for installing requirements.
     │   │
     │   ├── utils.py                          <- Useful tool codes used in experiments, containing some data preprocessing, feature extraction and other tools.
     │   │
     │   ├── train_gbdt.py                     <- Training a gbdt model with lightGBM which give the answer of the last 3 questions. See details below.
     │   │
-    │   ├── evaluation_gbdt.py  		      <- Testing the above gbdt model on valid sets and show the evaluation results. See details below.
+    │   ├── evaluation_gbdt.py                <- Testing the above gbdt model on valid sets and show the evaluation results. See details below.
     │   │
-    │   ├── evaluation_rules.py  			  <- Testing naive rules on valid sets and show the evaluation results. This result gives a baseline.
+    │   ├── evaluation_rules.py               <- Testing naive rules on valid sets and show the evaluation results. This result gives a baseline.
     │   │
     │   ├── dataset.py                        <- This file define some class of pytorch Dataset, used for training of deep learning models with pytorch.
     │   │
@@ -68,13 +68,13 @@ To Evaluate your own gbdt model:
 
 2. python
 
-3. >>from utils import *
+3. `>> from utils import *`
 
-4. >>construc a evaluation function following the evaluate_gbdt(models=[p_model, x_model, y_model, t_model]) in evaluation_gbdt
+4. `>> construc a evaluation function following the evaluate_gbdt(models=[p_model, x_model, y_model, t_model]) in evaluation_gbdt`
 
-5. >>construct_val_sets(val_num=100) (set the validation number that you need)
+5. `>> construct_val_sets(val_num=100) (set the validation number that you need)`
 
-6. >>your_own_eval_func(models=[p_model, x_model, y_model, t_model]) (remember to load your models first, args could be None)
+6. `>> your_own_eval_func(models=[p_model, x_model, y_model, t_model]) (remember to load your models first, args could be None)`
 
 ## Solution details
 
