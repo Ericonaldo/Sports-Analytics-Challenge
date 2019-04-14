@@ -1097,10 +1097,16 @@ class Config():
     processed_path = "../data/processed/"
     model_path = '../models/'
     batch_size = 64
-    number_epochs = 400
-    lr = 0.001
-    decay_value = 10
-    decay_iter = 60 * 200
+    player_number_epochs = 500
+    team_number_epochs = 500
+    team_lr = 0.001
+    player_lr = 0.001
+    team_decay_value = 10
+    team_decay_iter = 60 * 250
+    player_decay_value = 10
+    player_decay_iter = 100 * 250
+
+
     team_feature_dim = 28
     team_stat_dim = 1
     event_feature_dim = 39
@@ -1114,12 +1120,14 @@ class Config():
     weight_bin_logloss = 3
     weight_reg_loss = 10
 
-    weight_pos_loss = 10
-    weight_player_loss = 5
+    weight_pos_loss = 1
+    weight_player_loss = 1
 
     pos_class = 4
     df_class = 247
     fw_class = 151
     gk_class = 78
     mf_class = 303
+    pos_player_class = [fw_class, mf_class, df_class, gk_class]
     max_class_num = max([df_class,fw_class,gk_class,mf_class])
+    sum_class_num = sum([df_class,fw_class,gk_class,mf_class])

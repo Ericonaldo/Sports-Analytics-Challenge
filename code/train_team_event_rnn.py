@@ -141,9 +141,9 @@ class BinaryRegressionLoss(torch.nn.Module):
         return loss
 
 def adjust_lr(optimizer, interation):
-    if (interation+1) % Config.decay_iter == 0:
+    if (interation+1) % Config.team_decay_iter == 0:
         for param_group in optimizer.param_groups:
-            param_group['lr'] /= Config.decay_value
+            param_group['lr'] /= Config.team_decay_value
             print('current lr', param_group['lr'])
 
 if __name__ == '__main__': 
@@ -163,8 +163,8 @@ if __name__ == '__main__':
         net.load_state_dict(torch.load(Config.model_path+str(args.load)+'_team_events_rnn.pkl'))
     
     criterion = BinaryRegressionLoss()
-    optimizer = optim.Adam(net.parameters(), lr = Config.lr)
-    #optimizer = optim.SGD(net.parameters(), lr = Config.lr)
+    optimizer = optim.Adam(net.parameters(), lr = Config.team_lr)
+    #optimizer = optim.SGD(net.parameters(), lr = Config.team_lr)
 
     print('Loading data...')
     if os.path.exists(Config.processed_path+'TeamEventDataset.pkl'):
@@ -183,7 +183,7 @@ if __name__ == '__main__':
     iteration_number= 0
     mov_ave_loss = 0.0
 
-    for epoch in range(0, Config.number_epochs):
+    for epoch in range(0, Config.team_number_epochs):
         
         for i, data in enumerate(train_dataloader, 0):          
 
@@ -204,8 +204,8 @@ if __name__ == '__main__':
                 loss_history.append(mov_ave_loss)
         
         if (epoch+1) % 50 == 0:
-            np.savetxt(Config.model_path+'counter.txt', np.array(counter))
-            np.savetxt(Config.model_path+'loss_history.txt', np.array(loss_history))
+            np.savetxt(Config.model_path+'team_counter.txt', np.array(counter))
+            np.savetxt(Config.model_path+'team_loss_history.txt', np.array(loss_history))
             torch.save(net.state_dict(), Config.model_path+str(epoch+1)+'_team_events_rnn.pkl')
             
     show_plot('team_event_rnn', counter,loss_history)
