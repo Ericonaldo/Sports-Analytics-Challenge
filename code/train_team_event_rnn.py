@@ -81,10 +81,14 @@ class TeamEventNetwork(nn.Module):
             hidden_size=self.event_hidden_size,
         )
        
-        self.fc1 = torch.nn.Linear(self.team_hidden_size+self.event_hidden_size, 32)
-        self.fc2 = torch.nn.Linear(32, 16)
-
         out_hidden_size = 16
+
+        self.fc1 = torch.nn.Linear(self.team_hidden_size+self.event_hidden_size, 128)
+        self.fc2 = torch.nn.Linear(128, 64)
+        self.fc3 = torch.nn.Linear(64, 32)
+        self.fc4 = torch.nn.Linear(32, out_hidden_size)
+
+        
         # multi head for team and pos
         self.out_team = nn.Linear(out_hidden_size, 1)
         self.out_xy = nn.Linear(out_hidden_size, 2)
@@ -105,6 +109,8 @@ class TeamEventNetwork(nn.Module):
         h_output = torch.cat((h_team, h_event), 1)
         h_output = torch.relu(self.fc1(h_output))
         h_output = torch.relu(self.fc2(h_output))
+        h_output = torch.relu(self.fc3(h_output))
+        h_output = torch.relu(self.fc4(h_output))
         # print(h_output)
 
         out_team = torch.sigmoid(self.out_team(h_output)) # predict the next team (batch, 1)
@@ -134,10 +140,10 @@ class BinaryRegressionLoss(torch.nn.Module):
         return loss
 
 def adjust_lr(optimizer, interation):
-    if (interation+1) % (60*15) == 0:
+    if (interation+1) % (60*20) == 0:
         for param_group in optimizer.param_groups:
             param_group['lr'] /= 5
-            # print('current lr', param_group['lr'])
+            print('current lr', param_group['lr'])
 
 if __name__ == '__main__':   
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 

@@ -75,7 +75,7 @@ class TeamEventDataset(Dataset):
                 self.data.append(TeamEventData(path+d+'/', t, 1))
         
     def __getitem__(self, index):
-        index %= 1000
+        #index %= 2000
         team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy = \
             self.data[index].team_seq, self.data[index].team_seq_len, self.data[index].stat_team, self.data[index].event_seq, self.data[index].event_seq_len, self.data[index].stat_event, self.data[index].label_team, self.data[index].label_xy
         '''

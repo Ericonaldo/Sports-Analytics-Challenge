@@ -1097,8 +1097,8 @@ class Config():
     processed_path = "../data/processed/"
     model_path = '../models/'
     batch_size = 64
-    number_epochs = 100
-    lr = 0.001
+    number_epochs = 500
+    lr = 0.01
     team_feature_dim = 28
     team_stat_dim = 1
     event_feature_dim = 39
