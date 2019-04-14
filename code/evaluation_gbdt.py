@@ -211,6 +211,8 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
     files= os.listdir(valid_dir)
     xml_files = [i for i in files if i[-3:]=='xml']
     csv_files = [i for i in files if i[-3:]=='csv']
+    xml_files.sort()
+    csv_files.sort()
     file_num = len(xml_files)
     
     score_player = loss_xy = score_team = 0

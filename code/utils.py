@@ -401,7 +401,7 @@ def construct_val_sets(train_dir=train_dir, save_path=valid_path, val_num=10):
 def draw_corr(df):
     table_html = df.corr(
         method='pearson').style.format("{:.2}").background_gradient(cmap=plt.get_cmap('coolwarm'), axis=1).render()
-    imgkit.from_string(table_html, 'out.jpg')
+    imgkit.from_string(table_html, '../fig/out.jpg')
 
 
 def show_plot(name, iteration, loss):
@@ -1002,7 +1002,7 @@ def construct_player_seq(path):
         choice_xml = lxml.etree.parse(path+xfile)
         events = choice_xml.xpath('//Event')[0:-10]
         
-         # Get all player list and changed player list
+        # Get all player list and changed player list
         if (os.path.exists(processed_path+"all_player_data.csv")):
             all_player_df = pd.read_csv(processed_path+"all_player_data.csv")
         else:
@@ -1097,8 +1097,10 @@ class Config():
     processed_path = "../data/processed/"
     model_path = '../models/'
     batch_size = 64
-    number_epochs = 500
-    lr = 0.01
+    number_epochs = 400
+    lr = 0.001
+    decay_value = 10
+    decay_iter = 60 * 200
     team_feature_dim = 28
     team_stat_dim = 1
     event_feature_dim = 39

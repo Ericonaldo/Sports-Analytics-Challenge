@@ -140,9 +140,9 @@ class BinaryRegressionLoss(torch.nn.Module):
         return loss
 
 def adjust_lr(optimizer, interation):
-    if (interation+1) % (60*20) == 0:
+    if (interation+1) % Config.decay_iter == 0:
         for param_group in optimizer.param_groups:
-            param_group['lr'] /= 5
+            param_group['lr'] /= Config.decay_value
             print('current lr', param_group['lr'])
 
 if __name__ == '__main__':   
@@ -189,10 +189,11 @@ if __name__ == '__main__':
             if i % 10 == 0 :
                 print("Epoch {}\t Step {}\t Loss {}\t".format(epoch, i, mov_ave_loss))
                 counter.append(iteration_number)
-                loss_history.append(mov_ave_loss)       
-                
-        if epoch % 10 == 0:
-            torch.save(net.state_dict(), Config.model_path+'team_events_rnn.pkl')
-            
+                loss_history.append(mov_ave_loss)
+        
+        if (epoch+1) % 60 == 0:
+            np.savetxt('counter.txt', np.array(counter))
+            np.savetxt('loss_history.txt', np.array(loss_history))
+            torch.save(net.state_dict(), Config.model_path+str(epoch)+'_team_events_rnn.pkl')
             
     show_plot('team_event_rnn', counter,loss_history)
