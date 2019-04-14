@@ -76,13 +76,31 @@ To Evaluate your own gbdt model:
 
 6. >>your_own_eval_func(models=[p_model, x_model, y_model, t_model]) (remember to load your models first, args could be None)
 
-# Design details
+# Solution details
 
-In this competition, I take the 4 (or 3) questions dividely, and I propose 2 solutions on those problems.
+## Introduction
 
-For the first question which is to predict a player id, 
+In this competition, I take the 4 (or 3) questions dividely, and propose 2 solutions for those problems.
 
-Note that the raw data is difficult to handle, which spend the most of time of a solo player like me on organizing data/input and features. With more time, I think I can try more ideas because the fundamental codes had been establised and more "algorithmic" works can be easily done.
+For the No.1 question which is to predict the player id, I take it as a Fine-grained classification problem, for which the high level class is the position of a player and it gives information when predicting the low level class -- the true players. (I also want to take it as a metric learning problem but without enough time on that.)
+
+For the No.2 question which is to predict the team (home 1 or away 0), I take it as a 2-class classification problem.
+
+For the No.3 question which is to predict the ball position, I take it as a regression problem.
+
+## Solution
+
+### GBDT(Lightgbm) Solution
+
+
+### Deep Learning Solution
+
+
+## Details
+
+## Conclusion and Acknowledgement
+
+Note that the raw data is difficult to handle, which spend the most of time of a solo player like me (can only work during spare time) on organizing data/input and features. With more time, I think I can try more ideas because the fundamental codes had been establised and more "algorithmic" works can be easily done.
 
 At last, thanks the organizors and sponsors for providing a amazing detailed Opta data which I have never seen before. I always want to make some things with my knowledge of AI. This can be a great start for a soccer-fan researcher as me.
 
