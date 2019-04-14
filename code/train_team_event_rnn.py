@@ -7,6 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import torch.utils.data as Data
+import argparse
 
 
 class TeamEventRNN(nn.Module):
@@ -132,8 +133,8 @@ class BinaryRegressionLoss(torch.nn.Module):
         
         #print(bin_logloss)
         #print(reg_loss)
-        #print('team', out_team[0:5], label_team[0:5])
-        #print('xy', out_xy[0:5], label_xy[0:5])
+        print('team', out_team[0:5], label_team[0:5])
+        print('xy', out_xy[0:5], label_xy[0:5])
         
         loss = Config.weight_bin_logloss * bin_logloss + Config.weight_reg_loss * torch.mean(label_xy.float()*reg_loss)
         #loss = Config.weight_bin_logloss * bin_logloss + Config.weight_reg_loss * torch.mean(reg_loss)
@@ -145,10 +146,21 @@ def adjust_lr(optimizer, interation):
             param_group['lr'] /= Config.decay_value
             print('current lr', param_group['lr'])
 
-if __name__ == '__main__':   
+if __name__ == '__main__': 
+    parser = argparse.ArgumentParser(description='manual to this script')
+    parser.add_argument('--load', type=int, default=0)
+
+    args = parser.parse_args()
+
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
         event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size,
         team_stat_dim=Config.team_stat_dim, event_stat_dim=Config.event_stat_dim)
+
+    if args.load>0:
+        if not os.path.exists(Config.model_path+str(args.load)+'_team_events_rnn.pkl'):
+            print("Model doesn't exist!")
+            exit(0)
+        net.load_state_dict(torch.load(Config.model_path+str(args.load)+'_team_events_rnn.pkl'))
     
     criterion = BinaryRegressionLoss()
     optimizer = optim.Adam(net.parameters(), lr = Config.lr)
@@ -191,9 +203,9 @@ if __name__ == '__main__':
                 counter.append(iteration_number)
                 loss_history.append(mov_ave_loss)
         
-        if (epoch+1) % 60 == 0:
-            np.savetxt('counter.txt', np.array(counter))
-            np.savetxt('loss_history.txt', np.array(loss_history))
-            torch.save(net.state_dict(), Config.model_path+str(epoch)+'_team_events_rnn.pkl')
+        if (epoch+1) % 50 == 0:
+            np.savetxt(Config.model_path+'counter.txt', np.array(counter))
+            np.savetxt(Config.model_path+'loss_history.txt', np.array(loss_history))
+            torch.save(net.state_dict(), Config.model_path+str(epoch+1)+'_team_events_rnn.pkl')
             
     show_plot('team_event_rnn', counter,loss_history)

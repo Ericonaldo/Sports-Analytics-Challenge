@@ -1,4 +1,5 @@
 from utils import *
+import argparse
 from train_team_event_rnn import *
 
 def construct_xml_to_team_seq(choice_xml):
@@ -85,10 +86,10 @@ def construct_xml_to_team_seq(choice_xml):
     team0_seq_len = len(team0_df)
     team1_seq_len = len(team1_df)
         
-    return [team0_df.values, team0_seq_len, team1_df.values, team1_seq_len]
+    return [torch.unsqueeze(torch.tensor(team0_df.values), 0), torch.tensor([team0_seq_len]), torch.unsqueeze(torch.tensor(team1_df.values), 0), torch.tensor([team1_seq_len])]
         
 
-def construct_xml_event_seq(choice_xml):
+def construct_xml_to_event_seq(choice_xml):
     """
     Construct the last 10 event sequence from a xml file.
     args:
@@ -140,7 +141,7 @@ def construct_xml_event_seq(choice_xml):
     if 'type_id' in list(event_df.columns):
         event_df.drop(['type_id'], axis=1, inplace=True)
     
-    return event_df.values, 10
+    return torch.unsqueeze(torch.tensor(event_df.values), 0), torch.tensor([10])
 
 
 def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
@@ -154,12 +155,13 @@ def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
         
     """
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
-        event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size)
+        event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size,
+        team_stat_dim=Config.team_stat_dim, event_stat_dim=Config.event_stat_dim)
 
-    if not os.path.exists(Config.model_path+str(epoch)+'_team_events_rnn.pkl'))
+    if not os.path.exists(Config.model_path+str(epoch)+'_team_events_rnn.pkl'):
         print("Model doesn't exist!")
         exit(0)
-    net.load_state_dict(torch.load(Config.model_path+'team_events_rnn.pkl'))
+    net.load_state_dict(torch.load(Config.model_path+str(epoch)+'_team_events_rnn.pkl'))
 
     files= os.listdir(valid_dir)
     xml_files = [i for i in files if i[-3:]=='xml']
@@ -168,20 +170,27 @@ def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
     csv_files.sort()
     file_num = len(xml_files)
 
-    score_player = loss_xy = score_team = 0
+    score_player = loss_xy = score_team = count_num = 0
     for i in range(file_num):
         ground_truth = pd.read_csv(valid_dir+csv_files[i], header=None)
+        if ground_truth.iloc[0,1] == ground_truth.iloc[0,2] == 0:
+            continue
+
         choice_xml = lxml.etree.parse(valid_dir+xml_files[i])
 
-        [team0_seq, team0_seq_len, team1_seq, team1_seq_len] = construct_xml_to_team_seq(choice_xml)
-        event_seq, event_seq_len = construct_xml_to_event_seq(choice_xml)
+        [team0_seq, team0_seq_len, team1_seq, team1_seq_len] = construct_xml_to_team_seq(choice_xml) # (1,T,D), (1), (1,T,D), (1)
+        event_seq, event_seq_len = construct_xml_to_event_seq(choice_xml) # (1,10,D), (1), (1,10,D), (1)
         stat_team0 = stat_team1 = stat_event = np.array([0])
-        
-        out_team0, out_xy0 = net(team0_seq, team0_seq_len, stat_team0, event_seq, event_seq_len, stat_event)
-        out_team1, out_xy1 = net(team1_seq, team1_seq_len, stat_team1, event_seq, event_seq_len, stat_event)
 
-        out_team = [out_team0 if (out_team0 >= out_team1) else out_team1][0]
-        out_xy = [out_xy0 if (out_team0 >= out_team1) else out_xy1][0]
+        out_team0, out_xy0 = net(team0_seq, team0_seq_len, stat_team0, event_seq, event_seq_len, stat_event) # (1,1), (1,2)
+        out_team1, out_xy1 = net(team1_seq, team1_seq_len, stat_team1, event_seq, event_seq_len, stat_event) # (1,1), (1,2)
+
+        out_team = [0 if (out_team0[0,0] >= out_team1[0,0]) else 1][0]
+        out_xy = [out_xy0 if (out_team0[0,0] >= out_team1[0,0]) else out_xy1][0][0].data.numpy() 
+
+        out_xy *= 100
+        out_xy = np.around(out_xy, 1)
+        print(out_xy)
 
         # compute result 
         if out_team == ground_truth.iloc[0,1]:
@@ -189,14 +198,16 @@ def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
         loss_xy += (out_xy[0] - ground_truth.iloc[0,2])**2+\
                             (out_xy[1] - ground_truth.iloc[0,3])**2
             
-            
-        print('ground truth team={}, x={}, y={}'.format(
+        print('-------------------------------------')
+        print('label team={}, x={}, y={}'.format(
             ground_truth.iloc[0,1],ground_truth.iloc[0,2],ground_truth.iloc[0,3]))
-        print('predicted results team={}, x={}, y={}'.format(
+        print('prdct team={}, x={}, y={}'.format(
             out_team, out_xy[0], out_xy[1]))
+        print('-------------------------------------')
+        count_num += 1
 
     print('\n ave scores/loss score_player={}, score_team={}, loss_xy={}'.format(
-        float(score_player)/file_num, float(score_team)/file_num, loss_xy/file_num))
+        float(score_player)/count_num, float(score_team)/count_num, loss_xy/count_num))
     
      
 if __name__=="__main__":
@@ -204,6 +215,7 @@ if __name__=="__main__":
     parser.add_argument('--valid', type=int, default=0)
     parser.add_argument('--test_p', action='store_true')
     parser.add_argument('--test_xyt', action='store_true')
+    parser.add_argument('--xyt_epoch', type=int, default=500)
     
     args = parser.parse_args()
     if args.valid != 0:
@@ -212,4 +224,4 @@ if __name__=="__main__":
     if args.test_p:
         pass
     if args.test_xyt:
-        evaluate_xyt_rnn(epoch = 500)
+        evaluate_xyt_rnn(epoch = args.xyt_epoch)

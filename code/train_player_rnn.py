@@ -114,7 +114,8 @@ class MultiCrossEntropyLoss(torch.nn.Module):
 
 if __name__ == '__main__':   
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
-        event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size)
+        event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size,
+        team_stat_dim=Config.team_stat_dim, event_stat_dim=Config.event_stat_dim)
     criterion = BinaryRegressionLoss()
     optimizer = optim.Adam(net.parameters(), lr = Config.lr)
 

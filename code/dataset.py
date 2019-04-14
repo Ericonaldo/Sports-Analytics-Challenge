@@ -102,9 +102,9 @@ class TeamEventDataset(Dataset):
 
 
 class PlayerData():
-    def __init__(self, path, t):
+    def __init__(self, path, player_seq_file):
         self.path = path
-        self.t = round(float(t), 1)
+        self.player_seq_file= player_seq_file
         # team seq
         self.team_seq = None
         self.team_seq_len = np.array(0)
@@ -121,41 +121,67 @@ class PlayerData():
         self.label_team = None
         self.label_xy = None
         self.label_player = None
-        
-        files = os.listdir(path)
-        csv_files = [i for i in files if 'csv' in i]
-        label_file = [i for i in csv_files if str(self.t) in i]
-        if team_id == 0:
+
+        self.team_id = int(self.player_seq_file[-6]) # tr_0.0_p37740.0.pseq
+        if self.player_seq_file[6]=='_':
+            self.t = float(self.player_seq_file[3:5])
+        else:
+            self.t = float(self.player_seq_file[3:6])     
+        self.t = round(float(t), 1)
+        if self.team_id == 0:
             team_seq_file = 'tr_'+str(self.t)+'_team0.tseq'
         else:
             team_seq_file = 'tr_'+str(self.t)+'_team1.tseq'
         event_seq_file = 'tr_'+str(self.t)+'_event.eseq'
+
+        files = os.listdir(path)
+        csv_files = [i for i in files if 'csv' in i]
+        label_file = [i for i in csv_files if str(self.t) in i]
+
         if len(label_file) == 0:
             print(str(self.t)+'seq do not exist!')
         else:
             label_file = pd.read_csv(path+label_file[0], header=None)
+            self.label_player = np.array(label_file.iloc[0,0])
             self.label_team = np.array(label_file.iloc[0,1])
             self.label_xy  = np.array(label_file.iloc[0,2:])
-
+            ## team seq
             team_seq = pd.read_csv(path+'team_seq/'+team_seq_file).values # [time_step, team_feature_dim]
             self.team_seq_len = np.array(len(team_seq))
             # padding
             self.team_seq = np.pad(team_seq,((0,total_team_seq-len(team_seq)),(0,0)),'constant')  
-
+            ## event seq
             self.event_seq = pd.read_csv(path+'event_seq/'+event_seq_file).values # [time_step, team_feature_dim]
             self.event_seq_len = np.array(len(self.event_seq))
+            ## player seq
+            self.player_seq = pd.read_csv(path+'player_seq/'+self.player_seq_file).values
+            self.event_seq_len = np.array(len(self.player_seq))
 
 class PlayerDataset(Dataset):
 
     def __init__(self, path):
-        for d in dirs:
-            for t in tqdm(range(0, 11)):
-                t *= 7.5
-            self.data.append(PlayerData(path+d+'/', t))
+        self.path = path
+        self.data = []
+        event_seq = 'event_seq/'
+        team_seq = 'team_seq/'
+        player_seq = 'player_seq/'
 
-    def __getitem__(self,index):
-        pass
-        return 
+        dirs = os.listdir(path)
+        dirs = [i for i in dirs if '.' not in i]
+        dirs = [str(i) for i in range(len(dirs))]
+
+        for d in dirs:
+            player_files = os.listdir(path+player_seq)
+            player_files = [i for i in player_files if '.pseq' in i]
+            for p in tqdm(range(len(player_files))):
+                self.data.append(TeamEventData(path, player_files[p]))
         
+    def __getitem__(self, index):
+        #index %= 2000
+        team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy = \
+            self.data[index].team_seq, self.data[index].team_seq_len, self.data[index].stat_team, self.data[index].event_seq, self.data[index].event_seq_len, self.data[index].stat_event, self.data[index].label_team, self.data[index].label_xy
+        
+        return team_seq, team_seq_len, stat_team, event_seq, event_seq_len, stat_event, label_team, label_xy
+
     def __len__(self):
         return len(self.data)
