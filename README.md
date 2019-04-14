@@ -6,47 +6,47 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
 
 ## Project Organization
 ------------
-    ├── README.md          					      <- The top-level README for developers using this project.
+    ├── README.md          					  <- The top-level README for developers using this project.
     ├── data
-    │   ├── train          						  <- Training data used in experiments.
-    │   ├── processed      						  <- Data used for indication and further processing during experiments.
-    │   ├── valid      						      <- Valid data used in experiments.
-    │   └── XPSG - available resources            <- The original, immutable data dump (after unzipping).
+    │   ├── train          				      <- Training data used in experiments.
+    │   ├── processed      					  <- Data used for indication and further processing during experiments.
+    │   ├── valid      						  <- Valid data used in experiments.
+    │   └── XPSG - available resources        <- The original, immutable data dump (after unzipping).
     │
     │
-    ├── models                                    <- Trained and serialized models, contained lightGBM models and RNN models
+    ├── models                                <- Trained and serialized models, contained lightGBM models and RNN models
     │
     │
-    ├── fig                                       <- Some useful figures for indication during experiments.
+    ├── fig                                   <- Some useful figures for indication during experiments.
     │
     │
-    ├── code             		                  <- Python script source code and Jupyter notebook source code for use in this project.
+    ├── code             		              <- Python script source code and Jupyter notebook source code for use in this project.
     │   │
-    │   ├── main_psgx.py                          <- The required python code file which contains Result(xml1) function.
+    │   ├── main_psgx.py                      <- The required python code file which contains Result(xml1) function.
     │   │
-    │   ├── install_psgx.py  					  <- The required python code file which is used for installing requirements.
+    │   ├── install_psgx.py  			      <- The required python code file which is used for installing requirements.
     │   │
-    │   ├── utils.py                              <- Useful tool codes used in experiments, containing some data preprocessing, feature extraction and other tools.
+    │   ├── utils.py                          <- Useful tool codes used in experiments, containing some data preprocessing, feature extraction and other tools.
     │   │
-    │   ├── train_gbdt.py                         <- Training a gbdt model with lightGBM which give the answer of the last 3 questions. See details below.
+    │   ├── train_gbdt.py                     <- Training a gbdt model with lightGBM which give the answer of the last 3 questions. See details below.
     │   │
-    │   ├── evaluation_gbdt.py  				  <- Testing the above gbdt model on valid sets and show the evaluation results. See details below.
+    │   ├── evaluation_gbdt.py  		      <- Testing the above gbdt model on valid sets and show the evaluation results. See details below.
     │   │
-    │   ├── evaluation_rules.py  				  <- Testing naive rules on valid sets and show the evaluation results. This result gives a baseline.
+    │   ├── evaluation_rules.py  			  <- Testing naive rules on valid sets and show the evaluation results. This result gives a baseline.
     │   │
-    │   ├── dataset.py                            <- This file define some class of pytorch Dataset, used for training of deep learning models with pytorch.
+    │   ├── dataset.py                        <- This file define some class of pytorch Dataset, used for training of deep learning models with pytorch.
     │   │
-    │   ├── train_team_event_rnn.py               <- Training rnn models with pytorch which give the answer of the last 3 questions. See details below.
+    │   ├── train_team_event_rnn.py           <- Training rnn models with pytorch which give the answer of the last 3 questions. See details below.
     │   │ 
-    │   ├── train_player_rnn.py                   <- Training rnn models with pytorch which give the answer of the first question. See details below.
+    │   ├── train_player_rnn.py               <- Training rnn models with pytorch which give the answer of the first question. See details below.
     │   │ 
-    │   ├── evaluation_rnn.py                     <- Testing the above rnn models on valid sets and show the evaluation results. See details below.
+    │   ├── evaluation_rnn.py                 <- Testing the above rnn models on valid sets and show the evaluation results. See details below.
     │   │ 
-    │   ├── train_xyt_gbdt.ipynb                  <- Some draft codes during experiments.
+    │   ├── train_xyt_gbdt.ipynb              <- Some draft codes during experiments.
     │   │ 
-    │   ├── construct_train.ipynb                 <- Some draft codes during experiments.
+    │   ├── construct_train.ipynb             <- Some draft codes during experiments.
     │   │ 
-    └	└── test.ipynb                            <- Some draft codes during experiments.
+    └   └── test.ipynb                        <- Some draft codes during experiments.
 
 ## Instructions
 
