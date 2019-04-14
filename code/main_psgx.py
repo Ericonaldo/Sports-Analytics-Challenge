@@ -4,9 +4,12 @@ from train_team_event_rnn import *
 from evaluation_gbdt import *
 from evaluation_rnn import *
 
-def Result(xml_1, choice='rnn'):
+def Result(xml_1, choice='default'):
 
     if choice=='rnn':
+        [pred_player, pred_team, _, _] = get_result_rnn(xml_1)
+        [_, _, pred_x, pred_y] = get_result_gbdt(xml_1)
+    elif choice=='rnn':
         [pred_player, pred_team, pred_x, pred_y] = get_result_rnn(xml_1)
     elif choice=='gbdt':
         [pred_player, pred_team, pred_x, pred_y] = get_result_gbdt(xml_1)
@@ -20,7 +23,7 @@ def Result(xml_1, choice='rnn'):
     with open('res_psgx.csv', 'w') as f:
         f.write(results)
 
-def get_result_rnn(xml_1, epoch=500):
+def get_result_rnn(xml_1, epoch=360):
 
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
         event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size,

@@ -83,10 +83,11 @@ def evaluation(save_path=train_path, valid_dir=valid_path):
     csv_files = [i for i in files if i[-3:]=='csv']
     file_num = len(xml_files)
     
-    score_player = loss_xy = score_team = 0
-    
+    score_player = loss_xy = score_team = count_num = 0
     for i in tqdm(range(file_num)):
         ground_truth = pd.read_csv(valid_dir+csv_files[i], header=None)
+        if ground_truth.iloc[0,2] == ground_truth.iloc[0,3] == 0:
+            continue
         
         game_xml = lxml.etree.parse(valid_dir+xml_files[i])
         df = construct_one_ball_team_df(game_xml)
@@ -152,10 +153,13 @@ def evaluation(save_path=train_path, valid_dir=valid_path):
             score_player +=1
         '''
         #print(df_test_X.type_id)
-        print('ground truth player={}, team={}, x={}, y={}'.format(
+        print('-------------------------------------')
+        print('label player={}, team={}, x={}, y={}'.format(
             ground_truth.iloc[0,0],ground_truth.iloc[0,1],ground_truth.iloc[0,2],ground_truth.iloc[0,3]))
-        print('predicted results player={}, team={}, x={}, y={}'.format(
+        print('prdct player={}, team={}, x={}, y={}'.format(
             pred_player, team, pred_x, pred_y))
+        print('-------------------------------------')
+        count_num += 1
 
         temp = pd.DataFrame({
                             "pre_x":[pred_x],
@@ -169,7 +173,7 @@ def evaluation(save_path=train_path, valid_dir=valid_path):
 
     print('\n ave scores/loss score_player={}, score_team={}, loss_xy={}'.format(
         float(score_player)/file_num, float(score_team)/file_num, loss_xy/file_num))
-    test_df.to_csv(save_path+"test_df.csv", index=False)
+    test_df.to_csv(save_path+"rules_test_df.csv", index=False)
 
     return test_df
 

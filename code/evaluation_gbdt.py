@@ -215,11 +215,13 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
     csv_files.sort()
     file_num = len(xml_files)
     
-    score_player = loss_xy = score_team = 0
+    score_player = loss_xy = score_team = count_num = 0
     
     for i in tqdm(range(file_num)):
         # read the label file
         ground_truth = pd.read_csv(valid_dir+csv_files[i], header=None)
+        if ground_truth.iloc[0,2] == ground_truth.iloc[0,3] == 0:
+            continue
         game_xml = lxml.etree.parse(valid_dir+xml_files[i])
         
         # get the feature dataframe
@@ -291,11 +293,13 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
         if pred_player == ground_truth.iloc[0,0]:
                 score_player +=1
             
-            
-        print('ground truth player={}, team={}, x={}, y={}'.format(
+        print('-------------------------------------')
+        print('label player={}, team={}, x={}, y={}'.format(
             ground_truth.iloc[0,0],ground_truth.iloc[0,1],ground_truth.iloc[0,2],ground_truth.iloc[0,3]))
-        print('predicted results player={}, team={}, x={}, y={}'.format(
+        print('prdct player={}, team={}, x={}, y={}'.format(
             pred_player, team, pred_x, pred_y))
+        print('-------------------------------------')
+        count_num += 1
 
         temp = pd.DataFrame({#"pre_next_ball_related":[pred_next_ball_related],
                             "pre_x":[pred_x],
@@ -308,8 +312,9 @@ def evaluate_gbdt(save_path=train_path, valid_dir=valid_path, models=[None, None
         test_df = pd.concat([test_df, temp])
 
     print('\n ave scores/loss score_player={}, score_team={}, loss_xy={}'.format(
-        float(score_player)/file_num, float(score_team)/file_num, loss_xy/file_num))
-    test_df.to_csv(save_path+"test_df.csv", index=False)
+        float(score_player)/count_num, float(score_team)/count_num, loss_xy/count_num))
+    print('count_num: ', count_num)
+    test_df.to_csv(save_path+"gbdt_test_df.csv", index=False)
 
     return test_df
 
