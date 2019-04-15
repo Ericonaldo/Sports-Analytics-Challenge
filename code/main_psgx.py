@@ -121,7 +121,23 @@ def get_result_rnn(xml_1, epoch_team=360, epoch_player=500):
     else:
         all_player_df = get_player_data()
 
-    pred_player = all_player_df.iloc[out_player].player_id
+    # Get playing time data of all players
+    if (os.path.exists(processed_path+"total_play_time_data.csv")):
+        total_play_time_data = pd.read_csv(processed_path+"total_play_time_data.csv")
+        total_play_time_data.total_playing_time = total_play_time_data.total_playing_time.apply(
+            lambda x:pd.Timedelta(x))
+    else:
+        total_play_time_data = get_play_time(all_player_df)
+    suff_time_plyr = list(total_play_time_data[total_play_time_data.total_playing_time > pd.Timedelta(minutes=800)].player_id)
+
+    all_player_df.join_date = all_player_df.join_date.apply(
+        lambda x:pd.to_datetime(x, format="%Y-%m-%d"))
+    join_date_plyr = list(
+        all_player_df[all_player_df.join_date < pd.to_datetime('2017-01-01', format="%Y-%m-%d")].player_id)
+
+    suff_plyr = [_ for _ in all_player_df if (_ in join_date_plyr) and (_ in suff_time_plyr)]
+
+    pred_player = suff_plyr[out_player]
     if pred_player[0] == 'p':
         pred_player = int(pred_player[1:])
     
