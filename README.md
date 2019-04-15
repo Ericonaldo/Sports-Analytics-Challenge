@@ -100,7 +100,7 @@ Evaluate the deep model:
 
 ### Introduction
 
-In this competition, I take the 4 (or 3) questions dividely, and propose 2 solutions for those problems.
+In this competition, I take the 4 (or 3) questions respectively, and propose 2 solutions for those problems.
 
 For the No.1 question which is to predict the player id, I take it as a Fine-grained classification problem, for which the high level class is the position of a player and it gives information when predicting the low level class -- the true players. (I also want to take it as a metric learning problem but without enough time on that.)
 
@@ -112,11 +112,31 @@ For the No.3 question which is to predict the ball position, I take it as a regr
 
 #### GBDT(Lightgbm) Solution
 
+This solution is only for the last 3 questions.
+
+First, I construct the training set from all the competition xml data, in which every event is taken as a sample. For each sample, I construct space features, time features and detailed features from the raw event data like 'field', 'zone', 'time dis from the last event' and so on (codes are in /code/utils.py/construct_ball_team_df()). The targets are: if the next event team id the same as current; the next x coordinate; the next y coordinate. 
+
+Then, I train 3 gbdt models to predict above targets respectively. The best results I test offline is  score_team=0.4512471655328798, loss_xy=1294.2247845804986. Note that the score_team is worse than a random baseline 0.5.
 
 #### Deep Learning Solution
 
+This solution is only for all the 4 questions.
 
-### Details
+First, I design some simple networks.
+
+For player id prediction, I choose a RNN (GRU) model to model the feature of events of this particular player, and another RNN (GRU) model to model the feature of events of his team. Then concat and through some FC layer to get a high level class and a low level class. The loss are weighted Cross Entropy loss. (Codes are in /code/utils.py/train_player_rnn())
+
+For team id and coordinate predictions, I choose a RNN (GRU) model to model the feature of events of the two teams, and another RNN (GRU) model to model the feature of the last 10 events. Then concat and through some FC layer to get a high level class and a low level class. The loss are weighted Cross Entropy loss. (Codes are in /code/utils.py/train_team_event_rnn())
+
+construct the training set from all the competition xml data, in which every event is taken as a sample. For each sample, I construct space features, time features and detailed features from the raw event data like 'field', 'zone', 'time dis from the last event' and so on (codes are in /code/utils.py/construct_ball_team_df()). The targets are: if the next event team id the same as current; the next x coordinate; the next y coordinate. 
+
+Then, I train 3 models to predict above targets respectively. The best results I test offline is  score_team=0.4512471655328798, loss_xy=1294.2247845804986. Note that the score_team is worse than a random baseline 0.5.
+
+### Questions
+
+
+
+### Future Work
 
 ### Conclusion and Acknowledgement
 
