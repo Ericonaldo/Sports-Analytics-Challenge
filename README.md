@@ -123,7 +123,7 @@ The feature importance and faeture correlation are as follows.
 ![feature_importance_bst_next_ball_related](/fig/feature_importance_bst_next_ball_related.png)
 ![feature_importance_x](/fig/feature_importance_x.png)
 ![feature_importance_y](/fig/feature_importance_y.png)
-![corr](/fig/out.png)
+![corr](/fig/out.jpg)
 
 #### Deep Learning Solution
 
