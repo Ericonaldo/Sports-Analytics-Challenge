@@ -1,0 +1,1638 @@
+<!-- Copyright 2001-2016 Opta Sportsdata Ltd. All rights reserved. --><!-- PRODUCTION HEADER
+     produced on:        valde-jobq-a01.nexus.opta.net
+     production time:    20161031T191514,638Z
+     production module:  Opta::Feed::XML::Soccer::F24
+--><Games timestamp="2016-10-31T19:15:13">
+  <Game id="" away_team_id="" away_team_name="" competition_id="" competition_name="" game_date="" home_team_id="" home_team_name="" matchday="" period_1_start="" period_2_start="" season_id="" season_name="" timestamp="">
+    <Event id="" event_id="537" type_id="1" period_id="2" min="52" sec="0" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="213" value="2.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="10.7"/>
+    </Event>
+    <Event id="" event_id="538" type_id="1" period_id="2" min="52" sec="6" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="213" value="0.4"/>
+      <Q id="" qualifier_id="212" value="9.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="539" type_id="1" period_id="2" min="52" sec="7" player_id="37765" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="27.1"/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="213" value="1.4"/>
+      <Q id="" qualifier_id="2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="602" type_id="52" period_id="2" min="52" sec="11" player_id="42713" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="603" type_id="1" period_id="2" min="52" sec="13" player_id="42713" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="28.7"/>
+      <Q id="" qualifier_id="123"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="5.4"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="604" type_id="1" period_id="2" min="52" sec="17" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="1.0"/>
+      <Q id="" qualifier_id="212" value="11.9"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="605" type_id="1" period_id="2" min="52" sec="19" player_id="106551" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="32.3"/>
+      <Q id="" qualifier_id="213" value="5.9"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+    </Event>
+    <Event id="" event_id="540" type_id="45" period_id="2" min="52" sec="21" player_id="108988" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="285"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="606"/>
+    </Event>
+    <Event id="" event_id="606" type_id="3" period_id="2" min="52" sec="21" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="233" value="540"/>
+      <Q id="" qualifier_id="286"/>
+    </Event>
+    <Event id="" event_id="607" type_id="1" period_id="2" min="52" sec="24" player_id="42484" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="15.9"/>
+      <Q id="" qualifier_id="213" value="1.6"/>
+      <Q id="" qualifier_id="2"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="541" type_id="12" period_id="2" min="52" sec="25" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="5.1"/>
+      <Q id="" qualifier_id="213" value="3.3"/>
+      <Q id="" qualifier_id="167"/>
+    </Event>
+    <Event id="" event_id="542" type_id="6" period_id="2" min="52" sec="27" player_id="133633" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="608"/>
+      <Q id="" qualifier_id="73"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="608" type_id="6" period_id="2" min="52" sec="27" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="75"/>
+      <Q id="" qualifier_id="233" value="542"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="609" type_id="1" period_id="2" min="52" sec="49" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="224"/>
+      <Q id="" qualifier_id="213" value="1.8"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="2"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="38.1"/>
+      <Q id="" qualifier_id="6"/>
+    </Event>
+    <Event id="" event_id="545" type_id="44" period_id="2" min="52" sec="50" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="617"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="285"/>
+    </Event>
+    <Event id="" event_id="617" type_id="44" period_id="2" min="52" sec="50" player_id="106821" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="233" value="545"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="543" type_id="12" period_id="2" min="52" sec="50" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="15"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="34.3"/>
+      <Q id="" qualifier_id="167"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="5.0"/>
+    </Event>
+    <Event id="" event_id="544" type_id="5" period_id="2" min="52" sec="53" player_id="19510" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="610"/>
+    </Event>
+    <Event id="" event_id="610" type_id="5" period_id="2" min="52" sec="53" player_id="106821" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="544"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="611" type_id="1" period_id="2" min="53" sec="6" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="7.8"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="213" value="4.7"/>
+    </Event>
+    <Event id="" event_id="612" type_id="1" period_id="2" min="53" sec="9" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="212" value="2.5"/>
+    </Event>
+    <Event id="" event_id="613" type_id="1" period_id="2" min="53" sec="10" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="18.6"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="4.1"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="614" type_id="1" period_id="2" min="53" sec="14" player_id="106551" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="4.9"/>
+      <Q id="" qualifier_id="212" value="37.9"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="615" type_id="61" period_id="2" min="53" sec="16" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="546" type_id="5" period_id="2" min="53" sec="16" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="616"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="616" type_id="5" period_id="2" min="53" sec="16" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="546"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="547" type_id="1" period_id="2" min="53" sec="29" player_id="28146" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="12.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="5.7"/>
+    </Event>
+    <Event id="" event_id="986" type_id="1" period_id="2" min="53" sec="31" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="3"/>
+      <Q id="" qualifier_id="212" value="15.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="213" value="0.3"/>
+    </Event>
+    <Event id="" event_id="618" type_id="1" period_id="2" min="53" sec="33" player_id="161034" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="4.1"/>
+      <Q id="" qualifier_id="212" value="4.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="156"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="620" type_id="49" period_id="2" min="53" sec="34" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="619" type_id="3" period_id="2" min="53" sec="35" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="548"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="286"/>
+    </Event>
+    <Event id="" event_id="548" type_id="7" period_id="2" min="53" sec="35" player_id="78323" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="285"/>
+      <Q id="" qualifier_id="167"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="619"/>
+    </Event>
+    <Event id="" event_id="549" type_id="5" period_id="2" min="53" sec="36" player_id="78323" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="621"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="621" type_id="5" period_id="2" min="53" sec="36" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="233" value="549"/>
+    </Event>
+    <Event id="" event_id="622" type_id="1" period_id="2" min="53" sec="45" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="1.2"/>
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="17.3"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="623" type_id="1" period_id="2" min="53" sec="47" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="21.7"/>
+      <Q id="" qualifier_id="213" value="2.5"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="624" type_id="1" period_id="2" min="53" sec="51" player_id="106821" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="16.9"/>
+      <Q id="" qualifier_id="213" value="1.6"/>
+    </Event>
+    <Event id="" event_id="625" type_id="1" period_id="2" min="53" sec="54" player_id="37776" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="6.1"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="550" type_id="8" period_id="2" min="53" sec="55" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="627" type_id="51" period_id="2" min="53" sec="55" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="169"/>
+    </Event>
+    <Event id="" event_id="551" type_id="49" period_id="2" min="53" sec="56" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="552" type_id="13" period_id="2" min="54" sec="2" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="84"/>
+      <Q id="" qualifier_id="20"/>
+      <Q id="" qualifier_id="102" value="43.5"/>
+      <Q id="" qualifier_id="103" value="29.2"/>
+      <Q id="" qualifier_id="137"/>
+      <Q id="" qualifier_id="22"/>
+      <Q id="" qualifier_id="62"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="215"/>
+    </Event>
+    <Event id="" event_id="628" type_id="10" period_id="2" min="54" sec="3" player_id="42713" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="173"/>
+      <Q id="" qualifier_id="182"/>
+      <Q id="" qualifier_id="190"/>
+      <Q id="" qualifier_id="179"/>
+    </Event>
+    <Event id="" event_id="553" type_id="6" period_id="2" min="54" sec="3" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="75"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="233" value="626"/>
+    </Event>
+    <Event id="" event_id="626" type_id="6" period_id="2" min="54" sec="3" player_id="42713" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="73"/>
+      <Q id="" qualifier_id="233" value="553"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="554" type_id="1" period_id="2" min="54" sec="33" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="2.8"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="6"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="26.7"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="555" type_id="1" period_id="2" min="54" sec="35" player_id="80800" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="1.3"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="212" value="60.2"/>
+    </Event>
+    <Event id="" event_id="556" type_id="61" period_id="2" min="54" sec="39" player_id="43455" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="557" type_id="5" period_id="2" min="54" sec="41" player_id="43455" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="233" value="629"/>
+    </Event>
+    <Event id="" event_id="629" type_id="5" period_id="2" min="54" sec="41" player_id="42713" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="557"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="630" type_id="1" period_id="2" min="54" sec="58" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="18.4"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="0.3"/>
+      <Q id="" qualifier_id="107"/>
+    </Event>
+    <Event id="" event_id="558" type_id="4" period_id="2" min="55" sec="2" player_id="28146" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="13"/>
+      <Q id="" qualifier_id="295"/>
+      <Q id="" qualifier_id="152"/>
+      <Q id="" qualifier_id="285"/>
+      <Q id="" qualifier_id="233" value="631"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="631" type_id="4" period_id="2" min="55" sec="2" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="233" value="558"/>
+      <Q id="" qualifier_id="152"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="295"/>
+      <Q id="" qualifier_id="13"/>
+    </Event>
+    <Event id="" event_id="632" type_id="1" period_id="2" min="55" sec="18" player_id="106551" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="152"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="15.2"/>
+      <Q id="" qualifier_id="213" value="1.0"/>
+      <Q id="" qualifier_id="5"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="633" type_id="1" period_id="2" min="55" sec="20" player_id="161034" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.6"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="27.5"/>
+    </Event>
+    <Event id="" event_id="634" type_id="1" period_id="2" min="55" sec="22" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="0.1"/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="218"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="212" value="37.1"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="635" type_id="1" period_id="2" min="55" sec="25" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" assist="1" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="210"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="11.9"/>
+      <Q id="" qualifier_id="22"/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="154"/>
+      <Q id="" qualifier_id="213" value="4.8"/>
+    </Event>
+    <Event id="" event_id="636" type_id="16" period_id="2" min="55" sec="27" player_id="161034" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="108"/>
+      <Q id="" qualifier_id="20"/>
+      <Q id="" qualifier_id="230" value="1.5"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="154"/>
+      <Q id="" qualifier_id="22"/>
+      <Q id="" qualifier_id="55" value="635"/>
+      <Q id="" qualifier_id="81"/>
+      <Q id="" qualifier_id="214"/>
+      <Q id="" qualifier_id="216" value="634"/>
+      <Q id="" qualifier_id="231" value="48.6"/>
+      <Q id="" qualifier_id="103" value="32.3"/>
+      <Q id="" qualifier_id="217"/>
+      <Q id="" qualifier_id="29"/>
+      <Q id="" qualifier_id="17"/>
+      <Q id="" qualifier_id="102" value="48.1"/>
+    </Event>
+    <Event id="" event_id="559" type_id="1" period_id="2" min="56" sec="35" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="2.6"/>
+      <Q id="" qualifier_id="212" value="25.2"/>
+      <Q id="" qualifier_id="279" value="G"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="560" type_id="61" period_id="2" min="56" sec="36" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="637" type_id="1" period_id="2" min="56" sec="38" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="213" value="5.7"/>
+      <Q id="" qualifier_id="212" value="36.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+    </Event>
+    <Event id="" event_id="561" type_id="4" period_id="2" min="56" sec="40" player_id="108988" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="13"/>
+      <Q id="" qualifier_id="294"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="638"/>
+      <Q id="" qualifier_id="152"/>
+      <Q id="" qualifier_id="285"/>
+    </Event>
+    <Event id="" event_id="638" type_id="4" period_id="2" min="56" sec="40" player_id="161034" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="561"/>
+      <Q id="" qualifier_id="13"/>
+      <Q id="" qualifier_id="152"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="294"/>
+    </Event>
+    <Event id="" event_id="639" type_id="1" period_id="2" min="57" sec="22" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="2"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="31.9"/>
+      <Q id="" qualifier_id="5"/>
+      <Q id="" qualifier_id="152"/>
+      <Q id="" qualifier_id="213" value="0.9"/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="562" type_id="8" period_id="2" min="57" sec="23" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="563" type_id="12" period_id="2" min="57" sec="24" player_id="19510" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="15.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="0.1"/>
+    </Event>
+    <Event id="" event_id="640" type_id="1" period_id="2" min="57" sec="28" player_id="106551" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="13.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="6.3"/>
+      <Q id="" qualifier_id="3"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="641" type_id="44" period_id="2" min="57" sec="29" player_id="55948" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="233" value="564"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="564" type_id="44" period_id="2" min="57" sec="29" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="285"/>
+      <Q id="" qualifier_id="233" value="641"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="565" type_id="12" period_id="2" min="57" sec="29" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="0.3"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="15"/>
+      <Q id="" qualifier_id="212" value="9.5"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="566" type_id="49" period_id="2" min="57" sec="31" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="567" type_id="1" period_id="2" min="57" sec="31" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="16.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="6.2"/>
+      <Q id="" qualifier_id="157"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="568" type_id="61" period_id="2" min="57" sec="35" player_id="19510" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="642" type_id="49" period_id="2" min="57" sec="38" player_id="106551" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="643" type_id="1" period_id="2" min="57" sec="39" player_id="106551" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="19.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="5.2"/>
+    </Event>
+    <Event id="" event_id="644" type_id="3" period_id="2" min="57" sec="44" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="211"/>
+      <Q id="" qualifier_id="286"/>
+    </Event>
+    <Event id="" event_id="569" type_id="49" period_id="2" min="57" sec="45" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="570" type_id="1" period_id="2" min="57" sec="53" player_id="28146" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="6.2"/>
+      <Q id="" qualifier_id="233" value="645"/>
+      <Q id="" qualifier_id="236"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="1.3"/>
+      <Q id="" qualifier_id="157"/>
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="645" type_id="74" period_id="2" min="57" sec="53" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="285"/>
+      <Q id="" qualifier_id="233" value="570"/>
+    </Event>
+    <Event id="" event_id="571" type_id="5" period_id="2" min="57" sec="54" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="646"/>
+    </Event>
+    <Event id="" event_id="646" type_id="5" period_id="2" min="57" sec="54" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="233" value="571"/>
+    </Event>
+    <Event id="" event_id="572" type_id="1" period_id="2" min="58" sec="0" player_id="28146" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="213" value="6.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="22.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="913" type_id="44" period_id="2" min="58" sec="2" player_id="37765" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="987"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="285"/>
+    </Event>
+    <Event id="" event_id="987" type_id="44" period_id="2" min="58" sec="2" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="913"/>
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="648" type_id="1" period_id="2" min="58" sec="3" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="3"/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="212" value="16.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="647" type_id="1" period_id="2" min="58" sec="5" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="2.0"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="233" value="573"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="236"/>
+      <Q id="" qualifier_id="212" value="2.2"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="573" type_id="74" period_id="2" min="58" sec="5" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="647"/>
+      <Q id="" qualifier_id="285"/>
+    </Event>
+    <Event id="" event_id="574" type_id="1" period_id="2" min="58" sec="8" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="5.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="16.3"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="575" type_id="1" period_id="2" min="58" sec="9" player_id="19510" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="26.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="3"/>
+      <Q id="" qualifier_id="213" value="4.3"/>
+      <Q id="" qualifier_id="156"/>
+    </Event>
+    <Event id="" event_id="649" type_id="43" period_id="2" min="58" sec="11" player_id="218705" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="">
+      <Q id="" qualifier_id="213" value="1.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="27.9"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="144" value="1"/>
+    </Event>
+    <Event id="" event_id="650" type_id="49" period_id="2" min="58" sec="13" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="651" type_id="1" period_id="2" min="58" sec="14" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="156"/>
+      <Q id="" qualifier_id="212" value="3.5"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="213" value="3.4"/>
+    </Event>
+    <Event id="" event_id="652" type_id="1" period_id="2" min="58" sec="15" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.4"/>
+      <Q id="" qualifier_id="212" value="24.1"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="653" type_id="1" period_id="2" min="58" sec="16" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="4.4"/>
+      <Q id="" qualifier_id="212" value="10.9"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="654" type_id="1" period_id="2" min="58" sec="17" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="6.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="655" type_id="1" period_id="2" min="58" sec="19" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="13.1"/>
+      <Q id="" qualifier_id="213" value="5.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="656" type_id="1" period_id="2" min="58" sec="21" player_id="161034" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="0.3"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="28.0"/>
+    </Event>
+    <Event id="" event_id="576" type_id="5" period_id="2" min="58" sec="22" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="657"/>
+    </Event>
+    <Event id="" event_id="657" type_id="5" period_id="2" min="58" sec="22" player_id="161034" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="576"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="577" type_id="1" period_id="2" min="58" sec="46" player_id="165457" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="74"/>
+      <Q id="" qualifier_id="124"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="212" value="42.1"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="5.7"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="658" type_id="61" period_id="2" min="58" sec="48" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="578" type_id="5" period_id="2" min="58" sec="49" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="659"/>
+    </Event>
+    <Event id="" event_id="659" type_id="5" period_id="2" min="58" sec="49" player_id="90126" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="233" value="578"/>
+    </Event>
+    <Event id="" event_id="579" type_id="1" period_id="2" min="58" sec="54" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="18.8"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="580" type_id="50" period_id="2" min="58" sec="57" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="233" value="660"/>
+    </Event>
+    <Event id="" event_id="660" type_id="7" period_id="2" min="58" sec="57" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="233" value="580"/>
+      <Q id="" qualifier_id="285"/>
+    </Event>
+    <Event id="" event_id="661" type_id="1" period_id="2" min="58" sec="59" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="4.8"/>
+      <Q id="" qualifier_id="213" value="4.0"/>
+    </Event>
+    <Event id="" event_id="662" type_id="1" period_id="2" min="59" sec="0" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="3.8"/>
+      <Q id="" qualifier_id="213" value="2.2"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="663" type_id="49" period_id="2" min="59" sec="1" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="664" type_id="1" period_id="2" min="59" sec="1" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="4.9"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="5.3"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="665" type_id="1" period_id="2" min="59" sec="2" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="13.0"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="6.1"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="666" type_id="1" period_id="2" min="59" sec="4" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="4.3"/>
+      <Q id="" qualifier_id="156"/>
+      <Q id="" qualifier_id="213" value="2.6"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="667" type_id="1" period_id="2" min="59" sec="5" player_id="161034" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="5.1"/>
+      <Q id="" qualifier_id="212" value="5.7"/>
+    </Event>
+    <Event id="" event_id="668" type_id="1" period_id="2" min="59" sec="6" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="10.5"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="1.1"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="581" type_id="43" period_id="2" min="59" sec="7" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="285" value="0"/>
+      <Q id="" qualifier_id="144" value="7"/>
+    </Event>
+    <Event id="" event_id="669" type_id="1" period_id="2" min="59" sec="9" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="2.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="4.8"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="670" type_id="1" period_id="2" min="59" sec="10" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="9.1"/>
+      <Q id="" qualifier_id="213" value="4.2"/>
+    </Event>
+    <Event id="" event_id="671" type_id="1" period_id="2" min="59" sec="12" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="196"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="213" value="4.9"/>
+      <Q id="" qualifier_id="212" value="47.1"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="673" type_id="1" period_id="2" min="59" sec="19" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="5.3"/>
+      <Q id="" qualifier_id="212" value="11.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="674" type_id="1" period_id="2" min="59" sec="21" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="17.8"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="2.7"/>
+    </Event>
+    <Event id="" event_id="675" type_id="1" period_id="2" min="59" sec="24" player_id="106551" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="9.6"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="5.2"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="676" type_id="1" period_id="2" min="59" sec="26" player_id="37938" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="582"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="236"/>
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="212" value="1.4"/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="582" type_id="74" period_id="2" min="59" sec="26" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="285"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="676"/>
+    </Event>
+    <Event id="" event_id="583" type_id="5" period_id="2" min="59" sec="26" player_id="28146" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="677"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="677" type_id="5" period_id="2" min="59" sec="26" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="583"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="678" type_id="1" period_id="2" min="59" sec="32" player_id="37938" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="213" value="1.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="24.4"/>
+    </Event>
+    <Event id="" event_id="584" type_id="12" period_id="2" min="59" sec="34" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="41.2"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="5.3"/>
+    </Event>
+    <Event id="" event_id="679" type_id="1" period_id="2" min="59" sec="40" player_id="37776" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="1.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="3"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="12.1"/>
+    </Event>
+    <Event id="" event_id="585" type_id="5" period_id="2" min="59" sec="41" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="680"/>
+    </Event>
+    <Event id="" event_id="680" type_id="5" period_id="2" min="59" sec="41" player_id="37776" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="233" value="585"/>
+    </Event>
+    <Event id="" event_id="586" type_id="1" period_id="2" min="59" sec="55" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="8.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="1.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="107"/>
+    </Event>
+    <Event id="" event_id="587" type_id="1" period_id="2" min="59" sec="55" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="6.7"/>
+      <Q id="" qualifier_id="156"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="3.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="588" type_id="1" period_id="2" min="59" sec="56" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.9"/>
+      <Q id="" qualifier_id="212" value="26.8"/>
+    </Event>
+    <Event id="" event_id="589" type_id="1" period_id="2" min="59" sec="59" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="1.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="17.7"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="590" type_id="1" period_id="2" min="60" sec="2" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="1.0"/>
+      <Q id="" qualifier_id="212" value="16.4"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="591" type_id="1" period_id="2" min="60" sec="5" player_id="124148" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="7.1"/>
+      <Q id="" qualifier_id="213" value="3.8"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="592" type_id="1" period_id="2" min="60" sec="8" player_id="28146" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="59.1"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="6.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="157"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="593" type_id="43" period_id="2" min="60" sec="15" player_id="19510" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="144" value="61"/>
+    </Event>
+    <Event id="" event_id="681" type_id="49" period_id="2" min="60" sec="16" player_id="218705" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="682" type_id="1" period_id="2" min="60" sec="17" player_id="218705" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="30.8"/>
+      <Q id="" qualifier_id="213" value="6.2"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="157"/>
+    </Event>
+    <Event id="" event_id="594" type_id="49" period_id="2" min="60" sec="20" player_id="78323" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="595" type_id="1" period_id="2" min="60" sec="21" player_id="78323" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="8.4"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="3.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="596" type_id="1" period_id="2" min="60" sec="24" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="3.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="212" value="12.1"/>
+    </Event>
+    <Event id="" event_id="597" type_id="1" period_id="2" min="60" sec="28" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="4.2"/>
+      <Q id="" qualifier_id="212" value="32.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="598" type_id="1" period_id="2" min="60" sec="31" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.4"/>
+      <Q id="" qualifier_id="212" value="28.8"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="599" type_id="1" period_id="2" min="60" sec="36" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="3.5"/>
+      <Q id="" qualifier_id="212" value="24.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="600" type_id="1" period_id="2" min="60" sec="49" player_id="165457" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="43.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="157"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="0.3"/>
+    </Event>
+    <Event id="" event_id="683" type_id="12" period_id="2" min="60" sec="54" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="14.1"/>
+      <Q id="" qualifier_id="15"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="601" type_id="1" period_id="2" min="60" sec="55" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="7.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="2.3"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="602" type_id="1" period_id="2" min="60" sec="58" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="6.1"/>
+      <Q id="" qualifier_id="212" value="17.8"/>
+    </Event>
+    <Event id="" event_id="603" type_id="1" period_id="2" min="61" sec="2" player_id="124148" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="16.2"/>
+      <Q id="" qualifier_id="213" value="4.6"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="604" type_id="1" period_id="2" min="61" sec="5" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="5.8"/>
+      <Q id="" qualifier_id="212" value="35.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="605" type_id="61" period_id="2" min="61" sec="9" player_id="232185" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="684" type_id="49" period_id="2" min="61" sec="11" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="685" type_id="1" period_id="2" min="61" sec="11" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="212" value="13.7"/>
+    </Event>
+    <Event id="" event_id="686" type_id="1" period_id="2" min="61" sec="14" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.2"/>
+      <Q id="" qualifier_id="212" value="17.2"/>
+    </Event>
+    <Event id="" event_id="687" type_id="1" period_id="2" min="61" sec="19" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="5.5"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="9.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="688" type_id="1" period_id="2" min="61" sec="20" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="3.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="6.3"/>
+    </Event>
+    <Event id="" event_id="689" type_id="1" period_id="2" min="61" sec="23" player_id="55948" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="22.3"/>
+      <Q id="" qualifier_id="213" value="0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="606" type_id="49" period_id="2" min="61" sec="24" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="607" type_id="1" period_id="2" min="61" sec="26" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="213" value="0.6"/>
+      <Q id="" qualifier_id="212" value="10.0"/>
+    </Event>
+    <Event id="" event_id="608" type_id="1" period_id="2" min="61" sec="28" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="30.8"/>
+      <Q id="" qualifier_id="213" value="6.2"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="609" type_id="1" period_id="2" min="61" sec="32" player_id="232185" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="2.1"/>
+      <Q id="" qualifier_id="212" value="2.6"/>
+      <Q id="" qualifier_id="195"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="690" type_id="8" period_id="2" min="61" sec="34" player_id="106821" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="691" type_id="49" period_id="2" min="61" sec="38" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="692" type_id="1" period_id="2" min="61" sec="43" player_id="49957" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="28.9"/>
+      <Q id="" qualifier_id="213" value="0.9"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="610" type_id="12" period_id="2" min="61" sec="44" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="1.1"/>
+      <Q id="" qualifier_id="212" value="23.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="611" type_id="49" period_id="2" min="61" sec="46" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="612" type_id="1" period_id="2" min="61" sec="47" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="6.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="5.1"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="613" type_id="1" period_id="2" min="61" sec="50" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="5.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="9.4"/>
+    </Event>
+    <Event id="" event_id="614" type_id="1" period_id="2" min="61" sec="54" player_id="78323" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="0.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="7.4"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="615" type_id="1" period_id="2" min="61" sec="56" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="14.0"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="2.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="616" type_id="1" period_id="2" min="61" sec="59" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="4.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="6.6"/>
+    </Event>
+    <Event id="" event_id="617" type_id="1" period_id="2" min="62" sec="2" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="11.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="3.7"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="618" type_id="1" period_id="2" min="62" sec="4" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="18.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="4.5"/>
+    </Event>
+    <Event id="" event_id="619" type_id="1" period_id="2" min="62" sec="7" player_id="133633" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="5.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="212" value="44.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="693" type_id="8" period_id="2" min="62" sec="12" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="15"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="694" type_id="49" period_id="2" min="62" sec="14" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="695" type_id="1" period_id="2" min="62" sec="15" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="3.1"/>
+      <Q id="" qualifier_id="156"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="16.4"/>
+    </Event>
+    <Event id="" event_id="696" type_id="1" period_id="2" min="62" sec="16" player_id="106821" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="23.6"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="157"/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="1"/>
+    </Event>
+    <Event id="" event_id="620" type_id="5" period_id="2" min="62" sec="17" player_id="232185" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="697"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="697" type_id="5" period_id="2" min="62" sec="17" player_id="106821" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="620"/>
+    </Event>
+    <Event id="" event_id="621" type_id="1" period_id="2" min="62" sec="22" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="9.5"/>
+      <Q id="" qualifier_id="213" value="1.7"/>
+    </Event>
+    <Event id="" event_id="622" type_id="1" period_id="2" min="62" sec="25" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="2.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="22.7"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="623" type_id="1" period_id="2" min="62" sec="27" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="16.8"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="624" type_id="50" period_id="2" min="62" sec="31" player_id="124148" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="233" value="698"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="698" type_id="7" period_id="2" min="62" sec="31" player_id="218705" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="624"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="285"/>
+    </Event>
+    <Event id="" event_id="699" type_id="49" period_id="2" min="62" sec="35" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="700" type_id="1" period_id="2" min="62" sec="35" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="4.8"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="20.7"/>
+    </Event>
+    <Event id="" event_id="701" type_id="1" period_id="2" min="62" sec="40" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="7.3"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="0.5"/>
+    </Event>
+    <Event id="" event_id="702" type_id="1" period_id="2" min="62" sec="43" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="20.2"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="213" value="1.6"/>
+    </Event>
+    <Event id="" event_id="703" type_id="1" period_id="2" min="62" sec="46" player_id="161034" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="1.0"/>
+      <Q id="" qualifier_id="212" value="23.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="625" type_id="43" period_id="2" min="62" sec="49" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="">
+      <Q id="" qualifier_id="285" value="0"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="144" value="45"/>
+    </Event>
+    <Event id="" event_id="704" type_id="3" period_id="2" min="62" sec="50" player_id="90126" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="211"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="626" type_id="5" period_id="2" min="62" sec="54" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="705"/>
+    </Event>
+    <Event id="" event_id="705" type_id="5" period_id="2" min="62" sec="54" player_id="90126" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="626"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="706" type_id="18" period_id="2" min="63" sec="38" player_id="49957" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="44" value="Forward"/>
+      <Q id="" qualifier_id="42"/>
+      <Q id="" qualifier_id="55" value="707"/>
+      <Q id="" qualifier_id="59" value="10"/>
+    </Event>
+    <Event id="" event_id="707" type_id="19" period_id="2" min="63" sec="38" player_id="233497" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="145" value="7"/>
+      <Q id="" qualifier_id="293" value="2"/>
+      <Q id="" qualifier_id="55" value="706"/>
+      <Q id="" qualifier_id="59" value="31"/>
+      <Q id="" qualifier_id="42"/>
+      <Q id="" qualifier_id="44" value="Forward"/>
+      <Q id="" qualifier_id="292" value="6"/>
+    </Event>
+    <Event id="" event_id="627" type_id="1" period_id="2" min="63" sec="46" player_id="165457" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="6.0"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="74"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="124"/>
+      <Q id="" qualifier_id="212" value="51.3"/>
+    </Event>
+    <Event id="" event_id="628" type_id="44" period_id="2" min="63" sec="49" player_id="37765" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="233" value="708"/>
+      <Q id="" qualifier_id="286"/>
+    </Event>
+    <Event id="" event_id="708" type_id="44" period_id="2" min="63" sec="49" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="628"/>
+      <Q id="" qualifier_id="285"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="629" type_id="61" period_id="2" min="63" sec="50" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="709" type_id="1" period_id="2" min="63" sec="50" player_id="55948" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="1.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="3"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="2.4"/>
+    </Event>
+    <Event id="" event_id="630" type_id="5" period_id="2" min="63" sec="54" player_id="37765" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="710"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="710" type_id="5" period_id="2" min="63" sec="54" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="630"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="711" type_id="1" period_id="2" min="63" sec="55" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="7.3"/>
+      <Q id="" qualifier_id="213" value="5.3"/>
+    </Event>
+    <Event id="" event_id="712" type_id="1" period_id="2" min="63" sec="56" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="2.0"/>
+      <Q id="" qualifier_id="212" value="2.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="713" type_id="1" period_id="2" min="63" sec="57" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="5.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="3.7"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="714" type_id="50" period_id="2" min="63" sec="58" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="286"/>
+      <Q id="" qualifier_id="233" value="631"/>
+    </Event>
+    <Event id="" event_id="631" type_id="7" period_id="2" min="63" sec="58" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="714"/>
+      <Q id="" qualifier_id="285"/>
+    </Event>
+    <Event id="" event_id="632" type_id="61" period_id="2" min="63" sec="59" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="633" type_id="61" period_id="2" min="64" sec="0" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="907" type_id="43" period_id="2" min="64" sec="0" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="">
+      <Q id="" qualifier_id="144" value="61"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="715" type_id="61" period_id="2" min="64" sec="0" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="906" type_id="61" period_id="2" min="64" sec="0" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="634" type_id="1" period_id="2" min="64" sec="1" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="1.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="0.2"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="908" type_id="61" period_id="2" min="64" sec="1" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="988" type_id="61" period_id="2" min="64" sec="2" player_id="42484" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="635" type_id="49" period_id="2" min="64" sec="2" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="636" type_id="1" period_id="2" min="64" sec="2" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="17.1"/>
+      <Q id="" qualifier_id="213" value="3.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="637" type_id="1" period_id="2" min="64" sec="5" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="17.1"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="2.0"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="638" type_id="1" period_id="2" min="64" sec="9" player_id="165457" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="6.3"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="13.8"/>
+    </Event>
+    <Event id="" event_id="639" type_id="1" period_id="2" min="64" sec="12" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="0.0"/>
+      <Q id="" qualifier_id="212" value="6.6"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="640" type_id="1" period_id="2" min="64" sec="15" player_id="78323" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="3.3"/>
+      <Q id="" qualifier_id="212" value="9.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="641" type_id="1" period_id="2" min="64" sec="17" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="24.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.4"/>
+    </Event>
+    <Event id="" event_id="642" type_id="1" period_id="2" min="64" sec="22" player_id="108988" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="0.3"/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="212" value="34.5"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+    </Event>
+    <Event id="" event_id="643" type_id="5" period_id="2" min="64" sec="25" player_id="108988" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="716"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="716" type_id="5" period_id="2" min="64" sec="25" player_id="90126" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="233" value="643"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="717" type_id="1" period_id="2" min="64" sec="30" player_id="37938" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="212" value="12.0"/>
+      <Q id="" qualifier_id="213" value="2.4"/>
+      <Q id="" qualifier_id="107"/>
+    </Event>
+    <Event id="" event_id="718" type_id="1" period_id="2" min="64" sec="33" player_id="218705" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="5.6"/>
+      <Q id="" qualifier_id="213" value="0.1"/>
+    </Event>
+    <Event id="" event_id="719" type_id="1" period_id="2" min="64" sec="36" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="6.6"/>
+      <Q id="" qualifier_id="213" value="3.2"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="720" type_id="1" period_id="2" min="64" sec="37" player_id="218705" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="24.1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="2.3"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="721" type_id="1" period_id="2" min="64" sec="41" player_id="42713" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="1.3"/>
+      <Q id="" qualifier_id="212" value="43.0"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="196"/>
+    </Event>
+    <Event id="" event_id="722" type_id="1" period_id="2" min="64" sec="46" player_id="106821" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="212" value="38.9"/>
+      <Q id="" qualifier_id="213" value="6.1"/>
+      <Q id="" qualifier_id="157"/>
+    </Event>
+    <Event id="" event_id="644" type_id="8" period_id="2" min="64" sec="47" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="645" type_id="5" period_id="2" min="64" sec="49" player_id="133633" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="233" value="723"/>
+    </Event>
+    <Event id="" event_id="723" type_id="5" period_id="2" min="64" sec="49" player_id="106821" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="645"/>
+    </Event>
+    <Event id="" event_id="724" type_id="1" period_id="2" min="64" sec="56" player_id="37776" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="21.8"/>
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="213" value="6.0"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="725" type_id="1" period_id="2" min="64" sec="57" player_id="42484" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="168"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="4.8"/>
+      <Q id="" qualifier_id="213" value="0.3"/>
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="646" type_id="8" period_id="2" min="64" sec="58" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="647" type_id="61" period_id="2" min="64" sec="59" player_id="133633" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="726" type_id="1" period_id="2" min="65" sec="1" player_id="55948" team_id="1" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+      <Q id="" qualifier_id="213" value="5.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="12.6"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="727" type_id="61" period_id="2" min="65" sec="2" player_id="42484" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Left"/>
+    </Event>
+    <Event id="" event_id="648" type_id="49" period_id="2" min="65" sec="2" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="649" type_id="1" period_id="2" min="65" sec="2" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="213" value="2.3"/>
+      <Q id="" qualifier_id="212" value="25.4"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="650" type_id="1" period_id="2" min="65" sec="7" player_id="165457" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="26.2"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="1.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="651" type_id="1" period_id="2" min="65" sec="13" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="8.9"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="4.5"/>
+    </Event>
+    <Event id="" event_id="652" type_id="1" period_id="2" min="65" sec="15" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="7.5"/>
+      <Q id="" qualifier_id="213" value="3.9"/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="653" type_id="1" period_id="2" min="65" sec="17" player_id="108988" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="5.4"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="8.3"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="654" type_id="1" period_id="2" min="65" sec="22" player_id="37765" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="25.9"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="213" value="4.8"/>
+      <Q id="" qualifier_id="" value=""/>
+    </Event>
+    <Event id="" event_id="655" type_id="1" period_id="2" min="65" sec="26" player_id="80800" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="157"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="212" value="36.6"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="213" value="6.3"/>
+      <Q id="" qualifier_id="56" value="Right"/>
+    </Event>
+    <Event id="" event_id="728" type_id="61" period_id="2" min="65" sec="29" player_id="37776" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+    </Event>
+    <Event id="" event_id="656" type_id="5" period_id="2" min="65" sec="31" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Right"/>
+      <Q id="" qualifier_id="233" value="729"/>
+    </Event>
+    <Event id="" event_id="729" type_id="5" period_id="2" min="65" sec="31" player_id="37776" team_id="1" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="56" value="Back"/>
+      <Q id="" qualifier_id="233" value="656"/>
+    </Event>
+    <Event id="" event_id="657" type_id="18" period_id="2" min="65" sec="48" player_id="78323" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="55" value="658"/>
+      <Q id="" qualifier_id="44" value="Midfielder"/>
+      <Q id="" qualifier_id="59" value="10"/>
+      <Q id="" qualifier_id="42"/>
+    </Event>
+    <Event id="" event_id="658" type_id="19" period_id="2" min="65" sec="48" player_id="214254" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="55" value="657"/>
+      <Q id="" qualifier_id="59" value="17"/>
+      <Q id="" qualifier_id="44" value="Forward"/>
+      <Q id="" qualifier_id="292" value="7"/>
+      <Q id="" qualifier_id="293" value="4"/>
+      <Q id="" qualifier_id="42"/>
+      <Q id="" qualifier_id="145" value="8"/>
+    </Event>
+    <Event id="" event_id="668" type_id="40" period_id="2" min="65" sec="55" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="59" value="1, 3, 32, 14, 5, 6, 26, 24, 9, 17, 11, 7, 13, 16, 19, 22, 25"/>
+      <Q id="" qualifier_id="44" value="1, 2, 2, 3, 2, 2, 3, 3, 4, 4, 3, 5, 5, 5, 5, 5, 5"/>
+      <Q id="" qualifier_id="194" value="133633"/>
+      <Q id="" qualifier_id="30" value="165457, 80800, 28146, 43455, 133633, 108988, 232185, 37765, 19510, 214254, 124148, 232182, 12400, 19739, 116627, 37743, 97624"/>
+      <Q id="" qualifier_id="131" value="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 0, 0, 0, 0, 0"/>
+      <Q id="" qualifier_id="130" value="2"/>
+    </Event>
+    <Event id="" event_id="659" type_id="1" period_id="2" min="65" sec="58" player_id="80800" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="107"/>
+      <Q id="" qualifier_id="1"/>
+      <Q id="" qualifier_id="213" value="2.0"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="38.0"/>
+    </Event>
+    <Event id="" event_id="660" type_id="1" period_id="2" min="66" sec="2" player_id="43455" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="212" value="9.6"/>
+      <Q id="" qualifier_id="213" value="1.8"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="56" value="Center"/>
+    </Event>
+    <Event id="" event_id="661" type_id="1" period_id="2" min="66" sec="5" player_id="28146" team_id="0" outcome="1" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="213" value="4.7"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="212" value="26.1"/>
+    </Event>
+    <Event id="" event_id="662" type_id="1" period_id="2" min="66" sec="9" player_id="37765" team_id="0" outcome="0" x="0.0" y="0.0" timestamp="" last_modified="" version="">
+      <Q id="" qualifier_id="155"/>
+      <Q id="" qualifier_id="213" value="0.4"/>
+      <Q id="" qualifier_id="212" value="39.5"/>
+      <Q id="" qualifier_id="56" value="Center"/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="" value=""/>
+      <Q id="" qualifier_id="1"/>
+    </Event>
+    <Event id="" event_id="730" type_id="52" period_id="2" min="66" sec="16" player_id="42713" team_id="1" outcome="" x="3.1" y="59.3" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="731" type_id="1" period_id="2" min="66" sec="23" player_id="42713" team_id="1" outcome="" x="15.8" y="48.5" timestamp="" last_modified="" version="">
+      </Event>
+    <Event id="" event_id="732" type_id="1" period_id="2" min="66" sec="27" player_id="233497" team_id="1" outcome="" x="56.2" y="10.7" timestamp="" last_modified="" version="">
+      </Event>
+    <Event id="" event_id="663" type_id="1" period_id="2" min="66" sec="27" player_id="108988" team_id="0" outcome="" x="40.2" y="74.2" timestamp="" last_modified="" version="">
+      </Event>
+    <Event id="" event_id="664" type_id="4" period_id="2" min="66" sec="30" player_id="19510" team_id="0" outcome="" x="62.5" y="71.0" timestamp="" last_modified="" version="">
+      </Event>
+    <Event id="" event_id="733" type_id="4" period_id="2" min="66" sec="30" player_id="218705" team_id="1" outcome="" x="38.2" y="29.1" timestamp="" last_modified="" version="">
+      </Event>
+    <Event id="" event_id="665" type_id="43" period_id="2" min="66" sec="31" player_id="19510" team_id="0" outcome="" x="0.0" y="0.0" timestamp="" last_modified="">
+      </Event>
+    <Event id="" event_id="666" type_id="2" period_id="2" min="66" sec="54" player_id="37765" team_id="0" outcome="" x="65.3" y="67.2" timestamp="" last_modified="" version="">
+      </Event>
+    <Event id="" event_id="734" type_id="55" period_id="2" min="66" sec="54" player_id="42484" team_id="1" outcome="" x="7.6" y="50.3" timestamp="" last_modified="" version=""/>
+    <Event id="" event_id="667" type_id="43" period_id="2" min="66" sec="57" player_id="214254" team_id="0" outcome="" x="0.0" y="0.0" timestamp="" last_modified="">
+      </Event>
+    </Game>
+</Games>

@@ -145,6 +145,7 @@ class PlayerData():
             player_id = str(label_file.iloc[0,0])
             player_pos = all_player_df[all_player_df.player_id==('p'+player_id)].iloc[0]['position']
             self.label_pos = np.array(Config.pos_name.index(player_pos))
+
             
             self.label_player = np.array(suff_plyr.index('p'+player_id))
 
@@ -195,7 +196,7 @@ class PlayerDataset(Dataset):
         join_date_plyr = list(
             all_player_df[all_player_df.join_date < pd.to_datetime('2017-01-01', format="%Y-%m-%d")].player_id)
 
-        suff_plyr = [_ for _ in all_player_df if (_ in join_date_plyr) and (_ in suff_time_plyr)]
+        suff_plyr = [_ for _ in all_player_df.player_id if (_ in join_date_plyr) and (_ in suff_time_plyr)]
 
         for d in dirs:
             player_files = os.listdir(path+d+'/'+player_seq)

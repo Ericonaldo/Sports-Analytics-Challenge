@@ -1,0 +1,5 @@
+game_time,time_dis_last_event,min,sec,type_id,q_num,keypass,nokeypass,assist,noassist,ball_related,not_ball_related,game_related,team_related,both_related,attack_related,defender_related,attack_pass,attack_shot,attack_goal,attack_drib,attack_othe,defend_gk,defend_1,defend_2,defend_3,defend_4,defend_5,defend_6
+0.00018518518518518518,0.0,0.0,0.016666666666666666,1.0,0.03,0.0,1.0,0.0,1.0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0
+0.04203703703703704,0.0,0.05,0.7833333333333333,1.0,0.035,0.0,1.0,0.0,1.0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0
+0.12351851851851851,0.0,0.18333333333333332,0.11666666666666667,61.0,0.005,0.0,1.0,0.0,1.0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0.1237037037037037,0.0,0.18333333333333332,0.13333333333333333,5.0,0.01,0.0,1.0,0.0,1.0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
