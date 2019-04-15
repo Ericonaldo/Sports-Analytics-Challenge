@@ -672,7 +672,7 @@ def construct_train_sets(save_path=train_path):
     """
     Construct numbers of validation set.
     args:
-        save_path: the path of saving validation sets.
+        save_path: the path of saving training sets.
         val_num: the number of validation sets.
     return:
         a bool if the construction is success. 

@@ -63,7 +63,6 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
 4. `construct_val_sets(valid_num=500)`('valid_num' means the valid set num)
 
 
-
 #### Train and evaluate the gbdt model (only for question 2-4):
 
 Train the gbdt model:
@@ -81,6 +80,18 @@ Evaluate the gbdt model:
 
 #### Train and evaluate the deep model (for question 1-4):
 
+Construct training sets
+
+1. Enter your terminal and cd into "code" dir
+
+2. `python`
+
+3. `from utils import *`
+
+4. `construct_train_sets()`
+
+5. `trans_train_set_to_seq_data()`
+
 Train the deep model:
 
 1. Enter your terminal and cd into "code" dir
@@ -93,7 +104,7 @@ Evaluate the deep model:
 
 1. Enter your terminal and cd into "code" dir
 
-2. `python evaluation_rnn.py --valid 100 --test_p --test_xyt --xyt_epoch 360 --p_epoch` ('valid' means the valid set num (if is not constructed before), 'test_\*' means which model do you want to test, 'xyt_epoch' means which epoch of model do you want to load for 'team_event_rnn' model, default as 360, 'p_epoch' means which epoch of model do you want to load for 'player_rnn' model, default as 500)
+2. `python evaluation_rnn.py --valid 100 --test_p --test_xyt --xyt_epoch 360 --p_epoch 500` ('valid' means the valid set num (if is not constructed before), 'test_\*' means which model do you want to test, 'xyt_epoch' means which epoch of model do you want to load for 'team_event_rnn' model, default as 360, 'p_epoch' means which epoch of model do you want to load for 'player_rnn' model, default as 500)
 
 
 ## Solution details
