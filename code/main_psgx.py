@@ -189,7 +189,7 @@ def get_result_gbdt(xml_1):
     return [pred_player, pred_team, pred_x, pred_y]
 
 def get_result_rules(xml_1):
-    df = construct_one_ball_team_df(game_xml)
+    df = construct_one_ball_team_df(xml_1)
     df = get_eva_fea(df)
     gc.collect()
     
