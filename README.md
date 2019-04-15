@@ -50,31 +50,51 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
 
 ## Instructions
 
-To Train the gbdt model:
+### Before training
 
-1. Enter your terminal
+#### Get validation sets
 
-2. python train_gbdt.py  --corr --xymodel ('corr' means saving corr img, '\*model' means which model do you want to train)
+1. Enter your terminal and cd into "code" dir
 
-To Evaluate the gbdt model:
+2. `python`
 
-1. Enter your terminal
+3. `from utils import *`
 
-2. python evaluation_gbdt.py --valid 100 --tmodel -- xymodel --pmodel ('valid' means the valid set num, '*model' means which model do you want to test)
+4. `construct_val_sets(valid_num=500)`('valid_num' means the valid set num)
 
-To Evaluate your own gbdt model:
 
-1. Enter your terminal
 
-2. python
+#### Train and evaluate the gbdt model (only for question 2-4):
 
-3. `>> from utils import *`
+Train the gbdt model:
 
-4. `>> construc a evaluation function following the evaluate_gbdt(models=[p_model, x_model, y_model, t_model]) in evaluation_gbdt`
+1. Enter your terminal and cd into "code" dir
 
-5. `>> construct_val_sets(val_num=100) (set the validation number that you need)`
+2. `python train_gbdt.py  --corr --xymodel` ('corr' means saving corr img, '\*model' means which model do you want to train)
 
-6. `>> your_own_eval_func(models=[p_model, x_model, y_model, t_model]) (remember to load your models first, args could be None)`
+Evaluate the gbdt model:
+
+1. Enter your terminal and cd into "code" dir
+
+2. `python evaluation_gbdt.py --valid 100 --tmodel -- xymodel` ('valid' means the valid set num (if is not constructed before), '\*model' means which model do you want to test)
+
+
+#### Train and evaluate the deep model (for question 1-4):
+
+Train the deep model:
+
+1. Enter your terminal and cd into "code" dir
+
+2. `python train_team_event_rnn.py  --load` ('load' means if load a pre trained model (not need if train fron sketch), this model is for question 2-4)
+
+3. `python train_player_rnn.py  --load` ('load' means if load a pre trained model (not need if train fron sketch), this model is for question 1))
+
+Evaluate the deep model:
+
+1. Enter your terminal and cd into "code" dir
+
+2. `python evaluation_gbdt.py --valid 100 --test_p --test_xyt --xyt_epoch 360 --p_epoch` ('valid' means the valid set num (if is not constructed before), 'test_\*' means which model do you want to test, 'xyt_epoch' means which epoch of model do you want to load for 'team_event_rnn' model, default as 360, 'p_epoch' means which epoch of model do you want to load for 'player_rnn' model, default as 500)
+
 
 ## Solution details
 

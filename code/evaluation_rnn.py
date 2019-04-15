@@ -1,6 +1,7 @@
 from utils import *
 import argparse
 from train_team_event_rnn import *
+from train_player_rnn import *
 from evaluation_gbdt import get_eva_fea
 
 def construct_xml_to_team_seq(choice_xml):
@@ -154,7 +155,6 @@ def construct_xml_to_player_seq(choice_xml):
         
     """
     
-    choice_xml = lxml.etree.parse(path+xfile)
     events = choice_xml.xpath('//Event')[0:-10]
     
     player_df = pd.DataFrame({"min":[],
@@ -166,12 +166,14 @@ def construct_xml_to_player_seq(choice_xml):
                         "assist":[],
                         "noassist":[],
                         })
+    
     p_events = [_ for _ in events if 'player_id' in _.attrib]
-    p_events = [_ for _ in p_events if (_.attrib['player_id'] == '1')]
+    
+    p_events = [_ for _ in p_events if (int(_.attrib['player_id']) == 1)]
     
     if len(p_events)==0:
         print('len(players)=0!')
-        exit(0)
+        return [0]  
 
     team_id = p_events[0].attrib['team_id']
     for i in p_events:
@@ -194,14 +196,15 @@ def construct_xml_to_player_seq(choice_xml):
 
     player_df = get_time_fea(player_df)       
     player_df = get_type_fea(player_df)
+    
+    if 'type_id' in list(player_df.columns):
+            player_df.drop(['type_id'], axis=1, inplace=True)
+        
     gc.collect()
     #player_df['player_id'] = p
     player_seq_len = len(player_df)
 
-    if not os.path.exists(path+'player_seq'):
-        os.mkdir(path+'player_seq')
-
-    return torch.unsqueeze(torch.tensor(player_df.values), 0), torch.tensor([player_seq_len]), int(team_id)
+    return [torch.unsqueeze(torch.tensor(player_df.values), 0), torch.tensor([player_seq_len]), int(team_id)]
         
 
 def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
@@ -336,15 +339,21 @@ def evaluate_p_rnn(all_player_df, valid_dir=valid_path, epoch = 500):
     csv_files.sort()
     file_num = len(xml_files)
 
-    score_player = count_num = 0
+    score_player = score_pos = count_num = 0
     for i in tqdm(range(file_num)):
         ground_truth = pd.read_csv(valid_dir+csv_files[i], header=None)
+        if ground_truth.iloc[0,2] == ground_truth.iloc[0,3] == 0:
+            continue
 
         choice_xml = lxml.etree.parse(valid_dir+xml_files[i])
 
+        pdata = construct_xml_to_player_seq(choice_xml)
+        if (len(pdata) == 1) and (pdata[0] == 0):
+            continue
+
         [team0_seq, team0_seq_len, team1_seq, team1_seq_len] = construct_xml_to_team_seq(choice_xml) # (1,T,D), (1), (1,T,D), (1)
         event_seq, event_seq_len = construct_xml_to_event_seq(choice_xml) # (1,10,D), (1), (1,10,D), (1)
-        player_seq, player_seq_len, team_id = construct_xml_to_player_seq(choice_xml) 
+        player_seq, player_seq_len, team_id = pdata
         stat_team0 = stat_team1 = stat_event = stat_player = np.array([0])
 
         if team_id == 0:
@@ -353,21 +362,32 @@ def evaluate_p_rnn(all_player_df, valid_dir=valid_path, epoch = 500):
             out_pos, out_player = net(team1_seq, team1_seq_len, stat_team1, player_seq, player_seq_len, stat_player) # (1,4), (1,779)
 
         out_player = out_player.max(1, keepdim=True)[1]
+        out_pos = out_pos.max(1, keepdim=True)[1]
+        out_pos = int(out_pos[0][0])
+        out_player = int(out_player[0][0])
         pred_player = all_player_df.iloc[out_player].player_id
         if pred_player[0] == 'p':
             pred_player = int(pred_player[1:])
+        
+        label_player = ground_truth.iloc[0,0]
+        #print(all_player_df)
+        #print(label_player)
+        label_pos = all_player_df[all_player_df.player_id == ('p'+str(label_player))]['position'].values[0]
+        pred_pos = Config.pos_name[out_pos]
 
         # compute result 
-        if pred_player == int(ground_truth.iloc[0,0]):
+        if pred_player == int(label_player):
             score_player +=1
-            
+        if pred_pos == label_pos:
+            score_pos +=1
+
         print('-------------------------------------')
-        print('label player={}'.format(ground_truth.iloc[0,0]))
-        print('prdct player={}'.format(pred_player))
+        print('label position={}, player={}'.format(label_pos, label_player))
+        print('prdct position={}, player={}'.format(pred_pos, pred_player))
         print('-------------------------------------')
         count_num += 1
 
-    print('\n ave scores/loss score_player={}, score_team={}, loss_xy={}'.format(float(score_player)/count_num))
+    print('\n ave scores/loss score_position={}, score_player={}'.format(float(score_pos)/count_num, float(score_player)/count_num))
     print('count_num: ', count_num)
     
      

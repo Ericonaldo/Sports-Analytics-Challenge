@@ -133,8 +133,8 @@ class BinaryRegressionLoss(torch.nn.Module):
         
         #print(bin_logloss)
         #print(reg_loss)
-        print('team', out_team[0:5], label_team[0:5])
-        print('xy', out_xy[0:5], label_xy[0:5])
+        #print('team', out_team[0:5], label_team[0:5])
+        #print('xy', out_xy[0:5], label_xy[0:5])
         
         loss = Config.weight_bin_logloss * bin_logloss + Config.weight_reg_loss * torch.mean(label_xy.float()*reg_loss)
         #loss = Config.weight_bin_logloss * bin_logloss + Config.weight_reg_loss * torch.mean(reg_loss)

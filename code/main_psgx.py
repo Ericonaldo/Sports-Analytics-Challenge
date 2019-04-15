@@ -23,19 +23,19 @@ def Result(xml_1, choice='default'):
     with open('res_psgx.csv', 'w') as f:
         f.write(results)
 
-def get_result_rnn(xml_1, epoch=360):
-
+def get_result_rnn(xml_1, epoch_team=360, epoch_player=500):
+    ### team and (x,y)-------------------------
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
         event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size,
         team_stat_dim=Config.team_stat_dim, event_stat_dim=Config.event_stat_dim)
 
-    if not os.path.exists(Config.model_path+str(epoch)+'_team_events_rnn.pkl'):
+    if not os.path.exists(Config.model_path+str(epoch_team)+'_team_events_rnn.pkl'):
         print("Model doesn't exist!")
         exit(0)
-    net.load_state_dict(torch.load(Config.model_path+str(epoch)+'_team_events_rnn.pkl'))
+    net.load_state_dict(torch.load(Config.model_path+str(epoch_team)+'_team_events_rnn.pkl'))
 
     [team0_seq, team0_seq_len, team1_seq, team1_seq_len] = construct_xml_to_team_seq(xml_1) # (1,T,D), (1), (1,T,D), (1)
-    event_seq, event_seq_len = construct_xml_to_event_seq(choice_xml) # (1,10,D), (1), (1,10,D), (1)
+    event_seq, event_seq_len = construct_xml_to_event_seq(xml_1) # (1,10,D), (1), (1,10,D), (1)
     stat_team0 = stat_team1 = stat_event = np.array([0])
 
     out_team0, out_xy0 = net(team0_seq, team0_seq_len, stat_team0, event_seq, event_seq_len, stat_event) # (1,1), (1,2)
@@ -49,9 +49,77 @@ def get_result_rnn(xml_1, epoch=360):
     
     pred_team = out_team
     pred_x, pred_y = out_xy[0], out_xy[1]
+    ## rules
+    # get the feature dataframe
+    df = construct_one_ball_team_df(xml_1)
+    df = get_eva_fea(df)
+    gc.collect()
+    period_id = df.iloc[-1]['period_id']
+    train_df = df.dropna().drop(['game_id','event_no','period_id'], axis=1)
+    # get the last event
+    df_test_X = train_df.iloc[-1][train_df.columns[0:-3]]
 
-    pred_player = get_random_player()
-    return [pred_player, pred_team, pred_x, pred_y]
+    if (df_test_X.type_id == 50):
+        pred_team = 1-df_test_X.team_id
+        pred_x = 100-df_test_X.x
+        pred_y = 100-df_test_X.y
+    elif (df_test_X.type_id == 4) or (df_test_X.type_id == 5) or (df_test_X.type_id == 44):
+        if df_test_X.type_id != df_test_X.last_type_id:
+            pred_team = 1-df_test_X.team_id
+            pred_x = 100-df_test_X.x
+            pred_y = 100-df_test_X.y
+    elif (df_test_X.type_id == 2) or (df_test_X.type_id == 51)or (df_test_X.type_id == 15):
+        pred_team = 1-df_test_X.team_id
+    elif (df_test_X.type_id == 49):
+        pred_team = df_test_X.team_id
+    elif (df_test_X.type_id == 25)or (df_test_X.type_id == 18):
+        pred_team = df_test_X.team_id
+        pred_x = 0
+        pred_y = 0
+    elif (df_test_X.type_id == 28) or (df_test_X.type_id == 68) or (df_test_X.type_id == 70):
+        if df_test_X.type_id != df_test_X.last_type_id:
+            pred_team = 1-df_test_X.team_id
+            pred_x = 0
+            pred_y = 0
+    elif (df_test_X.type_id == 49):
+        pred_team = 1-df_test_X.team_id
+        pred_x = 0
+        pred_y = 0
+    
+    ### player-------------------------
+    # pred_player = get_random_player()
+    net = PlayerClassifyNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
+        player_input_size=Config.player_feature_dim, player_hidden_size=Config.player_hidden_size,
+        team_stat_dim=Config.team_stat_dim, player_stat_dim=Config.player_stat_dim)
+
+    if not os.path.exists(Config.model_path+str(epoch)+'_player_rnn.pkl'):
+        print("Model doesn't exist!")
+        exit(0)
+    net.load_state_dict(torch.load(Config.model_path+str(epoch)+'_player_rnn.pkl'))
+
+    pdata = construct_xml_to_player_seq(xml_1)
+    if (len(pdata) == 1) and (pdata[0] == 0):
+        continue
+
+    [team0_seq, team0_seq_len, team1_seq, team1_seq_len] = construct_xml_to_team_seq(xml_1) # (1,T,D), (1), (1,T,D), (1)
+    event_seq, event_seq_len = construct_xml_to_event_seq(xml_1) # (1,10,D), (1), (1,10,D), (1)
+    player_seq, player_seq_len, team_id = pdata
+    stat_team0 = stat_team1 = stat_event = stat_player = np.array([0])
+
+    if team_id == 0:
+        out_pos, out_player = net(team0_seq, team0_seq_len, stat_team0, player_seq, player_seq_len, stat_player) # (1,4), (1,779)
+    elif team_id == 1:
+        out_pos, out_player = net(team1_seq, team1_seq_len, stat_team1, player_seq, player_seq_len, stat_player) # (1,4), (1,779)
+
+    out_player = out_player.max(1, keepdim=True)[1]
+    out_pos = out_pos.max(1, keepdim=True)[1]
+    out_pos = int(out_pos[0][0])
+    out_player = int(out_player[0][0])
+    pred_player = all_player_df.iloc[out_player].player_id
+    if pred_player[0] == 'p':
+        pred_player = int(pred_player[1:])
+    
+return [pred_player, pred_team, pred_x, pred_y]
 
 def get_result_gbdt(xml_1):
     nbr_gate = 0.44

@@ -302,7 +302,6 @@ def construct_one_val(choice_xml):
     if suff_plyr_list==[]:
         return [None, None]
     
-    pick_plyr_id = suff_plyr_list[rnd.randint(0,len(suff_plyr_list)-1)] # randomly choose a sufficient player
     events = choice_xml.xpath('//Event')
     half_type = rnd.randint(1,2)
     half_events = [i for i in events if i.attrib['period_id']==str(half_type)] # randomly choose one half and its events
@@ -314,6 +313,10 @@ def construct_one_val(choice_xml):
         half_events = [i for i in events if i.attrib['period_id']==str(half_type)] # randomly choose one half and its events
         min_pick = rnd.randint(0,45-15) + (half_type-1)*45  # randomly choose t and pick events
         pick_events = [i for i in half_events if min_pick<=int(i.attrib['min'])<=(min_pick+15)]
+    
+    event_player_id = list(set([_.attrib['player_id'] for _ in pick_events if 'player_id' in _.attrib]))
+    suff_plyr_id = [_ for _ in event_player_id if ('p'+_) in suff_plyr_list]
+    pick_plyr_id = suff_plyr_id[rnd.randint(0,len(suff_plyr_id)-1)] # randomly choose a sufficient player
 
     game = choice_xml.xpath('//Game')[0]
     home_id = game.attrib['home_team_id']
@@ -355,7 +358,7 @@ def construct_one_val(choice_xml):
     
     next_event_idx = choice_xml.xpath('//Event').index(pick_events[-1])+1 
     next_event = events[next_event_idx] # next event
-    results = str(pick_plyr_id[1:]) + ',' + str(int(next_event.attrib['team_id']==home_id)) + ',' + \
+    results = str(pick_plyr_id[0:]) + ',' + str(int(next_event.attrib['team_id']==home_id)) + ',' + \
                             str(next_event.attrib['x'])+ ',' + str(next_event.attrib['y']) # the label results
     label_csv = str(results)
     
@@ -1147,3 +1150,4 @@ class Config():
     pos_player_class = [fw_class, mf_class, df_class, gk_class]
     max_class_num = max([df_class,fw_class,gk_class,mf_class])
     sum_class_num = sum([df_class,fw_class,gk_class,mf_class])
+    pos_name = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']

@@ -143,9 +143,8 @@ class PlayerData():
             #labels
             label_file = pd.read_csv(path+label_file[0], header=None)
             player_id = str(label_file.iloc[0,0])
-            pos_name = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']
             player_pos = all_player_df[all_player_df.player_id==('p'+player_id)].iloc[0]['position']
-            self.label_pos = np.array(pos_name.index(player_pos))
+            self.label_pos = np.array(Cofig.pos_name.index(player_pos))
             pos_players = list(all_player_df.player_id) # list(all_player_df[all_player_df.position==player_pos].player_id)
             self.label_player = np.array(pos_players.index('p'+player_id))
 
