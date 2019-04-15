@@ -24,7 +24,7 @@ def Result(xml_1, choice='default'):
     with open('res_psgx.csv', 'w') as f:
         f.write(results)
 
-def get_result_rnn(xml_1, epoch_team=360, epoch_player=500):
+def get_result_rnn(xml_1, epoch_team=360, epoch_player=300):
     ### team and (x,y)-------------------------
     net = TeamEventNetwork(team_input_size=Config.team_feature_dim, team_hidden_size=Config.team_hidden_size, 
         event_input_size=Config.event_feature_dim, event_hidden_size=Config.event_hidden_size,
