@@ -1065,6 +1065,8 @@ def construct_player_seq(path):
             player_df = get_type_fea(player_df)
             gc.collect()
             #player_df['player_id'] = p
+            if 'type_id' in list(player_df.columns):
+                player_df.drop(['type_id'], axis=1, inplace=True)
 
             if not os.path.exists(path+'player_seq'):
                 os.mkdir(path+'player_seq')
@@ -1145,4 +1147,5 @@ class Config():
     pos_player_class = [fw_class, mf_class, df_class, gk_class]
     max_class_num = max([df_class,fw_class,gk_class,mf_class])
     sum_class_num = sum([df_class,fw_class,gk_class,mf_class])
+    suff_player_num = 340
     pos_name = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']

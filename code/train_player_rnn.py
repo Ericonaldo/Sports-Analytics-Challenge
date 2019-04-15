@@ -65,7 +65,7 @@ class PlayerClassifyNetwork(nn.Module):
         self.fc4 = torch.nn.Linear(32, out_hidden_size)
 
         self.out_pos = torch.nn.Linear(out_hidden_size, Config.pos_class)
-        self.out_player = torch.nn.Linear(out_hidden_size, Config.sum_class_num)
+        self.out_player = torch.nn.Linear(out_hidden_size, Config.suff_player_num)
 
     def forward(self, team_seq, team_seq_len, stat_team, player_seq, player_seq_len, stat_player):
         # team_seq shape (batch, team_time_step, team_input_size)

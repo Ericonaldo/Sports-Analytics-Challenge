@@ -145,7 +145,6 @@ class PlayerData():
             player_id = str(label_file.iloc[0,0])
             player_pos = all_player_df[all_player_df.player_id==('p'+player_id)].iloc[0]['position']
             self.label_pos = np.array(Config.pos_name.index(player_pos))
-
             
             self.label_player = np.array(suff_plyr.index('p'+player_id))
 
@@ -158,7 +157,10 @@ class PlayerData():
             self.event_seq = pd.read_csv(path+'event_seq/'+event_seq_file).values[0:total_event_seq] # [time_step, team_feature_dim]
             self.event_seq_len = np.array(len(self.event_seq))
             ## player seq
-            player_seq = pd.read_csv(path+'player_seq/'+self.player_seq_file).values[0:total_player_seq]
+            player_df = pd.read_csv(path+'player_seq/'+self.player_seq_file)
+            if 'type_id' in list(player_df.columns):
+                player_df.drop(['type_id'], axis=1, inplace=True)
+            player_seq = player_df.values[0:total_player_seq]
             self.player_seq_len = np.array(len(player_seq))
             # padding
             self.player_seq = np.pad(player_seq,((0,total_player_seq-len(player_seq)),(0,0)),'constant') 
