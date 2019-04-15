@@ -108,13 +108,13 @@ For the No.2 question which is to predict the team (home 1 or away 0), I take it
 
 For the No.3 question which is to predict the ball position, I take it as a regression problem.
 
-### Solutions
+### Solutions and Results
 
 #### GBDT(Lightgbm) Solution
 
 This solution is only for the last 3 questions.
 
-First, I construct the training set from all the competition xml data, in which every event is taken as a sample. For each sample, I construct space features, time features and detailed features from the raw event data like 'field', 'zone', 'time dis from the last event' and so on (codes are in /code/utils.py/construct_ball_team_df()). The targets are: if the next event team id the same as current; the next x coordinate; the next y coordinate. 
+First, I construct the training set from all the competition xml data, in which every event is taken as a sample. For each sample, I construct space features, time features and detailed features from the raw event data like 'field', 'zone', 'time dis from the last event' and so on (codes are in /code/utils.py/construct_ball_team_df()). The targets/labels are: if the next event team id the same as current; the next x coordinate; the next y coordinate. 
 
 Then, I train 3 gbdt models to predict above targets respectively. The best results I test offline is  score_team=0.4512471655328798, loss_xy=1294.2247845804986. Note that the score_team is worse than a random baseline 0.5.
 
@@ -122,17 +122,21 @@ Then, I train 3 gbdt models to predict above targets respectively. The best resu
 
 This solution is only for all the 4 questions.
 
-First, I design some simple networks.
+For time limit, I can only design some simple networks.
 
-For player id prediction, I choose a RNN (GRU) model to model the feature of events of this particular player, and another RNN (GRU) model to model the feature of events of his team. Then concat and through some FC layer to get a high level class and a low level class. The loss are weighted Cross Entropy loss. (Codes are in /code/utils.py/train_player_rnn())
+For player id prediction, I choose a RNN (GRU) model to model the feature of events of this particular player, and another RNN (GRU) model to model the feature of events of his team. Then concat and through some FC layer to get a high level class and a low level class. The loss are weighted Cross Entropy loss. To inference from a given game xml, I only need the low level class (Codes are in /code/utils.py/train_player_rnn(), /code/utils.py/evaluation_rnn.py)
 
-For team id and coordinate predictions, I choose a RNN (GRU) model to model the feature of events of the two teams, and another RNN (GRU) model to model the feature of the last 10 events. Then concat and through some FC layer to get a high level class and a low level class. The loss are weighted Cross Entropy loss. (Codes are in /code/utils.py/train_team_event_rnn())
+For team id and coordinate predictions, I choose a RNN (GRU) model to model the feature of events of the two teams, and another RNN (GRU) model to model the feature of the last 10 events. Then concat and through some FC layer. For each team, he get a confidence of "if the next event is mine" and the related (x, y) coordinates. The loss are a combined weighted Binary Cross Entropy loss and MSE loss. To inference from a given game xml, I exact 2 sequence of 2 teams respectively, the through the network and see whose confidence is bigger, then the results follow the bigger one. (Codes are in /code/train_team_event_rnn.py, /code/utils.py/evaluation_rnn.py)
 
-construct the training set from all the competition xml data, in which every event is taken as a sample. For each sample, I construct space features, time features and detailed features from the raw event data like 'field', 'zone', 'time dis from the last event' and so on (codes are in /code/utils.py/construct_ball_team_df()). The targets are: if the next event team id the same as current; the next x coordinate; the next y coordinate. 
+Then I construct the training set from all the competition xml data.
 
-Then, I train 3 models to predict above targets respectively. The best results I test offline is  score_team=0.4512471655328798, loss_xy=1294.2247845804986. Note that the score_team is worse than a random baseline 0.5.
+For player id prediction, I choose a sequence of a sufficient player (who satisfy the requirements) from one game as a sample; for team id and coordinate predictions, I choose the start min as [0, 7.5, 15, ..., 75] for every competition and take every 15min event sequence as a team sequence sample, and every last 10 event sequence as a event sequence sample.
 
-### Questions
+For each sample, I construct space features, time features and detailed features (codes are in /code/utils.py/construct_player_seq(), /code/utils.py/construct_team_seq() and /code/utils.py/construct_event_seq()). The targets/labels are: if the next event is mine; the next x coordinate; the next y coordinate. 
+
+Then, I train 2 models to predict above targets respectively. The best results I test offline is score_team=0.5555555555555556, loss_xy=2209.658194428966. Note that the score_team is better however the regression are worse.
+
+### Questions and Challenges
 
 
 
@@ -142,7 +146,7 @@ Then, I train 3 models to predict above targets respectively. The best results I
 
 Note that the raw data is difficult to handle, which spend the most of time of a solo player like me (can only work during spare time) on organizing data/input and features. With more time, I think I can try more ideas because the fundamental codes had been establised and more "algorithmic" works can be easily done.
 
-At last, thanks the organizors and sponsors for providing a amazing detailed Opta data which I have never seen before. I always want to make some things with my knowledge of AI. This can be a great start for a soccer-fan researcher as me.
+At last, thanks the organizors and sponsors for providing a amazing detailed Opta data which I have never seen before. I always want to make some things with my knowledge of AI. This can be a great start for a soccer-fan researcher as me (who want a chance to watch the live in the stadium, haha...).
 
 
 
