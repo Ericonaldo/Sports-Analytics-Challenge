@@ -162,11 +162,13 @@ There are few problems and challenges in this task.
 
 2. Make the team prediction as an additional task for the player rnn network.
 
-3. Consider and construct more features.
+3. Consider a proper way to normalize the corrdinates.
 
 4. Train different models based on the last event type. For example, to predict the next event, train one model for 'Pass' event, one model for 'Ball Recovery' and so on.
 
-5. Test more proper models.
+5. Consider and construct more features.
+
+6. Test more proper models.
 
 
 ### Conclusion and Acknowledgement
