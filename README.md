@@ -93,7 +93,7 @@ Evaluate the deep model:
 
 1. Enter your terminal and cd into "code" dir
 
-2. `python evaluation_gbdt.py --valid 100 --test_p --test_xyt --xyt_epoch 360 --p_epoch` ('valid' means the valid set num (if is not constructed before), 'test_\*' means which model do you want to test, 'xyt_epoch' means which epoch of model do you want to load for 'team_event_rnn' model, default as 360, 'p_epoch' means which epoch of model do you want to load for 'player_rnn' model, default as 500)
+2. `python evaluation_rnn.py --valid 100 --test_p --test_xyt --xyt_epoch 360 --p_epoch` ('valid' means the valid set num (if is not constructed before), 'test_\*' means which model do you want to test, 'xyt_epoch' means which epoch of model do you want to load for 'team_event_rnn' model, default as 360, 'p_epoch' means which epoch of model do you want to load for 'player_rnn' model, default as 500)
 
 
 ## Solution details
@@ -118,6 +118,13 @@ First, I construct the training set from all the competition xml data, in which 
 
 Then, I train 3 gbdt models to predict above targets respectively. The best results I test offline is  score_team=0.4512471655328798, loss_xy=1294.2247845804986. Note that the score_team is worse than a random baseline 0.5.
 
+The feature importance and faeture correlation are as follows.
+
+![feature_importance_bst_next_ball_related](/fig/feature_importance_bst_next_ball_related.png)
+![feature_importance_x](/fig/feature_importance_x.png)
+![feature_importance_y](/fig/feature_importance_y.png)
+![corr](/fig/out.png)
+
 #### Deep Learning Solution
 
 This solution is only for all the 4 questions.
@@ -134,13 +141,33 @@ For player id prediction, I choose a sequence of a sufficient player (who satisf
 
 For each sample, I construct space features, time features and detailed features (codes are in /code/utils.py/construct_player_seq(), /code/utils.py/construct_team_seq() and /code/utils.py/construct_event_seq()). The targets/labels are: if the next event is mine; the next x coordinate; the next y coordinate. 
 
-Then, I train 2 models to predict above targets respectively. The best results I test offline is score_team=0.5555555555555556, loss_xy=2209.658194428966. Note that the score_team is better however the regression are worse.
+Then, I train 2 models to predict above targets respectively. The best results I test offline is score_team=0.5555555555555556, loss_xy=2209.658194428966. Note that the score_team is better however the regression are worse. The training curve are as follows, looks like great, but seems overfitted...
+
+![team_event_rnn](/fig/team_event_rnn.png)
+![player_rnn](/fig/player_rnn.png)
 
 ### Questions and Challenges
 
+There are few problems and challenges in this task.
 
+1. The corrdinate is related to the team. If we normalize the corrdinate based on period and team id, then we have to determine which team is related to the next event first before getting a true prediction, which introduce a tough cumulative error.
+
+2. The corrdinate is related to the ball related events. Note that about 1/10 events are off-ball events which means they are not related with the ball ((x, y) = (0, 0)) and if it occurs in target then one have to predict if the next event is related to the ball, which is difficult for unbanlanced samples. Even though this event is rare (actually not 'that' rare), it can significantly influence the overall results (for the huge MSE error).
+
+3. If there are additional statistic provided, it is better sice one do not need to spend time on calculating though these xml files.
 
 ### Future Work
+
+1. More statistics can be added into the model.
+
+2. Make the team prediction as an additional task for the player rnn network.
+
+3. Consider and construct more features.
+
+4. Train different models based on the last event type. For example, to predict the next event, train one model for 'Pass' event, one model for 'Ball Recovery' and so on.
+
+5. Test more proper models.
+
 
 ### Conclusion and Acknowledgement
 
