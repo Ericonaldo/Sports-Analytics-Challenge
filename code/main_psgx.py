@@ -3,10 +3,11 @@ from train_gbdt import *
 from train_team_event_rnn import *
 from evaluation_gbdt import *
 from evaluation_rnn import *
+import random
 
 def Result(xml_1, choice='default'):
 
-    if choice=='rnn':
+    if choice=='default':
         [pred_player, pred_team, _, _] = get_result_rnn(xml_1)
         [_, _, pred_x, pred_y] = get_result_gbdt(xml_1)
     elif choice=='rnn':
@@ -92,14 +93,12 @@ def get_result_rnn(xml_1, epoch_team=360, epoch_player=500):
         player_input_size=Config.player_feature_dim, player_hidden_size=Config.player_hidden_size,
         team_stat_dim=Config.team_stat_dim, player_stat_dim=Config.player_stat_dim)
 
-    if not os.path.exists(Config.model_path+str(epoch)+'_player_rnn.pkl'):
+    if not os.path.exists(Config.model_path+str(epoch_player)+'_player_rnn.pkl'):
         print("Model doesn't exist!")
         exit(0)
-    net.load_state_dict(torch.load(Config.model_path+str(epoch)+'_player_rnn.pkl'))
+    net.load_state_dict(torch.load(Config.model_path+str(epoch_player)+'_player_rnn.pkl'))
 
     pdata = construct_xml_to_player_seq(xml_1)
-    if (len(pdata) == 1) and (pdata[0] == 0):
-        continue
 
     [team0_seq, team0_seq_len, team1_seq, team1_seq_len] = construct_xml_to_team_seq(xml_1) # (1,T,D), (1), (1,T,D), (1)
     event_seq, event_seq_len = construct_xml_to_event_seq(xml_1) # (1,10,D), (1), (1,10,D), (1)
@@ -115,11 +114,18 @@ def get_result_rnn(xml_1, epoch_team=360, epoch_player=500):
     out_pos = out_pos.max(1, keepdim=True)[1]
     out_pos = int(out_pos[0][0])
     out_player = int(out_player[0][0])
+
+    # Get all player list
+    if (os.path.exists(processed_path+"all_player_data.csv")):
+        all_player_df = pd.read_csv(processed_path+"all_player_data.csv")
+    else:
+        all_player_df = get_player_data()
+
     pred_player = all_player_df.iloc[out_player].player_id
     if pred_player[0] == 'p':
         pred_player = int(pred_player[1:])
     
-return [pred_player, pred_team, pred_x, pred_y]
+    return [pred_player, pred_team, pred_x, pred_y]
 
 def get_result_gbdt(xml_1):
     nbr_gate = 0.44
@@ -127,7 +133,7 @@ def get_result_gbdt(xml_1):
 
     x_model = pickle.load(open(model_path+xname, 'rb'))
     y_model = pickle.load(open(model_path+yname, 'rb'))
-    t_model = pickle.load(open(model_path+tname, 'rb'))
+    team_model = pickle.load(open(model_path+tname, 'rb'))
 
     # get the feature dataframe
     df = construct_one_ball_team_df(xml_1)

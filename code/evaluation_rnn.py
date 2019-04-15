@@ -370,8 +370,8 @@ def evaluate_p_rnn(all_player_df, valid_dir=valid_path, epoch = 500):
             pred_player = int(pred_player[1:])
         
         label_player = ground_truth.iloc[0,0]
-        #print(all_player_df)
-        #print(label_player)
+        # print(all_player_df)
+        # print(label_player)
         label_pos = all_player_df[all_player_df.player_id == ('p'+str(label_player))]['position'].values[0]
         pred_pos = Config.pos_name[out_pos]
 
