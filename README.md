@@ -146,6 +146,8 @@ Then, I train 2 models to predict above targets respectively. The best results I
 ![team_event_rnn](/fig/team_event_rnn.png)
 ![player_rnn](/fig/player_rnn.png)
 
+The inference time for one sample is less than 3 seconds because I use a mixture prediction of GBDT and RNN (GBDT needs 0.5s/sample and RNN 1.5s/sample). Experimens are all on a laptop with a Intel i5 8x CPU.
+
 ### Questions and Challenges
 
 There are few problems and challenges in this task.
@@ -173,7 +175,7 @@ There are few problems and challenges in this task.
 
 ### Conclusion and Acknowledgement
 
-Note that the raw data is difficult to handle, which spend the most of time of a solo player like me (can only work during spare time) on organizing data/input and features. With more time, I think I can try more ideas because the fundamental codes had been establised and more "algorithmic" works can be easily done.
+Note that the raw data is difficult to handle, which spend the most of time of a solo player like me (can only work during spare time) on organizing data/input and features. With more time, I think I can try more ideas because the fundamental codes had been establised and more "algorithmic" works can be easily done. 
 
 At last, thanks the organizors and sponsors for providing a amazing detailed Opta data which I have never seen before. I always want to make some things with my knowledge of AI. This can be a great start for a soccer-fan researcher as me (who want a chance to watch the live in the stadium, haha...).
 
