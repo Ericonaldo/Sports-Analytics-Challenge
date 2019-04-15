@@ -313,7 +313,7 @@ def evaluate_xyt_rnn(valid_dir=valid_path, epoch = 500):
         float(score_team)/count_num, loss_xy/count_num))
     print('count_num: ', count_num)
 
-def evaluate_p_rnn(all_player_df, valid_dir=valid_path, epoch = 500):
+def evaluate_p_rnn(all_player_df, suff_plyr, valid_dir=valid_path, epoch = 500):
     """
     Evaluate the given model.
     args:
@@ -365,7 +365,8 @@ def evaluate_p_rnn(all_player_df, valid_dir=valid_path, epoch = 500):
         out_pos = out_pos.max(1, keepdim=True)[1]
         out_pos = int(out_pos[0][0])
         out_player = int(out_player[0][0])
-        pred_player = all_player_df.iloc[out_player].player_id
+
+        pred_player = suff_plyr[out_player]
         if pred_player[0] == 'p':
             pred_player = int(pred_player[1:])
         
@@ -412,5 +413,22 @@ if __name__=="__main__":
             all_player_df = pd.read_csv(processed_path+"all_player_data.csv")
         else:
             all_player_df = get_player_data()
+
+        # Get playing time data of all players
+        if (os.path.exists(processed_path+"total_play_time_data.csv")):
+            total_play_time_data = pd.read_csv(processed_path+"total_play_time_data.csv")
+            total_play_time_data.total_playing_time = total_play_time_data.total_playing_time.apply(
+                lambda x:pd.Timedelta(x))
+        else:
+            total_play_time_data = get_play_time(all_player_df)
+        suff_time_plyr = list(total_play_time_data[total_play_time_data.total_playing_time > pd.Timedelta(minutes=800)].player_id)
+
+        all_player_df.join_date = all_player_df.join_date.apply(
+            lambda x:pd.to_datetime(x, format="%Y-%m-%d"))
+        join_date_plyr = list(
+            all_player_df[all_player_df.join_date < pd.to_datetime('2017-01-01', format="%Y-%m-%d")].player_id)
+
+        suff_plyr = [_ for _ in all_player_df.player_id if (_ in join_date_plyr) and (_ in suff_time_plyr)]
+
         print("Evaluating players...")
-        evaluate_p_rnn(epoch = args.p_epoch, all_player_df = all_player_df)
+        evaluate_p_rnn(epoch = args.p_epoch, all_player_df = all_player_df, suff_plyr = suff_plyr)
