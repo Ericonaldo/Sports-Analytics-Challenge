@@ -110,6 +110,7 @@ def get_player_data(is_changed=False):
             """
         
         # changed players
+        '''
         for i in player_xml.xpath('//PlayerChanges//Player'):
             if i.attrib['uID'] not in player_id:
                 player_id.append(i.attrib['uID'])
@@ -119,7 +120,7 @@ def get_player_data(is_changed=False):
                 team_name.append(i.getparent().getchildren()[0].text)
                 jersey_num.append(i.xpath("Stat[@Type='jersey_num']")[0].text)
                 join_date.append(i.xpath("Stat[@Type='join_date']")[0].text)
-           
+        '''   
         save_name = "all_player_data.csv"
         player_df = pd.DataFrame({'player_id':player_id, 'player_name':player_name,
                                 'position':position, 'jersey_num':jersey_num,
@@ -249,13 +250,6 @@ def suff_plyr(choice_xml):
             lambda x:pd.to_datetime(x, format="%Y-%m-%d"))
     join_date_plyr = list(
         all_player_df[all_player_df.join_date < pd.to_datetime('2017-01-01', format="%Y-%m-%d")].player_id)
-    
-    if (os.path.exists(processed_path+"changed_player_data.csv")):
-        change_player_df = pd.read_csv(processed_path+"changed_player_data.csv")
-    else:
-        change_player_df = get_player_data(True)
-    change_player_df.leave_date = change_player_df.leave_date.apply(
-            lambda x:pd.to_datetime(x, format="%Y-%m-%d"))
         
     # Get playing time data of all players
     if (os.path.exists(processed_path+"total_play_time_data.csv")):
@@ -265,10 +259,11 @@ def suff_plyr(choice_xml):
     else:
         total_play_time_data = get_play_time(all_player_df)
     suff_time_plyr = list(total_play_time_data[total_play_time_data.total_playing_time > pd.Timedelta(minutes=800)].player_id)
+
+    suff_plyr = [_ for _ in all_player_df.player_id if (_ in join_date_plyr) and (_ in suff_time_plyr)]
     
     # Filter sufficient players
-    suff_plyr_list = [ i for i in player_in_the_game if ((i in suff_time_plyr) and
-                  (i in join_date_plyr) and (i in player_in_the_game))]
+    suff_plyr_list = [ i for i in player_in_the_game if ((i in suff_plyr))]
     
     return suff_plyr_list
 

@@ -102,7 +102,7 @@ class TeamEventDataset(Dataset):
 
 
 class PlayerData():
-    def __init__(self, path, player_seq_file, all_player_df):
+    def __init__(self, path, player_seq_file, all_player_df, suff_plyr):
         self.path = path
         self.player_seq_file= player_seq_file
         # team seq
@@ -144,9 +144,9 @@ class PlayerData():
             label_file = pd.read_csv(path+label_file[0], header=None)
             player_id = str(label_file.iloc[0,0])
             player_pos = all_player_df[all_player_df.player_id==('p'+player_id)].iloc[0]['position']
-            self.label_pos = np.array(Cofig.pos_name.index(player_pos))
-            pos_players = list(all_player_df.player_id) # list(all_player_df[all_player_df.position==player_pos].player_id)
-            self.label_player = np.array(pos_players.index('p'+player_id))
+            self.label_pos = np.array(Config.pos_name.index(player_pos))
+            
+            self.label_player = np.array(suff_plyr.index('p'+player_id))
 
             ## team seq
             team_seq = pd.read_csv(path+'team_seq/'+team_seq_file).values[0:total_team_seq] # [time_step, team_feature_dim]
@@ -181,11 +181,27 @@ class PlayerDataset(Dataset):
         else:
             all_player_df = get_player_data()
 
+        # Get playing time data of all players
+        if (os.path.exists(processed_path+"total_play_time_data.csv")):
+            total_play_time_data = pd.read_csv(processed_path+"total_play_time_data.csv")
+            total_play_time_data.total_playing_time = total_play_time_data.total_playing_time.apply(
+                lambda x:pd.Timedelta(x))
+        else:
+            total_play_time_data = get_play_time(all_player_df)
+        suff_time_plyr = list(total_play_time_data[total_play_time_data.total_playing_time > pd.Timedelta(minutes=800)].player_id)
+
+        all_player_df.join_date = all_player_df.join_date.apply(
+            lambda x:pd.to_datetime(x, format="%Y-%m-%d"))
+        join_date_plyr = list(
+            all_player_df[all_player_df.join_date < pd.to_datetime('2017-01-01', format="%Y-%m-%d")].player_id)
+
+        suff_plyr = [_ for _ in all_player_df if (_ in join_date_plyr) and (_ in suff_time_plyr)]
+
         for d in dirs:
             player_files = os.listdir(path+d+'/'+player_seq)
             player_files = [i for i in player_files if '.pseq' in i]
             for p in tqdm(range(len(player_files))):
-                self.data.append(PlayerData(path+d+'/', player_files[p], all_player_df))
+                self.data.append(PlayerData(path+d+'/', player_files[p], all_player_df, suff_plyr))
         
     def __getitem__(self, index):
         #index %= 2000
