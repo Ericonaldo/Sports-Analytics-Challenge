@@ -7,6 +7,7 @@ Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/ch
 ## Project Organization
 ------------
     ├── README.md                             <- The top-level README for developers using this project.
+    ├── LICENCE                                   <- The Licence of this project.
     ├── data
     │   ├── train                             <- Training data used in experiments.
     │   ├── processed                         <- Data used for indication and further processing during experiments.
