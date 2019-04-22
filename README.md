@@ -149,7 +149,7 @@ For team id and coordinate predictions, I choose a RNN (GRU) model to model the 
 
 The architecture of the model is as follows:
 
-![team_event_rnn_architecture](/fig/team_event rnn_architecture.png)
+![team_event_rnn_architecture](/fig/team_event_rnn_architecture.png)
 
 
 Then I construct the training set from all the competition xml data.
