@@ -147,9 +147,19 @@ For player id prediction, I choose a RNN (GRU) model to model the feature of eve
 
 For team id and coordinate predictions, I choose a RNN (GRU) model to model the feature of events of the two teams, and another RNN (GRU) model to model the feature of the last 10 events. Then concat and through some FC layer. For each team, he get a confidence of "if the next event is mine" and the related (x, y) coordinates. The loss are a combined weighted Binary Cross Entropy loss and MSE loss. To inference from a given game xml, I exact 2 sequence of 2 teams respectively, the through the network and see whose confidence is bigger, then the results follow the bigger one. (Codes are in /code/train_team_event_rnn.py, /code/utils.py/evaluation_rnn.py)
 
+The architecture of the model is as follows:
+
+![team_event_rnn_architecture](/fig/team_event rnn_architecture.png)
+
+
 Then I construct the training set from all the competition xml data.
 
 For player id prediction, I choose a sequence of a sufficient player (who satisfy the requirements) from one game as a sample; for team id and coordinate predictions, I choose the start min as [0, 7.5, 15, ..., 75] for every competition and take every 15min event sequence as a team sequence sample, and every last 10 event sequence as a event sequence sample.
+
+The architecture of the model is as follows: 
+
+![player_rnn_architecture](/fig/player_rnn_architecture.png)
+
 
 For each sample, I construct space features, time features and detailed features (codes are in /code/utils.py/construct_player_seq(), /code/utils.py/construct_team_seq() and /code/utils.py/construct_event_seq()). The targets/labels are: if the next event is mine; the next x coordinate; the next y coordinate. 
 
