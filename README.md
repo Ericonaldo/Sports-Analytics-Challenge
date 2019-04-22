@@ -128,6 +128,10 @@ This solution is only for the last 3 questions.
 
 First, I construct the training set from all the competition xml data, in which every event is taken as a sample. For each sample, I construct space features, time features and detailed features from the raw event data like 'field', 'zone', 'time dis from the last event' and so on (codes are in /code/utils.py/construct_ball_team_df()). The targets/labels are: if the next event team id the same as current; the next x coordinate; the next y coordinate. 
 
+The features contains:
+
+" period_id|min|sec|team_id|keypass|assist|ball_related|ball_slope|x|y|field|zone|penal_zone|penal_point|ball_pos|game_time|time_dis_last_event|last_min|last_sec|last_type_id|last_team_id|last_keypass|last_assist|last_ball_related|last_ball_slope|last_x|last_y|last_field|last_zone|last_penal_zone|last_penal_point|last_ball_pos|last_game_time|last_time_dis_last_event|next_ball_related|next_x|next_y|next_team"
+
 Then, I train 3 gbdt models to predict above targets respectively. The best results I test offline is  score_team=0.4512471655328798, loss_xy=1294.2247845804986. Note that the score_team is worse than a random baseline 0.5.
 
 The feature importance and faeture correlation are as follows.
