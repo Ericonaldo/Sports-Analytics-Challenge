@@ -139,7 +139,7 @@ The feature importance and faeture correlation are as follows.
 
 #### Deep Learning Solution
 
-This solution is only for all the 4 questions.
+This solution is for all the 4 questions.
 
 For time limit, I can only design some simple networks without further fine-tuning.
 
