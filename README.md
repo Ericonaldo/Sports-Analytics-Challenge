@@ -1,5 +1,6 @@
 # Sports-Analytics-Challenge
 
+According to the rules of the competition, the loaded data is deprecated. Sorry!
 Sports Analytics Challenge sponsored by PSG. Link: https://www.agorize.com/zh/challenges/xpsg/pages/regles-du-jeu-futur?lang=en
 
 ==============================
